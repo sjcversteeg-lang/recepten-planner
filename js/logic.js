@@ -116,7 +116,7 @@ export function week(data, maandagKey) {
     const dagen = {};
     for (let i = 0; i < 7; i++) {
       const s = data.instellingen.dagen[i + 1] || {};
-      dagen[dagKey(plusDagen(ma, i))] = { recept: null, kok: s.kok || null, voetbal: !!s.voetbal, notitie: '' };
+      dagen[dagKey(plusDagen(ma, i))] = { recept: null, kok: s.kok || null, voetbal: !!s.voetbal, voetbalTekst: s.voetbal ? s.voetbalTekst || '' : '', notitie: '' };
     }
     data.weken[maandagKey] = { dagen, extra: [], aanpassingen: {} };
   }

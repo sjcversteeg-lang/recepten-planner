@@ -21,13 +21,14 @@ export function standaardInstellingen() {
     ],
     // Standaard per weekdag (1 = maandag … 7 = zondag). Geldt voor elke nieuwe week.
     dagen: {
-      1: { kok: 'Inge', vrij: null, voetbal: false },
-      2: { kok: 'Inge', vrij: null, voetbal: false },
-      3: { kok: 'Bas', vrij: 'Bas', voetbal: false },
-      4: { kok: 'Inge', vrij: 'Inge', voetbal: false },
-      5: { kok: 'Inge', vrij: 'Inge', voetbal: false },
-      6: { kok: 'Bas', vrij: null, voetbal: false },
-      7: { kok: 'Bas', vrij: null, voetbal: false },
+    // Kok en voetbal ma-do komen uit de agenda Gezin (vaste afspraken, okt 2026).
+      1: { kok: 'Bas', vrij: null, voetbal: true, voetbalTekst: 'Koob 18:30' },
+      2: { kok: 'Pien', vrij: null, voetbal: true, voetbalTekst: 'Maup 17:30' },
+      3: { kok: 'Maup', vrij: 'Bas', voetbal: true, voetbalTekst: 'Koob 18:30' },
+      4: { kok: 'Inge', vrij: 'Inge', voetbal: true, voetbalTekst: 'Maup 18:30' },
+      5: { kok: 'Inge', vrij: 'Inge', voetbal: false, voetbalTekst: '' },
+      6: { kok: 'Bas', vrij: null, voetbal: false, voetbalTekst: '' },
+      7: { kok: 'Bas', vrij: null, voetbal: false, voetbalTekst: '' },
     },
     etenstijd: '18:00',
     etenstijdVoetbal: '17:30',

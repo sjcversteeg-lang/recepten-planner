@@ -99,7 +99,7 @@ function schermWeek() {
     const sub = [vd.kok ? `${esc(vd.kok)} kookt` : null, `eten om ${esc(L.etenstijd(D(), vd))}`, r && L.tijdTekst(r)].filter(Boolean).join(' · ');
     kaart = `
       <section class="kaart">
-        <div class="regel1"><span class="dag">Vandaag · ${L.DAGNAMEN[L.weekdag(new Date())]}</span>${vd.voetbal ? '<span class="label oranje">Voetbal</span>' : ''}</div>
+        <div class="regel1"><span class="dag">Vandaag · ${L.DAGNAMEN[L.weekdag(new Date())]}</span>${vd.voetbal ? `<span class="label oranje">Voetbal${vd.voetbalTekst ? ' ' + esc(vd.voetbalTekst) : ''}</span>` : ''}</div>
         <h2>${r ? esc(r.naam) : 'Nog niets gepland'}</h2>
         <p class="sub">${sub}</p>
         ${r ? `<a class="knop zwart breed" href="#/recept/${esc(r.id)}">Bekijk recept</a>`
@@ -628,7 +628,8 @@ function schermInstellingen() {
       ${[1, 2, 3, 4, 5, 6, 7].map(d => `<div style="padding:10px 0;border-bottom:1px solid var(--lijn)">
         <strong style="display:block;margin-bottom:6px">${L.DAGNAMEN[d].replace(/^./, c => c.toUpperCase())}</strong>
         <div class="twee">${kokSelect(`${d}|kok`, i.dagen[d].kok)}${kokSelect(`${d}|vrij`, i.dagen[d].vrij, 'niemand vrij')}</div>
-        <label class="vink"><input type="checkbox" data-voetbal="${d}" ${i.dagen[d].voetbal ? 'checked' : ''}> Voetbal</label></div>`).join('')}
+        <div class="twee"><label class="vink"><input type="checkbox" data-voetbal="${d}" ${i.dagen[d].voetbal ? 'checked' : ''}> Voetbal</label>
+        <input class="invoer" data-voetbaltekst="${d}" placeholder="wie en hoe laat" value="${esc(i.dagen[d].voetbalTekst || '')}"></div></div>`).join('')}
 
       <p class="sectie">Aantal personen</p>
       <label class="veld"><span>Voor hoeveel personen koken we? Recepten worden hierop omgerekend.</span><input type="number" min="1" id="personen" value="${esc(i.personen)}"></label>
@@ -649,6 +650,7 @@ function schermInstellingen() {
       on('#kokPlus', 'click', () => { const n = app.querySelector('#kokNaam').value.trim(); if (n) { i.koks.push({ naam: n, kind: false }); opslaan(); render(); } });
       on('[data-dagveld]', 'change', (e, el) => { const [d, veld] = el.dataset.dagveld.split('|'); i.dagen[d][veld] = el.value || null; opslaan(); });
       on('[data-voetbal]', 'change', (e, el) => { i.dagen[el.dataset.voetbal].voetbal = el.checked; opslaan(); });
+      on('[data-voetbaltekst]', 'change', (e, el) => { i.dagen[el.dataset.voetbaltekst].voetbalTekst = el.value.trim(); opslaan(); });
       on('#personen', 'change', (e, el) => { i.personen = Math.max(1, parseInt(el.value) || 1); opslaan(); });
       on('#tijd', 'change', (e, el) => { i.etenstijd = el.value; opslaan(); });
       on('#tijdV', 'change', (e, el) => { i.etenstijdVoetbal = el.value; opslaan(); });
