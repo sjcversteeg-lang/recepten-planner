@@ -2202,15 +2202,13 @@
         "Halveer de olijven en pluk de basilicum. Serveer bloemkool, tomaatjes en couscous met olijven, basilicum en een lepel pesto."
       ],
       "varianten": [],
-      "status": "concept",
+      "status": "compleet",
       "afgeleid": [
         "basis 'pasta', net als de andere couscousgerechten",
         "recept 'Geroosterde bloemkool met couscous' uit Notion gekoppeld aan dit gerecht"
       ],
-      "open_vragen": [
-        "Het recept is voor 4 personen. Klopt dat de app het voor jullie omrekent naar 5?"
-      ],
-      "te_controleren": true
+      "open_vragen": [],
+      "te_controleren": false
     },
     {
       "id": "sticky-aubergine",

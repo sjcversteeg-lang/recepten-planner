@@ -10,12 +10,14 @@ export const db = { data: null };
 
 export function standaardInstellingen() {
   return {
-    // kind: true = recept moet eenvoudig kunnen (zie 'Recept aanpassen aan de kok')
+    // Het hele gezin. kind: true = recept moet eenvoudig kunnen; kookt: false = kookt (nog) niet,
+    // maar geeft wel hartjes en sterren.
     koks: [
       { naam: 'Bas', kind: false },
       { naam: 'Inge', kind: false },
       { naam: 'Pien', kind: true },
       { naam: 'Maup', kind: true },
+      { naam: 'Koob', kind: true, kookt: false },
     ],
     // Standaard per weekdag (1 = maandag … 7 = zondag). Geldt voor elke nieuwe week.
     dagen: {

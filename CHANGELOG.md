@@ -21,7 +21,7 @@ Eerste versie (MVP) voor de testweek met het gezin.
 - Omrekenen naar het aantal personen (Instellingen, standaard 5) in recept, boodschappenlijst en voorraad.
 - Hartje (vind ik lekker) en ster (kan ik zelf maken) per persoon bij elk recept. Het voorstel kiest voor een kokend kind liefst een recept met zijn of haar ster; filter *Kinderen kunnen het*.
 - Aangevulde recepten in `data/recepten.json` komen ook binnen op apparaten die de app al gebruiken, behalve recepten die in de app zijn bewerkt.
-- Maup staat als kok in de standaardinstellingen.
+- Gezin van vijf in de standaardinstellingen: Bas, Inge, Pien en Maup koken; Koob kookt niet, maar geeft wel hartjes en sterren (instelling *kookt* per persoon).
 
 ### Bekende beperkingen
 - Gegevens staan per apparaat (nog geen gedeelde database).

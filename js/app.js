@@ -166,7 +166,7 @@ function dagSheet(ma, datum) {
   const dag = w.dagen[datum];
   const d = L.vanKey(datum);
   const titel = `${L.DAGNAMEN[L.weekdag(d)].replace(/^./, c => c.toUpperCase())} ${L.kortDatum(d)}`;
-  const koks = D().instellingen.koks.map(k => k.naam);
+  const koks = D().instellingen.koks.filter(k => k.kookt !== false).map(k => k.naam);
   sheet(`
     <h2>${titel}</h2>
     <div class="chips" id="koks">${koks.map(k => `<button class="chip ${dag.kok === k ? 'aan' : ''}" data-kok="${esc(k)}">${esc(k)}</button>`).join('')}</div>
@@ -610,17 +610,18 @@ function voorraadSheet(v) {
 // ================= INSTELLINGEN =================
 function schermInstellingen() {
   const i = D().instellingen;
-  const koks = i.koks.map(k => k.naam);
+  const koks = i.koks.filter(k => k.kookt !== false).map(k => k.naam);
   const kokSelect = (n, waarde, leeg) => `<select class="invoer" data-dagveld="${n}">${leeg ? `<option value="">${leeg}</option>` : ''}${koks.map(k => `<option ${waarde === k ? 'selected' : ''}>${esc(k)}</option>`).join('')}</select>`;
   return {
     html: `<div class="terugrij"><a class="terug" href="#/week" aria-label="Terug">${ICON.terug}</a></div>
       <h1 class="titel" style="font-size:28px">Instellingen</h1>
-      <p class="sectie">Wie koken er</p>
+      <p class="sectie">Gezin</p>
       <ul class="lijst">${i.koks.map((k, n) => `<li><div class="rij" style="cursor:default"><span class="hoofd"><span class="naam">${esc(k.naam)}</span></span>
-        <label class="vink" style="padding:0"><input type="checkbox" data-kind="${n}" ${k.kind ? 'checked' : ''}> kind</label>
+        <label class="vink" style="padding:0"><input type="checkbox" data-kookt="${n}" ${k.kookt !== false ? 'checked' : ''}> kookt</label>
+        <label class="vink" style="padding:0 0 0 8px"><input type="checkbox" data-kind="${n}" ${k.kind ? 'checked' : ''}> kind</label>
         <button class="knop klein" data-kokweg="${n}" aria-label="Verwijder ${esc(k.naam)}">${ICON.prullenbak}</button></div></li>`).join('')}</ul>
       <div class="knoprij"><input class="invoer" id="kokNaam" placeholder="Naam toevoegen"><button class="knop smal" id="kokPlus">${ICON.plus}</button></div>
-      <p class="hint">"Kind" betekent: het voorstel kiest dan liever recepten die de kinderen kunnen maken.</p>
+      <p class="hint">"Kookt" uit: staat niet in de lijst met koks, maar kan wel hartjes en sterren geven. "Kind": het voorstel kiest dan liever recepten met een ster van dat kind.</p>
 
       <p class="sectie">Vaste week</p>
       <p class="hint">Dit wordt ingevuld bij elke nieuwe week. Per week kun je het daarna nog aanpassen.</p>
@@ -642,6 +643,7 @@ function schermInstellingen() {
       <div class="knoprij"><button class="knop rood" id="wis">Alles wissen</button></div>
       <p class="hint">Recepten uit data/recepten.json, bijgewerkt ${esc(D().bronBijgewerkt || 'onbekend')}.</p>`,
     koppel() {
+      on('[data-kookt]', 'change', (e, el) => { i.koks[+el.dataset.kookt].kookt = el.checked; opslaan(); render(); });
       on('[data-kind]', 'change', (e, el) => { i.koks[+el.dataset.kind].kind = el.checked; opslaan(); });
       on('[data-kokweg]', 'click', (e, el) => { const k = i.koks[+el.dataset.kokweg]; if (confirm(`${k.naam} verwijderen?`)) { i.koks.splice(+el.dataset.kokweg, 1); opslaan(); render(); } });
       on('#kokPlus', 'click', () => { const n = app.querySelector('#kokNaam').value.trim(); if (n) { i.koks.push({ naam: n, kind: false }); opslaan(); render(); } });
