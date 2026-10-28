@@ -81,6 +81,34 @@ export function tijdTekst(r) {
 export function isSnel(r) { return r.snel || (r.bereidingstijd_max && r.bereidingstijd_max <= 30); }
 export function isKind(data, naam) { return !!data.instellingen.koks.find(k => k.naam === naam && k.kind); }
 
+// ---------- Omrekenen naar het aantal personen ----------
+export function factor(data, r) {
+  const p = Number(data.instellingen.personen) || 0;
+  return r.porties && p ? p / r.porties : 1;
+}
+const HELE = ['stuk', 'teen', 'blik', 'pot', 'pak', 'zak', 'flesje', 'bos'];
+function rondAf(n, eenheid) {
+  if (HELE.includes(eenheid) || !eenheid) return Math.ceil(n * 2 - 1e-9) / 2;   // op halven naar boven
+  if (['g', 'ml'].includes(eenheid)) return n >= 50 ? Math.round(n / 5) * 5 : Math.round(n);
+  if (['tl', 'el'].includes(eenheid)) return Math.round(n * 2) / 2 || 0.5;
+  return Math.round(n * 100) / 100;
+}
+// Ingrediënt met hoeveelheden voor ons gezin (het origineel blijft ongewijzigd).
+export function geschaald(i, f) {
+  if (f === 1 || i.hoeveelheid === null) return i;
+  return { ...i, hoeveelheid: rondAf(i.hoeveelheid * f, i.eenheid), hoeveelheid_max: i.hoeveelheid_max ? rondAf(i.hoeveelheid_max * f, i.eenheid) : null };
+}
+
+// ---------- Hartjes en sterren ----------
+export function waardering(data, id, naam) { return data.waardering[id]?.[naam] || {}; }
+export function zetWaardering(data, id, naam, veld) {
+  const w = ((data.waardering[id] ||= {})[naam] ||= {});
+  w[veld] = !w[veld];
+}
+export function wieKan(data, id) { return Object.entries(data.waardering[id] || {}).filter(([, w]) => w.kan).map(([n]) => n); }
+export function wieLekker(data, id) { return Object.entries(data.waardering[id] || {}).filter(([, w]) => w.lekker).map(([n]) => n); }
+export function kinderenKunnen(data, r) { return r.kinderen_kunnen || wieKan(data, r.id).some(n => isKind(data, n)); }
+
 // ---------- Weken ----------
 export function week(data, maandagKey) {
   if (!data.weken[maandagKey]) {
@@ -128,7 +156,8 @@ export function maakVoorstel(data, maandagKey) {
       if (r.frequentie_weken && laatst && dagenTerug < r.frequentie_weken * 7) score -= 100;
       score += 25 * bevatAanbieding(r, woorden);
       if (dag.voetbal) score += isSnel(r) ? 30 : -20;
-      if (isKind(data, dag.kok)) score += r.kinderen_kunnen ? 30 : -10;
+      if (isKind(data, dag.kok)) score += waardering(data, r.id, dag.kok).kan ? 40 : kinderenKunnen(data, r) ? 15 : -10;
+      score += 5 * wieLekker(data, r.id).length;
       if (r.status !== 'alleen_naam') score += 5;
       score += Math.random() * 15;
       if (score > besteScore) { besteScore = score; beste = r; }
@@ -161,7 +190,7 @@ export function gekookt(data, receptId, datum, kok) {
   data.geschiedenis = data.geschiedenis.filter(g => !(g.recept === receptId && g.datum === datum));
   data.geschiedenis.push({ datum, recept: receptId, kok: kok || null });
   const r = recept(data, receptId);
-  for (const i of r ? r.ingredienten : []) {
+  for (const i of r ? r.ingredienten.map(x => geschaald(x, factor(data, r))) : []) {
     if (i.hoeveelheid === null) continue;
     const v = voorraadItem(data, i.naam, i.eenheid);
     if (!v) continue;
@@ -185,7 +214,7 @@ export function boodschappen(data, maandagKey) {
   for (const dag of Object.values(w.dagen)) {
     const r = dag.recept && recept(data, dag.recept);
     if (!r) continue;
-    for (const i of r.ingredienten) {
+    for (const i of r.ingredienten.map(x => geschaald(x, factor(data, r)))) {
       if (!i.naam) continue;
       const key = norm(i.naam) + '|' + (i.eenheid || '');
       if (!regels.has(key)) regels.set(key, { key, naam: i.naam, eenheid: i.eenheid || null, nodig: 0, onbekend: false, recepten: [], voorraadkast: i.voorraadkast, ah: { ...i.ah } });

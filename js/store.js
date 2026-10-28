@@ -15,6 +15,7 @@ export function standaardInstellingen() {
       { naam: 'Bas', kind: false },
       { naam: 'Inge', kind: false },
       { naam: 'Pien', kind: true },
+      { naam: 'Maup', kind: true },
     ],
     // Standaard per weekdag (1 = maandag … 7 = zondag). Geldt voor elke nieuwe week.
     dagen: {
@@ -29,6 +30,7 @@ export function standaardInstellingen() {
     etenstijd: '18:00',
     etenstijdVoetbal: '17:30',
     aanbiedingen: '',
+    personen: 5, // recepten worden hierop omgerekend
   };
 }
 
@@ -43,6 +45,8 @@ function nieuweData() {
     voorraad: [],
     geschiedenis: [],
     lijsten: [],
+    // per recept per persoon: { lekker: true, kan: true } (hartje en ster)
+    waardering: {},
   };
 }
 
@@ -54,6 +58,7 @@ export function normaliseerRecept(r) {
     varianten: [], status: 'alleen_naam', afgeleid: [], open_vragen: [], te_controleren: false,
     // velden van de app
     frequentie_weken: null, snel: false, kinderen_kunnen: false, nieuw: false,
+    bewerkt_in_app: false, // true = in de app aangepast; dan niet meer overschrijven vanuit recepten.json
   };
   const uit = { ...leeg, ...r };
   uit.ingredienten = (uit.ingredienten || []).map(normaliseerIngredient);
@@ -77,13 +82,16 @@ function vulAan(data) {
   return data;
 }
 
-// Nieuwe recepten uit data/recepten.json toevoegen; eigen wijzigingen blijven staan.
+// Recepten uit data/recepten.json overnemen: nieuwe toevoegen en aangevulde bijwerken.
+// Recepten die in de app zijn aangepast (bewerkt_in_app) of verwijderd blijven zoals ze zijn.
 function voegBronToe(data, bron) {
   if (!bron || !Array.isArray(bron.recepten)) return;
-  const bekend = new Set(data.recepten.map(r => r.id));
   const weg = new Set(data.verwijderdeRecepten);
   for (const r of bron.recepten) {
-    if (!bekend.has(r.id) && !weg.has(r.id)) data.recepten.push(normaliseerRecept(r));
+    if (weg.has(r.id)) continue;
+    const n = data.recepten.findIndex(x => x.id === r.id);
+    if (n === -1) data.recepten.push(normaliseerRecept(r));
+    else if (!data.recepten[n].bewerkt_in_app) data.recepten[n] = normaliseerRecept(r);
   }
   data.bronBijgewerkt = bron.bijgewerkt || null;
 }

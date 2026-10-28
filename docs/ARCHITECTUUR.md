@@ -41,7 +41,8 @@ Elk scherm is een functie `schermX()` die `{ html, koppel }` teruggeeft: eerst w
     koks: [{ naam: "Bas", kind: false }, …],
     dagen: { 1: { kok: "Inge", vrij: null, voetbal: false }, … 7: … },  // 1 = maandag
     etenstijd: "18:00", etenstijdVoetbal: "17:30",
-    aanbiedingen: "prei, broccoli"
+    aanbiedingen: "prei, broccoli",
+    personen: 5                          // recepten worden hierop omgerekend
   },
   recepten: [ /* schema van recepten.json, plus: frequentie_weken, snel, kinderen_kunnen, nieuw;
                  per ingrediënt: ah: { productnummer, verpakking, verpakking_naam, prijs } */ ],
@@ -55,12 +56,17 @@ Elk scherm is een functie `schermX()` die `{ html, koppel }` teruggeeft: eerst w
   },
   voorraad: [{ id, naam, hoeveelheid, eenheid, plek: "vriezer|koelkast|la|kast|overig" }],
   geschiedenis: [{ datum, recept, kok }],
-  lijsten: [{ id, week, datum, totaal, regels: [{ naam, aantal, eenheid, productnummer, prijs }] }]
+  lijsten: [{ id, week, datum, totaal, regels: [{ naam, aantal, eenheid, productnummer, prijs }] }],
+  waardering: { "<recept-id>": { "Pien": { lekker: true, kan: true } } }   // hartje en ster
 }
 ```
 
-Bij het opstarten worden recepten uit `data/recepten.json` toegevoegd die nog niet in de app staan.
-Recepten die je in de app hebt aangepast worden **niet** overschreven.
+Bij het opstarten worden recepten uit `data/recepten.json` toegevoegd of bijgewerkt. Recepten die je in de
+app hebt aangepast (`bewerkt_in_app: true`) of verwijderd worden **niet** overschreven.
+
+**Omrekenen:** hoeveelheden staan in `recepten.json` zoals in het originele recept, voor `porties` personen.
+De app vermenigvuldigt met `instellingen.personen / porties` (`factor` en `geschaald` in logic.js) en rondt af:
+stuks, tenen, blikken op halven naar boven, grammen en milliliters op 5, lepels op halven.
 
 ## Regels
 
@@ -69,7 +75,8 @@ Recepten die je in de app hebt aangepast worden **niet** overschreven.
 - − 100 als het recept korter geleden is gegeten dan de ingestelde frequentie
 - + 25 per groente uit de aanbieding in naam of ingrediënten
 - voetbal: + 30 als het recept snel is (vinkje *snel* of max. 30 min), anders − 20
-- kok is een kind: + 30 als *kinderen kunnen dit*, anders − 10
+- kok is een kind: + 40 als dat kind een ster gaf (kan ik maken), + 15 als een ander kind een ster gaf, anders − 10
+- + 5 per hartje (vind ik lekker)
 - + 5 als het recept meer dan alleen een naam heeft; + een beetje toeval
 - recepten met *nieuw* worden niet automatisch gekozen; die plan je zelf (max. 1 per week)
 

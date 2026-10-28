@@ -13,10 +13,10 @@ Op je telefoon: open de link in Safari of Chrome en kies *Zet op beginscherm*. D
 | Scherm | Wat je er doet |
 |---|---|
 | **Week** | Recept van vandaag bovenaan. Per dag: recept, wie kookt, voetbal, wie vrij is. Knop *Voorstel* vult lege dagen. Vul in welke groente in de aanbieding is. Bladeren naar vorige/volgende week. |
-| **Recepten** | Alle 56 recepten, zoeken en filteren (vega, vlees, vis, snel, kinderen, aan te vullen). Recept bekijken (ingrediënten / bereiding), *Gekookt* aantikken, *Inplannen*, *Bewerken* of een nieuw recept maken. Tabblad *Gegeten* = eetgeschiedenis. |
+| **Recepten** | Alle 66 recepten, zoeken en filteren (vega, vlees, vis, snel, kinderen kunnen het, aan te vullen). Recept bekijken (ingrediënten / bereiding, omgerekend naar jullie aantal personen), *Gekookt* aantikken, *Inplannen*, *Bewerken* of een nieuw recept maken. Per persoon een hartje (lekker) en een ster (kan ik maken). Tabblad *Gegeten* = eetgeschiedenis. |
 | **Boodschappen** | Lijst uit het weekmenu, afgerond op hele verpakkingen. Vink aan wat je al hebt (*Op voorraad*). Per artikel − / + / weg, iets extra toevoegen, totale kosten. *Kopieer voor Albert Heijn* zet de lijst klaar om in Claude Desktop te plakken. *Boodschappen zijn binnen* zet alles in de voorraad en bewaart de lijst. |
 | **Voorraad** | Wat er in de vriezer, koelkast, la en kast ligt. Wordt bijgewerkt na boodschappen en na *Gekookt*. Restjes (een halve zak spinazie) blijven staan, zodat je de volgende keer minder koopt. |
-| **Instellingen** (knop rechtsboven op Week) | Wie koken er (en wie is een kind), vaste kok/vrije dag/voetbal per weekdag, etenstijden, back-up maken en terugzetten. |
+| **Instellingen** (knop rechtsboven op Week) | Wie koken er (en wie is een kind), aantal personen, vaste kok/vrije dag/voetbal per weekdag, etenstijden, back-up maken en terugzetten. |
 
 ## Belangrijk: waar staan de gegevens?
 
