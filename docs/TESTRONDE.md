@@ -13,7 +13,7 @@ zeg het tegen Bas.
 
 ## Boodschappen
 1. Open *Boodschappen*. Vink aan wat je al hebt. Pas aantallen aan met − en +.
-2. Tik *Kopieer voor Albert Heijn* en plak de tekst in Claude Desktop (project "Boodschappen AH").
+2. Tik *Kopieer weeklijst* en plak de tekst in Claude Desktop (project "Boodschappen AH").
 3. Als de boodschappen binnen zijn: *Boodschappen zijn binnen*.
 
 ## Elke dag (wie kookt)

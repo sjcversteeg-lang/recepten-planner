@@ -486,7 +486,7 @@ function schermBoodschappen() {
       ${totaal}
       ${bsTab.tab === 'kopen' ? `<button class="knop klein" id="extra" style="margin-top:12px">${ICON.plus} Iets extra (melk, brood …)</button>` : ''}
       ${lijst.teKopen.length ? `<div class="vastonder">
-        <button class="knop groen breed" id="ah">${ICON.pijl} Kopieer voor Albert Heijn · ${lijst.teKopen.length}</button>
+        <button class="knop groen breed" id="ah">${ICON.pijl} Kopieer weeklijst · ${lijst.teKopen.length}</button>
         <button class="knop breed" id="gekocht" style="margin-top:8px;background:#fff">Boodschappen zijn binnen</button>
       </div>` : ''}`,
     koppel() {

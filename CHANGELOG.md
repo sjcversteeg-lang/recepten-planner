@@ -12,7 +12,7 @@ Eerste versie (MVP) voor de testweek met het gezin.
 - Receptenlijst (56 recepten uit `data/recepten.json`) met zoeken en filters; recept bekijken, bewerken, nieuw maken, verwijderen.
 - Per recept: frequentie ("niet vaker dan eens per … weken"), snel, kinderen kunnen het, nieuw; per ingrediënt AH-productnummer, verpakkingsgrootte en prijs.
 - Boodschappenlijst uit het weekmenu: optellen over recepten, aftrekken van voorraad, afronden op verpakkingen, restje tonen, op voorraad aanvinken, − / + / weg per artikel, extra artikelen, totale kosten (idee van Maup).
-- *Kopieer voor Albert Heijn*: tekst om in Claude Desktop (project "Boodschappen AH") te plakken.
+- *Kopieer weeklijst*: korte lijst om in Claude Desktop (project "Boodschappen AH") te plakken: per regel AH-productnummer, aantal en naam; artikelen zonder productnummer apart onder *Zoeken*. Zo kort mogelijk om tokens te sparen.
 - *Boodschappen zijn binnen*: zet gekochte artikelen in de voorraad en bewaart de lijst (*Opgeslagen lijsten*).
 - Voorraad per plek (vriezer, koelkast, la, kast) met − / +; *Gekookt* boekt gebruikte ingrediënten af en zet het recept in de eetgeschiedenis.
 - Instellingen: koks, vaste week, etenstijden, back-up maken/terugzetten, alles wissen.
