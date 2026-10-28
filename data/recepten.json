@@ -1,0 +1,1403 @@
+{
+  "schema_versie": 2,
+  "bijgewerkt": "2026-10-27",
+  "codelijsten": {
+    "dieet": {
+      "Ve": "vegetarisch",
+      "Vl": "vlees",
+      "Vi": "vis"
+    },
+    "basis": {
+      "P": "pasta",
+      "A": "aardappel",
+      "R": "rijst",
+      "T": "taart",
+      "B": "brood"
+    },
+    "eenheid": [
+      "stuk",
+      "teen",
+      "blik",
+      "pot",
+      "pak",
+      "flesje",
+      "g",
+      "kg",
+      "ml",
+      "l",
+      "tl",
+      "el",
+      "snuf"
+    ],
+    "status": {
+      "alleen_naam": "alleen de naam en codes bekend",
+      "concept": "recept ingevoerd, maar nog open vragen",
+      "compleet": "alles bekend: porties, ingrediënten met hoeveelheden, stappen, tijd"
+    }
+  },
+  "recepten": [
+    {
+      "id": "stamppot-andijvie",
+      "naam": "Stamppot andijvie",
+      "dieet": [
+        "vegetarisch",
+        "vlees"
+      ],
+      "basis": "aardappel",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [
+        {
+          "naam": "met kaas",
+          "dieet": "vegetarisch"
+        },
+        {
+          "naam": "met spekjes",
+          "dieet": "vlees"
+        }
+      ],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "dieet 'vlees' voor variant met spekjes (stond geen code bij)"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "macaroni",
+      "naam": "Macaroni",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "tagliatelle-met-zalm-courgette-en-salie",
+      "naam": "Tagliatelle met zalm, courgette en salie",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "moussaka",
+      "naam": "Moussaka",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "aardappel",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "spaghetti-met-spinazie-feta-en-pijnboompitten",
+      "naam": "Spaghetti met spinazie, feta en pijnboompitten",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "bloemkool-met-balgehakt-en-aardappel",
+      "naam": "Bloemkool met balgehakt en aardappel",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "aardappel",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "chili-con-carne",
+      "naam": "Chili con carne",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "nasi-met-surinaamse-paksoi-en-sate",
+      "naam": "Nasi met Surinaamse paksoi en saté",
+      "dieet": [
+        "vegetarisch",
+        "vlees"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Code Ve/Vl: wat is het verschil tussen de vega- en vleesversie (saté van kip of tofu?)"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "bami",
+      "naam": "Bami",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Bami staat als pasta (P). Wil je noedels onder pasta laten vallen of een aparte basis 'noedels'?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "curry",
+      "naam": "Curry",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "'Curry' is erg algemeen. Welke curry is dit (met welk vlees)? Er zijn ook Bloemkoolcurry met kip en Kip madras."
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "vegacurry-met-linzen",
+      "naam": "Vegacurry met linzen",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "pasta-bloemkool-gorgonzola",
+      "naam": "Pasta bloemkool gorgonzola",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "spaghetti-bolognese",
+      "naam": "Spaghetti bolognese",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "hutspot-met-chorizo",
+      "naam": "Hutspot met chorizo",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "aardappel",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Code was lastig leesbaar (leek 'A/l'); gelezen als Vl. Klopt dat?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "zalm-met-kruidenkorst-rijst-en-sambal-balado",
+      "naam": "Zalm met kruidenkorst, rijst en sambal balado",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Klopt 'sambal balado'? Op papier staat 'sambalba…'."
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "bloemkoolcurry-met-kip-en-kokosmelk",
+      "naam": "Bloemkoolcurry met kip en kokosmelk",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "witlofschotel-met-honing-tijmsaus-en-brie",
+      "naam": "Witlofschotel met honing-tijmsaus en brie",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "aardappel",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "makreel-met-boemboe-en-groenten",
+      "naam": "Makreel met boemboe en groenten",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "preitaart",
+      "naam": "Preitaart",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "taart",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Is dit hetzelfde recept als 'Hartige taart met prei, tomaat en mozzarella' (lijst 2)? Dan voeg ik ze samen."
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "broccoli-met-pasta-en-pesto",
+      "naam": "Broccoli met pasta en pesto",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "couscousschotel-uit-de-oven",
+      "naam": "Couscousschotel uit de oven",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Couscous staat als pasta (P). Ik heb de andere couscousgerechten daarom ook als pasta gezet. Liever een aparte basis 'couscous'?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "pad-thai-met-tofu",
+      "naam": "Pad thai met tofu",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "broccoli-met-pasta-en-kaassaus",
+      "naam": "Broccoli met pasta en kaassaus",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "sperziebonen-zalmpasta",
+      "naam": "Sperziebonen-zalmpasta",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "hartige-taart-met-snijbiet",
+      "naam": "Hartige taart met snijbiet",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "taart",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "nasi-met-chinese-kool-kerrie-en-timut-peper",
+      "naam": "Nasi met Chinese kool, kerrie en Timut-peper",
+      "dieet": [],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'rijst' uit 'nasi'",
+        "'Timut' gelezen als Timut-peper"
+      ],
+      "open_vragen": [
+        "Klopt 'Timut-peper'?",
+        "Geen dieetcode: vegetarisch, of zit er vlees/vis in?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "oosterse-witlof",
+      "naam": "Oosterse witlof",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "kip-madras-met-bloemkool-en-doperwten",
+      "naam": "Kip madras met bloemkool en doperwten",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "foe-yong-hai",
+      "naam": "Foe yong hai",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Geen basis: eet je dit met rijst?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "couscous-met-koolvisfilet",
+      "naam": "Couscous met koolvisfilet",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'pasta', net als de andere couscousschotel"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "macaronitaart",
+      "naam": "Macaronitaart",
+      "dieet": [],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Geen dieetcode: met gehakt/ham (vlees) of vegetarisch?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "hartige-taart-met-prei-tomaat-en-mozzarella",
+      "naam": "Hartige taart met prei, tomaat en mozzarella",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "taart",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'taart' uit de naam"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "vegetarische-bonenschotel",
+      "naam": "Vegetarische bonenschotel",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "receptenboekje",
+      "porties": null,
+      "bereidingstijd_min": 60,
+      "bereidingstijd_max": 90,
+      "ingredienten": [
+        {
+          "naam": "prei",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ui",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "groot",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "paprika",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "champignons",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "hoeveelheid onbekend",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "wortel",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rode peper",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "maïs",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "blik",
+          "toelichting": "klein blikje",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "bonen",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "blik",
+          "toelichting": "soort bonen onbekend",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "tomatenpuree",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "blik",
+          "toelichting": "groot blikje",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "bier",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": 2,
+          "eenheid": "flesje",
+          "toelichting": "afhankelijk van gewenste sausdikte",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "geraspte kaas",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "hoeveelheid onbekend",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "gedroogde oregano",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "eenheid onbekend (tl of el?)",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "komijn",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "eenheid onbekend",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "gerookt paprikapoeder",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "eenheid onbekend",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "ongezoete cacao",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "eenheid onbekend",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "groentebouillon",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "hoeveelheid onbekend",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "olie",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "om in te bakken; niet genoemd op het recept, afgeleid uit stap 1",
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Groenten snijden en fruiten.",
+        "Tomatenpuree meebakken.",
+        "Kruiden en cacao toevoegen.",
+        "Bier toevoegen en de alcohol laten verdampen.",
+        "Bonen en maïs toevoegen.",
+        "Ongeveer 20 minuten laten koken.",
+        "Kaas erop laten smelten in de pan."
+      ],
+      "varianten": [
+        {
+          "naam": "ovenversie met nacho's",
+          "dieet": "vegetarisch",
+          "toelichting": "In plaats van stap 7: laagje kaas, dan nacho's, dan weer kaas, en ca. 15 minuten in de oven."
+        }
+      ],
+      "status": "concept",
+      "afgeleid": [
+        "naam: '(boekje)' uit de naam gehaald en als bron vastgelegd",
+        "tijd '1u-1,5u' vastgelegd als 60-90 minuten",
+        "'4 knoflook' gelezen als 4 teentjes"
+      ],
+      "open_vragen": [
+        "Geen basis: eet je dit met rijst, tortilla's, nacho's of brood?",
+        "Voor hoeveel personen is dit recept?",
+        "Welke eenheid hoort bij de kruiden (4 oregano, 1 komijn, 1 paprikapoeder, 2 cacao): theelepels of eetlepels?",
+        "Welke bonen gebruik je (kidneybonen, zwarte bonen, bruine bonen, mix)? En hoe groot zijn de blikken?",
+        "Hoeveel champignons en hoeveel geraspte kaas?",
+        "Hoe groot zijn 'klein blikje maïs' en 'groot blikje tomatenpuree' in grammen? Dat is nodig om bij AH het juiste product te kiezen.",
+        "Groentebouillon staat bij de ingrediënten maar niet in de stappen. Hoeveel gebruik je en wanneer gaat het erin?",
+        "Welk bier (bijv. donker bier of pils)? Of mag dit ook alcoholvrij?",
+        "Ik heb olie om in te bakken toegevoegd. Klopt dat?",
+        "Wat bedoel je met 'oven ± 15 min': op welke temperatuur?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "zuurkoolschotel-met-broodkruim",
+      "naam": "Zuurkoolschotel met broodkruim",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": null,
+      "bron": "Herman",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "'Herman' uit de naam gehaald en als bron vastgelegd"
+      ],
+      "open_vragen": [
+        "Geen basis: met aardappelpuree?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "pasta-puttanesca",
+      "naam": "Pasta puttanesca",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'pasta' uit de naam"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "noodles-met-broccoli-en-cashewnoten",
+      "naam": "Noodles met broccoli en cashewnoten",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'pasta' (noedels, net als bami en pad thai)"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "snijbonenkorma-met-gekookt-ei",
+      "naam": "Snijbonenkorma met gekookt ei",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Geen basis: met rijst?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "risotto-met-venkel",
+      "naam": "Risotto met venkel",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "rijst",
+      "bron": "Herman",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'rijst' uit 'risotto'",
+        "'Herman' uit de naam gehaald en als bron vastgelegd"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "sajoer-boontjes-met-nasi",
+      "naam": "Sajoer boontjes met nasi",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'rijst' uit 'nasi'"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "pannenkoek-met-spinazie-en-mais",
+      "naam": "Pannenkoek met spinazie en maïs",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Goed gelezen als 'pannenkoek'? Het woord 'groente' was doorgestreept.",
+        "Basis: aparte basis 'pannenkoek/beslag' of 'overig'?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "bietensoep-met-pittige-yoghurt-brood-en-zalmsalade",
+      "naam": "Bietensoep met pittige yoghurt, brood en zalmsalade",
+      "dieet": [
+        "vegetarisch",
+        "vis"
+      ],
+      "basis": "brood",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [
+        {
+          "naam": "zonder zalmsalade",
+          "dieet": "vegetarisch"
+        },
+        {
+          "naam": "met zalmsalade",
+          "dieet": "vis"
+        }
+      ],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "dieet aangepast: stond als Ve, maar zalmsalade is vis. Nu Ve/Vi (soep vega, zalmsalade erbij)",
+        "basis 'brood' uit de naam"
+      ],
+      "open_vragen": [
+        "Stond als vegetarisch, maar met zalmsalade. Is de zalmsalade optioneel (dan klopt Ve/Vi) of hoort hij er altijd bij (dan alleen vis)?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "broodje-hamburger",
+      "naam": "Broodje hamburger",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "brood",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'brood' uit de naam"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "broodje-shoarma-met-tomatensambal",
+      "naam": "Broodje shoarma met tomatensambal",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "brood",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'brood' uit de naam"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "sambal-boontjes",
+      "naam": "Sambal boontjes",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Is dit een hoofdgerecht of een bijgerecht? Basis?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "ore-are",
+      "naam": "Ore Are",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Naam slecht leesbaar: wat is 'Ore Are'?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "broodje-falafel-met-tzatziki-en-paprikasalade",
+      "naam": "Broodje falafel met tzatziki en paprikasalade",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "brood",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'brood' uit de naam"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "witlofschotel-met-kabeljauw-en-kruidensaus",
+      "naam": "Witlofschotel met kabeljauw en kruidensaus",
+      "dieet": [
+        "vis"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Geen basis: met aardappel, net als de andere witlofschotel?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "indische-roerbak-met-spitskool-boontjes-en-tofu",
+      "naam": "Indische roerbak met spitskool, boontjes en tofu",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Geen basis: met rijst?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "geroosterde-bloemkool",
+      "naam": "Geroosterde bloemkool",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "dieet 'vegetarisch' (stond geen code bij)"
+      ],
+      "open_vragen": [
+        "Is dit een apart gerecht, of hetzelfde als 'Geroosterde bloemkool met linzendahl en ei' of 'Couscous met geroosterde bloemkool'? Dan voeg ik ze samen."
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "makreel-met-brengkes-ikan",
+      "naam": "Makreel met brengkes ikan",
+      "dieet": [
+        "vis"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "dieet 'vis' (makreel; stond geen code bij)"
+      ],
+      "open_vragen": [
+        "Geen basis: met rijst?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "geroosterde-bloemkool-met-linzendahl-en-ei",
+      "naam": "Geroosterde bloemkool met linzendahl en ei",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "dieet 'vegetarisch' (stond geen code bij)"
+      ],
+      "open_vragen": [
+        "Geen basis: met rijst of naan?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "paella",
+      "naam": "Paella",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'rijst' uit 'paella'"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "caponata",
+      "naam": "Caponata",
+      "dieet": [
+        "vis"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Staat als vis, maar caponata is normaal vegetarisch. Gaat er vis bij (bijv. vis erbij geserveerd), of moet het Ve zijn?",
+        "Basis?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "spaghetti-met-tomaat-en-garnalen",
+      "naam": "Spaghetti met tomaat en garnalen",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'pasta' uit de naam"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "couscous-met-geroosterde-bloemkool",
+      "naam": "Couscous met geroosterde bloemkool",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'pasta', net als de andere couscousgerechten"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "sticky-aubergine",
+      "naam": "Sticky aubergine",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Geen basis: met rijst?"
+      ],
+      "te_controleren": true
+    }
+  ]
+}
