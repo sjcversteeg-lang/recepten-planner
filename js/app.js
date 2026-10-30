@@ -1,6 +1,6 @@
 // Schermen van de app. Elk scherm is een functie die HTML teruggeeft en daarna
 // de knoppen koppelt. De adresbalk (#/week, #/recept/<id>, …) bepaalt welk scherm.
-import { db, laad, bewaar, exporteer, importeer, wisAlles, normaliseerRecept, normaliseerIngredient } from './store.js';
+import { db, laad, bewaar, exporteer, importeer, wisAlles } from './store.js';
 import * as L from './logic.js';
 
 const app = document.getElementById('app');
@@ -34,21 +34,22 @@ function toast(tekst) {
 function opslaan() { bewaar(); }
 function on(sel, ev, fn, root = app) { root.querySelectorAll(sel).forEach(el => el.addEventListener(ev, e => fn(e, el))); }
 
-function huidigeMaandag() {
+// Een week begint op de bezorgdag (standaard woensdag), zie instellingen.weekStart.
+function huidigeWeek() {
   const m = /week=(\d{4}-\d{2}-\d{2})/.exec(location.hash);
-  return m ? m[1] : L.dagKey(L.maandagVan(new Date()));
+  return m ? L.weekStartKey(D(), L.vanKey(m[1])) : L.weekStartKey(D());
 }
-function weekTitel(maandagKey) {
-  const nu = L.dagKey(L.maandagVan(new Date()));
-  const verschil = Math.round((L.vanKey(maandagKey) - L.vanKey(nu)) / (7 * 86400000));
+function weekTitel(startKey) {
+  const nu = L.weekStartKey(D());
+  const verschil = Math.round((L.vanKey(startKey) - L.vanKey(nu)) / (7 * 86400000));
   if (verschil === 0) return 'Deze week';
   if (verschil === 1) return 'Volgende week';
   if (verschil === -1) return 'Vorige week';
-  return `Week ${L.weeknummer(L.vanKey(maandagKey))}`;
+  return `Week ${L.weeknummer(L.vanKey(startKey))}`;
 }
 function vindDagVoorRecept(id) {
   // Eerste dag in deze of volgende week waarop dit recept gepland staat.
-  const ma = L.maandagVan(new Date());
+  const ma = L.weekStartVan(D(), new Date());
   for (const m of [ma, L.plusDagen(ma, 7)]) {
     const w = D().weken[L.dagKey(m)];
     if (!w) continue;
@@ -89,7 +90,7 @@ function sheet(html, koppel) {
 
 // ================= WEEK =================
 function schermWeek() {
-  const ma = huidigeMaandag();
+  const ma = huidigeWeek();
   const w = L.week(D(), ma);
   const vandaag = L.vandaagKey();
   const vd = w.dagen[vandaag];
@@ -97,10 +98,12 @@ function schermWeek() {
   if (vd) {
     const r = vd.recept && L.recept(D(), vd.recept);
     const sub = [vd.kok ? `${esc(vd.kok)} kookt` : null, `eten om ${esc(L.etenstijd(D(), vd))}`, r && L.tijdTekst(r)].filter(Boolean).join(' · ');
+    const start = r ? L.kookStart(D(), vd, r) : null;
     kaart = `
       <section class="kaart">
         <div class="regel1"><span class="dag">Vandaag · ${L.DAGNAMEN[L.weekdag(new Date())]}</span>${vd.voetbal ? `<span class="label oranje">Voetbal${vd.voetbalTekst ? ' ' + esc(vd.voetbalTekst) : ''}</span>` : ''}</div>
         <h2>${r ? esc(r.naam) : 'Nog niets gepland'}</h2>
+        ${start ? `<p class="begintijd"><span>Begin met koken om</span><strong>${start}</strong></p>` : ''}
         <p class="sub">${sub}</p>
         ${r ? `<a class="knop zwart breed" href="#/recept/${esc(r.id)}">Bekijk recept</a>`
             : `<button class="knop zwart breed" data-dag="${vandaag}">Kies een recept</button>`}
@@ -112,7 +115,7 @@ function schermWeek() {
     const labels = [
       dag.voetbal ? '<span class="label oranje">Voetbal</span>' : '',
       vrij ? `<span class="label groen">${esc(vrij)} vrij</span>` : '',
-      r && r.nieuw ? '<span class="label paars">Nieuw</span>' : '',
+      r && L.isNieuw(D(), r) ? '<span class="label paars">Nieuw</span>' : '',
       r && D().geschiedenis.some(g => g.recept === r.id && g.datum === datum) ? '<span class="label grijs">Gekookt</span>' : '',
     ].join('');
     const code = L.DAGCODES[L.weekdag(L.vanKey(datum))];
@@ -124,6 +127,8 @@ function schermWeek() {
   }).join('');
   const aanb = D().instellingen.aanbiedingen.trim();
   const leeg = Object.values(w.dagen).filter(d => !d.recept).length;
+  const mix = L.weekMixTelling(D(), ma);
+  const doel = D().instellingen.weekMix || {};
   return {
     html: `
     <header class="kop">
@@ -136,7 +141,8 @@ function schermWeek() {
     </header>
     ${kaart}
     <ul class="lijst">${rijen}</ul>
-    <button class="aanbieding" id="aanb">${ICON.label}<span>${aanb ? `In de aanbieding: ${esc(aanb)}` : 'Tik om de groente in de aanbieding in te vullen'}</span></button>
+    <p class="hint">Weekmix: ${mix.vis} van ${doel.vis ?? 0} vis · ${mix.vlees} van ${doel.vlees ?? 0} vlees · ${mix.vegetarisch} van ${doel.vegetarisch ?? 0} vega</p>
+    <button class="aanbieding" id="aanb">${ICON.label}<span>${aanb ? `In de aanbieding: ${esc(aanb)}` : 'Tik om de aanbiedingen van AH in te vullen'}</span></button>
     <div class="knoprij">
       <button class="knop" id="voorstel" ${leeg ? '' : 'disabled'}>${ICON.ster} Voorstel${leeg ? ` (${leeg})` : ''}</button>
       <a class="knop groen" href="#/boodschappen?week=${ma}">${ICON.kar} Boodschappen</a>
@@ -154,8 +160,8 @@ function schermWeek() {
 
 function aanbiedingSheet() {
   sheet(`<h2>Aanbiedingen deze week</h2>
-    <p class="hint">Welke groente is bij Albert Heijn in de aanbieding? Scheid met komma's. Het voorstel kiest dan liever recepten met deze groente.</p>
-    <label class="veld"><input id="aanbInvoer" value="${esc(D().instellingen.aanbiedingen)}" placeholder="prei, broccoli, aubergine"></label>
+    <p class="hint">Wat is er bij Albert Heijn in de aanbieding (groente, vlees, vis, biologisch …)? Scheid met komma's. Het voorstel kiest dan liever recepten met deze producten. Seizoensgroente telt vanzelf mee.</p>
+    <label class="veld"><input id="aanbInvoer" value="${esc(D().instellingen.aanbiedingen)}" placeholder="prei, kipfilet, zalm"></label>
     <button class="knop zwart breed" id="ok">Bewaren</button>`, (s, sluit) => {
     on('#ok', 'click', () => { D().instellingen.aanbiedingen = s.querySelector('#aanbInvoer').value; opslaan(); sluit(); }, s);
   });
@@ -240,12 +246,12 @@ function schermRecepten() {
       <ul class="lijst" id="receptlijst">${lijst.map(r => {
         const sub = [r.basis, r.dieet.join(' / '), L.tijdTekst(r), sterTekst(r.id), 'laatst ' + L.geledenTekst(L.laatstGegeten(D(), r.id))].filter(Boolean).join(' · ');
         const status = r.status === 'compleet' ? '' : r.status === 'concept' ? '<span class="label oranje">concept</span>' : '<span class="label grijs">alleen naam</span>';
-        return `<li><a class="rij" href="#/recept/${esc(r.id)}"><span class="hoofd"><span class="naam">${esc(r.naam)}</span><span class="klein">${esc(sub)}</span></span><span class="rechts">${r.nieuw ? '<span class="label paars">Nieuw</span>' : ''}${status}</span></a></li>`;
+        return `<li><a class="rij" href="#/recept/${esc(r.id)}"><span class="hoofd"><span class="naam">${esc(r.naam)}</span><span class="klein">${esc(sub)}</span></span><span class="rechts">${L.isNieuw(D(), r) ? '<span class="label paars">Nieuw</span>' : ''}${status}</span></a></li>`;
       }).join('') || '<li class="leeg-staat">Geen recepten gevonden.</li>'}</ul>`;
   }
   return {
     html: `<header class="kop"><div><p class="boven">${D().recepten.filter(r => r.status === 'compleet').length} compleet</p><h1>Recepten</h1></div>
-      <div class="kop-knoppen"><a class="rond" href="#/recept-nieuw" aria-label="Nieuw recept">${ICON.plus}</a></div></header>
+</header>
       ${segment}${inhoud}`,
     koppel() {
       on('[data-tab]', 'click', (e, el) => { filters.tab = el.dataset.tab; render(); });
@@ -264,7 +270,7 @@ function schermRecept(id) {
   const r = L.recept(D(), id);
   if (!r) return { html: '<p class="leeg-staat">Recept niet gevonden.</p><a class="knop breed" href="#/recepten">Naar recepten</a>' };
   const m = /datum=(\d{4}-\d{2}-\d{2})/.exec(location.hash);
-  const gepland = m ? { datum: m[1], dag: D().weken[L.dagKey(L.maandagVan(L.vanKey(m[1])))]?.dagen[m[1]] } : vindDagVoorRecept(id);
+  const gepland = m ? { datum: m[1], dag: D().weken[L.weekStartKey(D(), L.vanKey(m[1]))]?.dagen[m[1]] } : vindDagVoorRecept(id);
   const context = gepland?.dag
     ? `${L.DAGNAMEN[L.weekdag(L.vanKey(gepland.datum))].replace(/^./, c => c.toUpperCase())}${gepland.dag.kok ? ` · ${esc(gepland.dag.kok)} kookt` : ''}`
     : '';
@@ -280,15 +286,14 @@ function schermRecept(id) {
     ? r.ingredienten.map(i => L.geschaald(i, f)).map(i => `<div class="ingr"><span class="hv">${esc(L.hoeveelheidTekst(i))}</span>
         <span class="nm">${esc(i.naam.replace(/^./, c => c.toUpperCase()))}${i.toelichting ? `<span class="klein" style="display:block;color:var(--zacht);font-size:14px">${esc(i.toelichting)}</span>` : ''}</span>
         <span class="vr">${esc(voorraadLabel(i))}</span></div>`).join('')
-    : '<p class="hint">Nog geen ingrediënten. Tik op Bewerken om ze toe te voegen.</p>';
+    : '<p class="hint">Nog geen ingrediënten. Die vullen we aan in de receptendatabase.</p>';
   const stappen = r.stappen.length ? `<ol class="stappen">${r.stappen.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : '<p class="hint">Nog geen bereiding.</p>';
   const varianten = r.varianten.length ? `<div class="notitie"><strong>Varianten</strong><ul>${r.varianten.map(v => `<li>${esc(v.naam)}${v.toelichting ? `: ${esc(v.toelichting)}` : ''}</li>`).join('')}</ul></div>` : '';
   const vragen = r.open_vragen.length ? `<details class="meer"><summary>Nog ${r.open_vragen.length} open ${r.open_vragen.length === 1 ? 'vraag' : 'vragen'} bij dit recept</summary><ul>${r.open_vragen.map(v => `<li>${esc(v)}</li>`).join('')}</ul></details>` : '';
   const vandaagGekookt = D().geschiedenis.some(g => g.recept === id && g.datum === (gepland?.datum || L.vandaagKey()));
   return {
     html: `
-      <div class="terugrij"><a class="terug" href="javascript:history.back()" aria-label="Terug">${ICON.terug}</a>
-        <a class="knop klein" href="#/recept-bewerk/${esc(id)}">Bewerken</a></div>
+      <div class="terugrij"><a class="terug" href="javascript:history.back()" aria-label="Terug">${ICON.terug}</a></div>
       ${context ? `<p class="context">${context}</p>` : ''}
       <h1 class="titel">${esc(r.naam)}</h1>
       <div class="meta">${meta.map(x => `<span>${esc(x)}</span>`).join('')}</div>
@@ -305,6 +310,9 @@ function schermRecept(id) {
           <button class="knop klein waard ${w.kan ? 'aan' : ''}" data-waard="${esc(k.naam)}|kan" aria-pressed="${!!w.kan}" aria-label="${esc(k.naam)} kan het maken">${ICON.ster}</button></div></li>`;
       }).join('')}</ul>
       <p class="hint">Hartje = vind ik lekker. Ster = kan ik zelf maken. Het weekvoorstel kiest voor wie kookt liefst iets met een ster.</p>
+      ${r.nieuw ? `<p class="notitie">${L.isNieuw(D(), r)
+        ? `Nieuw recept: ${L.wieLekker(D(), id).length} van ${L.LIKES_VOOR_VAST} hartjes. Bij ${L.LIKES_VOOR_VAST} hartjes komt het op de vaste lijst.`
+        : `${L.LIKES_VOOR_VAST} hartjes: dit recept hoort nu bij de vaste recepten.`}</p>` : ''}
       ${vragen}
       <div class="knoprij vastonder">
         <button class="knop smal" id="plan">Inplannen</button>
@@ -324,7 +332,7 @@ function schermRecept(id) {
 }
 
 function planSheet(id) {
-  const ma = L.dagKey(L.maandagVan(new Date()));
+  const ma = L.weekStartKey(D());
   const weken = [ma, L.dagKey(L.plusDagen(L.vanKey(ma), 7))];
   sheet(`<h2>Inplannen</h2>${weken.map(m => {
     const w = L.week(D(), m);
@@ -341,112 +349,12 @@ function planSheet(id) {
   });
 }
 
-// ---------- Recept bewerken ----------
 const EENHEDEN = ['', 'stuk', 'teen', 'blik', 'pot', 'pak', 'zak', 'flesje', 'bos', 'g', 'kg', 'ml', 'l', 'tl', 'el', 'snuf'];
-function schermReceptBewerk(id) {
-  const bestaand = id ? L.recept(D(), id) : null;
-  if (id && !bestaand) return { html: '<p class="leeg-staat">Recept niet gevonden.</p>' };
-  const r = normaliseerRecept(structuredClone(bestaand || { naam: '', nieuw: true, ingredienten: [] }));
-  const ingrRij = (i, n) => `
-    <details class="meer ingr-blok" ${i.naam ? '' : 'open'}>
-      <summary><strong>${esc(i.naam || 'Nieuw ingrediënt')}</strong><span style="color:var(--zacht)">${esc(L.hoeveelheidTekst(i))}</span></summary>
-      <div class="ingr-bewerk">
-        <input name="hoeveelheid" inputmode="decimal" placeholder="aantal" value="${esc(L.getal(i.hoeveelheid))}">
-        <select name="eenheid">${EENHEDEN.map(e => `<option value="${e}" ${(i.eenheid || '') === e ? 'selected' : ''}>${e || '–'}</option>`).join('')}</select>
-        <input name="naam" placeholder="ingrediënt" value="${esc(i.naam)}">
-      </div>
-      <div class="ingr-extra">
-        <label>Toelichting<input name="toelichting" value="${esc(i.toelichting || '')}"></label>
-        <label>AH-productnummer<input name="productnummer" value="${esc(i.ah.productnummer || '')}"></label>
-        <label>Verpakking (in ${esc(i.eenheid || 'eenheid')})<input name="verpakking" inputmode="decimal" placeholder="bijv. 300" value="${esc(L.getal(i.ah.verpakking))}"></label>
-        <label>Naam verpakking<input name="verpakking_naam" placeholder="zak, bak, pak" value="${esc(i.ah.verpakking_naam || '')}"></label>
-        <label>Prijs per verpakking (€)<input name="prijs" inputmode="decimal" value="${esc(L.getal(i.ah.prijs))}"></label>
-        <label class="vink" style="align-self:end"><input type="checkbox" name="voorraadkast" ${i.voorraadkast ? 'checked' : ''}> Uit de kast</label>
-      </div>
-      <button type="button" class="knop klein rood" data-weg="${n}">${ICON.prullenbak} Verwijderen</button>
-    </details>`;
-  const html = `
-    <div class="terugrij"><a class="terug" href="javascript:history.back()" aria-label="Terug">${ICON.terug}</a></div>
-    <h1 class="titel" style="font-size:26px">${bestaand ? 'Recept bewerken' : 'Nieuw recept'}</h1>
-    <form id="form">
-      <label class="veld"><span>Naam</span><input name="naam" required value="${esc(r.naam)}"></label>
-      <div class="veld"><span>Dieet</span>${['vegetarisch', 'vlees', 'vis'].map(d => `<label class="vink"><input type="checkbox" name="dieet" value="${d}" ${r.dieet.includes(d) ? 'checked' : ''}> ${d}</label>`).join('')}</div>
-      <div class="twee">
-        <label class="veld"><span>Basis</span><select name="basis">${['', 'pasta', 'aardappel', 'rijst', 'taart', 'brood'].map(b => `<option value="${b}" ${(r.basis || '') === b ? 'selected' : ''}>${b || '–'}</option>`).join('')}</select></label>
-        <label class="veld"><span>Personen</span><input name="porties" inputmode="numeric" value="${esc(r.porties ?? '')}"></label>
-        <label class="veld"><span>Tijd van (min)</span><input name="tmin" inputmode="numeric" value="${esc(r.bereidingstijd_min ?? '')}"></label>
-        <label class="veld"><span>Tijd tot (min)</span><input name="tmax" inputmode="numeric" value="${esc(r.bereidingstijd_max ?? '')}"></label>
-      </div>
-      <label class="veld"><span>Hoe vaak? Niet vaker dan eens per … weken</span><input name="frequentie" inputmode="numeric" placeholder="leeg = maakt niet uit" value="${esc(r.frequentie_weken ?? '')}"></label>
-      <label class="vink"><input type="checkbox" name="snel" ${r.snel ? 'checked' : ''}> Snel klaar (goed voor voetbaldagen)</label>
-      <label class="vink"><input type="checkbox" name="nieuw" ${r.nieuw ? 'checked' : ''}> Nieuw recept (nog niet eerder gemaakt)</label>
-      <label class="veld"><span>Status</span><select name="status">
-        <option value="alleen_naam" ${r.status === 'alleen_naam' ? 'selected' : ''}>alleen naam</option>
-        <option value="concept" ${r.status === 'concept' ? 'selected' : ''}>concept</option>
-        <option value="compleet" ${r.status === 'compleet' ? 'selected' : ''}>compleet</option></select></label>
-      <p class="sectie">Ingrediënten</p>
-      <p class="hint">Vul de hoeveelheden in zoals ze in het recept staan (voor het aantal personen hierboven). De app rekent ze om naar jullie gezin.</p>
-      <div id="ingrs">${r.ingredienten.map(ingrRij).join('')}</div>
-      <button type="button" class="knop klein" id="ingrPlus">${ICON.plus} Ingrediënt</button>
-      <p class="sectie">Bereiding</p>
-      <label class="veld"><span>Eén stap per regel</span><textarea name="stappen">${esc(r.stappen.join('\n'))}</textarea></label>
-      <div class="knoprij">
-        ${bestaand ? '<button type="button" class="knop smal rood" id="verwijder">Verwijderen</button>' : ''}
-        <button class="knop zwart">Bewaren</button>
-      </div>
-    </form>`;
-  const getalOfNull = v => { const n = parseFloat(String(v).replace(',', '.')); return Number.isFinite(n) ? n : null; };
-  return {
-    html,
-    koppel() {
-      const f = app.querySelector('#form');
-      const leesIngr = () => [...f.querySelectorAll('.ingr-blok')].map((b, n) => {
-        const v = name => b.querySelector(`[name="${name}"]`);
-        const oud = r.ingredienten[n] || {};
-        return normaliseerIngredient({
-          ...oud,
-          naam: v('naam').value.trim(), hoeveelheid: getalOfNull(v('hoeveelheid').value), eenheid: v('eenheid').value || null,
-          toelichting: v('toelichting').value.trim() || null, voorraadkast: v('voorraadkast').checked,
-          groep: v('voorraadkast').checked ? 'kruiden' : (oud.groep || 'hoofd'),
-          ah: { productnummer: v('productnummer').value.trim() || null, verpakking: getalOfNull(v('verpakking').value), verpakking_naam: v('verpakking_naam').value.trim() || null, prijs: getalOfNull(v('prijs').value) },
-        });
-      });
-      const herteken = () => {
-        f.querySelector('#ingrs').innerHTML = r.ingredienten.map(ingrRij).join('');
-        on('[data-weg]', 'click', (e, el) => { r.ingredienten = leesIngr(); r.ingredienten.splice(+el.dataset.weg, 1); herteken(); }, f);
-      };
-      herteken();
-      on('#ingrPlus', 'click', () => { r.ingredienten = leesIngr(); r.ingredienten.push(normaliseerIngredient({})); herteken(); });
-      on('#verwijder', 'click', () => {
-        if (!confirm(`"${r.naam}" verwijderen?`)) return;
-        D().recepten = D().recepten.filter(x => x.id !== id);
-        D().verwijderdeRecepten.push(id); opslaan(); location.hash = '#/recepten';
-      });
-      f.addEventListener('submit', e => {
-        e.preventDefault();
-        const fd = new FormData(f);
-        const nieuw = {
-          ...r,
-          naam: fd.get('naam').trim(), dieet: fd.getAll('dieet'), basis: fd.get('basis') || null,
-          porties: getalOfNull(fd.get('porties')), bereidingstijd_min: getalOfNull(fd.get('tmin')), bereidingstijd_max: getalOfNull(fd.get('tmax')),
-          frequentie_weken: getalOfNull(fd.get('frequentie')), snel: fd.get('snel') === 'on', nieuw: fd.get('nieuw') === 'on', bewerkt_in_app: true,
-          status: fd.get('status'), ingredienten: leesIngr().filter(i => i.naam),
-          stappen: fd.get('stappen').split('\n').map(s => s.trim()).filter(Boolean),
-        };
-        if (bestaand) Object.assign(bestaand, nieuw);
-        else { nieuw.id = L.maakId(D(), nieuw.naam); nieuw.bron = 'app'; D().recepten.push(normaliseerRecept(nieuw)); }
-        opslaan();
-        location.replace(`#/recept/${bestaand ? id : nieuw.id}`);
-        toast('Recept bewaard.');
-      });
-    },
-  };
-}
 
 // ================= BOODSCHAPPEN =================
 const bsTab = { tab: 'kopen' };
 function schermBoodschappen() {
-  const ma = huidigeMaandag();
+  const ma = huidigeWeek();
   const w = L.week(D(), ma);
   const lijst = L.boodschappen(D(), ma);
   const aantalRecepten = Object.values(w.dagen).filter(d => d.recept).length;
@@ -567,7 +475,8 @@ function schermVoorraad() {
   return {
     html: `<header class="kop"><div><p class="boven">${D().voorraad.length} artikelen</p><h1>Voorraad</h1></div>
       <div class="kop-knoppen"><button class="rond" id="nieuw" aria-label="Toevoegen">${ICON.plus}</button></div></header>
-      <p class="hint">Wat ligt er in de vriezer, de la en de kast? De boodschappenlijst houdt hier rekening mee. Na "Gekookt" wordt het gebruikte afgeboekt.</p>
+      <p class="hint">Wat ligt er in de vriezer, de koelkast, de kasten en de garage? De boodschappenlijst houdt hier rekening mee. Na "Gekookt" wordt het gebruikte afgeboekt. Loop de lijst af en toe na en tik op "Klopt".</p>
+      <div class="knoprij"><button class="knop" id="gecontroleerd">${ICON.vink} Klopt</button><span class="hint" style="align-self:center">${D().voorraadGecontroleerd ? `Nagekeken ${L.geledenTekst(D().voorraadGecontroleerd)}` : 'Nog niet nagekeken'}</span></div>
       ${secties || '<p class="leeg-staat">De voorraad is nog leeg.</p>'}`,
     koppel() {
       const vind = id => D().voorraad.find(v => v.id === id);
@@ -580,6 +489,7 @@ function schermVoorraad() {
       });
       on('[data-bewerk]', 'click', (e, el) => voorraadSheet(vind(el.dataset.bewerk)));
       on('#nieuw', 'click', () => voorraadSheet(null));
+      on('#gecontroleerd', 'click', () => { D().voorraadGecontroleerd = L.vandaagKey(); opslaan(); render(); toast('Voorraad nagekeken.'); });
     },
   };
 }
@@ -611,6 +521,7 @@ function voorraadSheet(v) {
 function schermInstellingen() {
   const i = D().instellingen;
   const koks = i.koks.filter(k => k.kookt !== false).map(k => k.naam);
+  const recepten = [...D().recepten].sort((a, b) => a.naam.localeCompare(b.naam, 'nl'));
   const kokSelect = (n, waarde, leeg) => `<select class="invoer" data-dagveld="${n}">${leeg ? `<option value="">${leeg}</option>` : ''}${koks.map(k => `<option ${waarde === k ? 'selected' : ''}>${esc(k)}</option>`).join('')}</select>`;
   return {
     html: `<div class="terugrij"><a class="terug" href="#/week" aria-label="Terug">${ICON.terug}</a></div>
@@ -629,16 +540,33 @@ function schermInstellingen() {
         <strong style="display:block;margin-bottom:6px">${L.DAGNAMEN[d].replace(/^./, c => c.toUpperCase())}</strong>
         <div class="twee">${kokSelect(`${d}|kok`, i.dagen[d].kok)}${kokSelect(`${d}|vrij`, i.dagen[d].vrij, 'niemand vrij')}</div>
         <div class="twee"><label class="vink"><input type="checkbox" data-voetbal="${d}" ${i.dagen[d].voetbal ? 'checked' : ''}> Voetbal</label>
-        <input class="invoer" data-voetbaltekst="${d}" placeholder="wie en hoe laat" value="${esc(i.dagen[d].voetbalTekst || '')}"></div></div>`).join('')}
+        <input class="invoer" data-voetbaltekst="${d}" placeholder="wie en hoe laat" value="${esc(i.dagen[d].voetbalTekst || '')}"></div>
+        <select class="invoer" data-vast="${d}"><option value="">Geen vast gerecht</option>${recepten.map(r => `<option value="${esc(r.id)}" ${i.dagen[d].vastRecept === r.id ? 'selected' : ''}>Vast: ${esc(r.naam)}</option>`).join('')}</select></div>`).join('')}
+      <label class="veld"><span>De week begint op (bezorgdag)</span><select id="weekStart">${[1, 2, 3, 4, 5, 6, 7].map(d => `<option value="${d}" ${Number(i.weekStart) === d ? 'selected' : ''}>${L.DAGNAMEN[d]}</option>`).join('')}</select></label>
+
+      <p class="sectie">Weekmix</p>
+      <p class="hint">Zoveel avonden per soort gerecht kiest het voorstel.</p>
+      <div class="twee drie">${[['vis', 'Vis'], ['vlees', 'Vlees'], ['vegetarisch', 'Vega']].map(([k, n]) => `<label class="veld"><span>${n}</span><input type="number" min="0" max="7" data-mix="${k}" value="${esc(i.weekMix?.[k] ?? 0)}"></label>`).join('')}</div>
+
+      <p class="sectie">Vaste boodschappen</p>
+      <p class="hint">Komen vanzelf op de boodschappenlijst, bijvoorbeeld melk elke week en wc-papier elke 4 weken.</p>
+      <ul class="lijst">${i.vasteBoodschappen.map((v, n) => `<li><div class="rij" style="cursor:default"><span class="hoofd"><span class="naam">${esc(v.aantal)}× ${esc(v.naam)}</span>
+        <span class="klein">${v.elkeWeken > 1 ? `elke ${esc(v.elkeWeken)} weken` : 'elke week'}${v.productnummer ? ` · ${esc(v.productnummer)}` : ''}</span></span>
+        <button class="knop klein" data-vastweg="${n}" aria-label="Verwijder ${esc(v.naam)}">${ICON.prullenbak}</button></div></li>`).join('') || '<li class="leeg-staat">Nog geen vaste boodschappen.</li>'}</ul>
+      <div class="twee"><input class="invoer" id="vbNaam" placeholder="melk"><input class="invoer" id="vbAantal" inputmode="numeric" placeholder="aantal (1)"></div>
+      <div class="twee"><input class="invoer" id="vbWeken" inputmode="numeric" placeholder="elke … weken (1)"><input class="invoer" id="vbNr" placeholder="AH-productnummer (mag leeg)"></div>
+      <div class="knoprij"><button class="knop smal" id="vbPlus">${ICON.plus} Toevoegen</button></div>
 
       <p class="sectie">Aantal personen</p>
       <label class="veld"><span>Voor hoeveel personen koken we? Recepten worden hierop omgerekend.</span><input type="number" min="1" id="personen" value="${esc(i.personen)}"></label>
       <p class="sectie">Etenstijd</p>
       <div class="twee"><label class="veld"><span>Normaal</span><input type="time" id="tijd" value="${esc(i.etenstijd)}"></label>
-        <label class="veld"><span>Bij voetbal</span><input type="time" id="tijdV" value="${esc(i.etenstijdVoetbal)}"></label></div>
+        <label class="veld"><span>Minuten eten voor het voetbal</span><input type="number" min="0" id="eetDuur" value="${esc(i.eetDuur)}"></label></div>
+      <label class="veld"><span>Bij voetbal zonder tijd</span><input type="time" id="tijdV" value="${esc(i.etenstijdVoetbal)}"></label>
+      <p class="hint">Bij voetbal eten we ${esc(i.eetDuur)} minuten voor de tijd uit de vaste week (bijv. "Maup 17:30" wordt eten om 17:00).</p>
 
       <p class="sectie">Gegevens</p>
-      <p class="hint">Versie 1 bewaart alles op dit apparaat, in deze browser. Maak af en toe een back-up. Met een back-up kun je de gegevens ook naar een ander apparaat overzetten.</p>
+      <p class="hint">Deze versie bewaart alles op dit apparaat, in deze browser. Maak af en toe een back-up. Met een back-up kun je de gegevens ook naar een ander apparaat overzetten.</p>
       <div class="knoprij"><button class="knop" id="export">Back-up maken</button>
         <label class="knop" style="cursor:pointer">Back-up terugzetten<input type="file" id="import" accept="application/json,.json" hidden></label></div>
       <div class="knoprij"><button class="knop rood" id="wis">Alles wissen</button></div>
@@ -654,6 +582,18 @@ function schermInstellingen() {
       on('#personen', 'change', (e, el) => { i.personen = Math.max(1, parseInt(el.value) || 1); opslaan(); });
       on('#tijd', 'change', (e, el) => { i.etenstijd = el.value; opslaan(); });
       on('#tijdV', 'change', (e, el) => { i.etenstijdVoetbal = el.value; opslaan(); });
+      on('#eetDuur', 'change', (e, el) => { i.eetDuur = Math.max(0, parseInt(el.value) || 0); opslaan(); render(); });
+      on('[data-vast]', 'change', (e, el) => { i.dagen[el.dataset.vast].vastRecept = el.value || null; opslaan(); });
+      on('#weekStart', 'change', (e, el) => { i.weekStart = Number(el.value); opslaan(); });
+      on('[data-mix]', 'change', (e, el) => { (i.weekMix ||= {})[el.dataset.mix] = Math.max(0, parseInt(el.value) || 0); opslaan(); });
+      on('[data-vastweg]', 'click', (e, el) => { i.vasteBoodschappen.splice(+el.dataset.vastweg, 1); opslaan(); render(); });
+      on('#vbPlus', 'click', () => {
+        const waarde = id => app.querySelector(id).value.trim();
+        if (!waarde('#vbNaam')) return toast('Vul in wat je vast koopt.');
+        i.vasteBoodschappen.push({ id: crypto.randomUUID(), naam: waarde('#vbNaam'), aantal: Math.max(1, parseInt(waarde('#vbAantal')) || 1), eenheid: 'st',
+          elkeWeken: Math.max(1, parseInt(waarde('#vbWeken')) || 1), productnummer: waarde('#vbNr') || null, prijs: null, laatst: null });
+        opslaan(); render();
+      });
       on('#export', 'click', () => download(`recepten-planner-backup-${L.vandaagKey()}.json`, exporteer()));
       on('#import', 'change', async (e, el) => {
         const f = el.files[0]; if (!f) return;
@@ -668,8 +608,6 @@ function schermInstellingen() {
 const ROUTES = [
   [/^#\/week/, schermWeek, 'week'],
   [/^#\/recepten/, schermRecepten, 'recepten'],
-  [/^#\/recept-nieuw/, () => schermReceptBewerk(null), 'recepten'],
-  [/^#\/recept-bewerk\/([^?]+)/, m => schermReceptBewerk(decodeURIComponent(m[1])), 'recepten'],
   [/^#\/recept\/([^?]+)/, m => schermRecept(decodeURIComponent(m[1])), 'recepten'],
   [/^#\/boodschappen/, schermBoodschappen, 'boodschappen'],
   [/^#\/lijsten/, schermLijsten, 'boodschappen'],

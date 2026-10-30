@@ -8,8 +8,8 @@ zeg het tegen Bas.
 1. Open de app en tik rechtsboven op het instellingen-icoon. Controleer *Wie koken er* en de *Vaste week* (wie kookt welke dag, wie is vrij, voetbal).
 2. Ga terug naar *Week*. Tik op de regel met het label-icoontje en vul in welke groente bij AH in de aanbieding is.
 3. Tik *Voorstel*. Tik op een dag om een ander recept of een andere kok te kiezen.
-4. Vul voor de gekozen recepten de ingrediënten aan (*Recepten → recept → Bewerken*). Alleen de bonenschotel heeft ze al. Vul waar je kunt ook het AH-productnummer, de verpakkingsgrootte en de prijs in.
-5. Zet bij *Voorraad* wat er in de vriezer en de la ligt (gebruik dezelfde naam en eenheid als in het recept).
+4. Mis je ingrediënten of hoeveelheden bij een gekozen recept? Geef het door aan Claude; die vult `data/recepten.json` aan (met AH-productnummer, verpakking en prijs waar bekend).
+5. Zet bij *Voorraad* wat er in de vriezer, de koelkast, de kasten en de garage ligt (gebruik dezelfde naam en eenheid als in het recept).
 
 ## Boodschappen
 1. Open *Boodschappen*. Vink aan wat je al hebt. Pas aantallen aan met − en +.

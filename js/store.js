@@ -4,7 +4,7 @@
 // kunnen aansluiten zonder de rest van de app te veranderen. Zie docs/ARCHITECTUUR.md.
 
 const SLEUTEL = 'receptenplanner.v1';
-export const DATA_VERSIE = 1;
+export const DATA_VERSIE = 2;
 
 export const db = { data: null };
 
@@ -26,12 +26,20 @@ export function standaardInstellingen() {
       2: { kok: 'Pien', vrij: null, voetbal: true, voetbalTekst: 'Maup 17:30' },
       3: { kok: 'Maup', vrij: 'Bas', voetbal: true, voetbalTekst: 'Koob 18:30' },
       4: { kok: 'Inge', vrij: 'Inge', voetbal: true, voetbalTekst: 'Maup 18:30' },
-      5: { kok: 'Inge', vrij: 'Inge', voetbal: false, voetbalTekst: '' },
+      // vastRecept: dit gerecht staat elke week op deze dag (wens van Inge: vrijdag kippenbout).
+      5: { kok: 'Inge', vrij: 'Inge', voetbal: false, voetbalTekst: '', vastRecept: 'kippenbout-met-aardappelpartjes-en-sla' },
       6: { kok: 'Bas', vrij: null, voetbal: false, voetbalTekst: '' },
       7: { kok: 'Bas', vrij: null, voetbal: false, voetbalTekst: '' },
     },
+    // De week loopt van de bezorgdag tot en met de dag ervoor. Plannen op dinsdag, bezorgen op woensdag.
+    weekStart: 3,
+    // Weekmix: zoveel avonden per soort gerecht.
+    weekMix: { vis: 1, vlees: 3, vegetarisch: 3 },
     etenstijd: '18:00',
-    etenstijdVoetbal: '17:30',
+    etenstijdVoetbal: '17:30', // alleen als er geen tijd bij het voetbal staat
+    eetDuur: 30, // minuten om te eten voor het voetbal
+    // Vaste boodschappen: { id, naam, aantal, eenheid, elkeWeken, productnummer, prijs, laatst }
+    vasteBoodschappen: [],
     aanbiedingen: '',
     personen: 5, // recepten worden hierop omgerekend
   };
@@ -50,6 +58,7 @@ function nieuweData() {
     lijsten: [],
     // per recept per persoon: { lekker: true, kan: true } (hartje en ster)
     waardering: {},
+    voorraadGecontroleerd: null, // datum waarop de voorraad voor het laatst is nagekeken
   };
 }
 
@@ -82,11 +91,20 @@ function vulAan(data) {
   for (const k of Object.keys(basis)) if (data[k] === undefined) data[k] = basis[k];
   data.instellingen = { ...standaardInstellingen(), ...data.instellingen };
   data.recepten = data.recepten.map(normaliseerRecept);
+  if ((data.versie || 1) < 2) {
+    // Versie 2 (feedback Inge): week vanaf woensdag, kasten en garage in plaats van de la,
+    // vrijdag vast kippenbout. Oude weken (vanaf maandag) blijven bewaard als geschiedenis.
+    const st = standaardInstellingen();
+    data.instellingen.weekStart = st.weekStart;
+    if (data.instellingen.dagen[5] && !data.instellingen.dagen[5].vastRecept) data.instellingen.dagen[5].vastRecept = st.dagen[5].vastRecept;
+    for (const v of data.voorraad) if (v.plek === 'la') v.plek = v.eenheid === 'flesje' ? 'garage' : 'kast';
+    data.versie = 2;
+  }
   return data;
 }
 
-// Recepten uit data/recepten.json overnemen: nieuwe toevoegen en aangevulde bijwerken.
-// Recepten die in de app zijn aangepast (bewerkt_in_app) of verwijderd blijven zoals ze zijn.
+// Recepten uit data/recepten.json overnemen. Dat bestand is de receptendatabase: recepten worden
+// daar aangepast, niet in de app (wens van Inge). Elke keer laden neemt de nieuwste versie over.
 function voegBronToe(data, bron) {
   if (!bron || !Array.isArray(bron.recepten)) return;
   const weg = new Set(data.verwijderdeRecepten);
@@ -94,7 +112,7 @@ function voegBronToe(data, bron) {
     if (weg.has(r.id)) continue;
     const n = data.recepten.findIndex(x => x.id === r.id);
     if (n === -1) data.recepten.push(normaliseerRecept(r));
-    else if (!data.recepten[n].bewerkt_in_app) data.recepten[n] = normaliseerRecept(r);
+    else data.recepten[n] = normaliseerRecept(r);
   }
   data.bronBijgewerkt = bron.bijgewerkt || null;
 }

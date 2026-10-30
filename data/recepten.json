@@ -1,6 +1,6 @@
 {
   "schema_versie": 2,
-  "bijgewerkt": "2026-10-28",
+  "bijgewerkt": "2026-10-30",
   "codelijsten": {
     "dieet": {
       "Ve": "vegetarisch",
@@ -3258,6 +3258,126 @@
       ],
       "te_controleren": true,
       "nieuw": true
+    },
+    {
+      "id": "kippenbout-met-aardappelpartjes-en-sla",
+      "naam": "Kippenbout met aardappelpartjes en sla",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "aardappel",
+      "bron": "vaste vrijdag (wens van Inge, oktober 2026); hoeveelheden aangenomen, graag controleren",
+      "porties": 5,
+      "bereidingstijd_min": 60,
+      "bereidingstijd_max": 60,
+      "ingredienten": [
+        {
+          "naam": "kippenbouten",
+          "hoeveelheid": 5,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kruimige aardappelen",
+          "hoeveelheid": 1.5,
+          "hoeveelheid_max": null,
+          "eenheid": "kg",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "sla",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "zak",
+          "toelichting": "gemengde sla",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "komkommer",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "cherrytomaatjes",
+          "hoeveelheid": 250,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "paprikapoeder",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kipkruiden",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "peper en zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "dressing",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "naar keuze",
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Verwarm de oven voor op 200 °C (hetelucht 180 °C).",
+        "Wrijf de kippenbouten in met 2 el olijfolie, kipkruiden, peper en zout. Leg ze in een ovenschaal en zet ze 50–60 minuten in de oven, tot het vocht helder is als je erin prikt.",
+        "Was de aardappelen en snijd ze in partjes (schillen hoeft niet). Hussel ze met 2 el olijfolie, paprikapoeder en zout en verdeel ze over een bakplaat met bakpapier.",
+        "Zet de aardappelpartjes na 15 minuten ook in de oven en bak ze 40–45 minuten mee. Keer ze halverwege.",
+        "Maak de sla: snijd komkommer en halveer de tomaatjes, meng met de sla. Dressing pas aan tafel erbij."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "hoeveelheden voor 5 personen aangenomen"
+      ],
+      "open_vragen": [
+        "Kloppen de hoeveelheden en welke dressing gebruiken jullie?"
+      ],
+      "te_controleren": true
     }
   ]
 }

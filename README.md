@@ -8,12 +8,12 @@ en die lijst doorzetten naar Albert Heijn.
 
 Op je telefoon: open de link in Safari of Chrome en kies *Zet op beginscherm*. Dan staat de app tussen je andere apps.
 
-## Wat kan versie 0.1
+## Wat kan versie 0.2
 
 | Scherm | Wat je er doet |
 |---|---|
-| **Week** | Recept van vandaag bovenaan. Per dag: recept, wie kookt, voetbal, wie vrij is. Knop *Voorstel* vult lege dagen. Vul in welke groente in de aanbieding is. Bladeren naar vorige/volgende week. |
-| **Recepten** | Alle 66 recepten, zoeken en filteren (vega, vlees, vis, snel, kinderen kunnen het, aan te vullen). Recept bekijken (ingrediënten / bereiding, omgerekend naar jullie aantal personen), *Gekookt* aantikken, *Inplannen*, *Bewerken* of een nieuw recept maken. Per persoon een hartje (lekker) en een ster (kan ik maken). Tabblad *Gegeten* = eetgeschiedenis. |
+| **Week** | Recept van vandaag bovenaan. Per dag: recept, wie kookt, voetbal, wie vrij is. De week loopt van woensdag (bezorging) tot dinsdag. Groot in beeld: hoe laat je moet beginnen met koken. Knop *Voorstel* vult lege dagen met 1× vis, 3× vlees en 3× vega; vrijdag staat vast kippenbout. Vul in wat er bij AH in de aanbieding is. Bladeren naar vorige/volgende week. |
+| **Recepten** | Alle 66 recepten, zoeken en filteren (vega, vlees, vis, snel, kinderen kunnen het, aan te vullen). Recept bekijken (ingrediënten / bereiding, omgerekend naar jullie aantal personen), *Gekookt* aantikken, *Inplannen*. Recepten pas je aan in `data/recepten.json`, niet in de app. Per persoon een hartje (lekker) en een ster (kan ik maken); een nieuw recept met 4 hartjes komt op de vaste lijst. Tabblad *Gegeten* = eetgeschiedenis. |
 | **Boodschappen** | Lijst uit het weekmenu, afgerond op hele verpakkingen. Vink aan wat je al hebt (*Op voorraad*). Per artikel − / + / weg, iets extra toevoegen, totale kosten. *Kopieer weeklijst* zet de lijst klaar om in Claude Desktop te plakken. *Boodschappen zijn binnen* zet alles in de voorraad en bewaart de lijst. |
 | **Voorraad** | Wat er in de vriezer, koelkast, la en kast ligt. Wordt bijgewerkt na boodschappen en na *Gekookt*. Restjes (een halve zak spinazie) blijven staan, zodat je de volgende keer minder koopt. |
 | **Instellingen** (knop rechtsboven op Week) | Wie koken er (en wie is een kind), aantal personen, vaste kok/vrije dag/voetbal per weekdag, etenstijden, back-up maken en terugzetten. |

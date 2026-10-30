@@ -2,6 +2,29 @@
 
 Alle wijzigingen per versie. Nieuwste bovenaan.
 
+## [0.2.0] – 2026-10-30
+
+Feedback van Inge verwerkt.
+
+### Toegevoegd
+- Weekmix in het voorstel: 1× vis, 3× vlees, 3× vega (instelbaar); de stand staat onder het weekmenu.
+- Vast gerecht per dag; vrijdag staat vast *Kippenbout met aardappelpartjes en sla* (nieuw recept, hoeveelheden nog controleren).
+- Voorstel kiest geen recept dat vorige week ook op het menu stond, geeft punten voor seizoensgroente en hoogstens één nieuw recept per week.
+- Recept van vandaag: *Begin met koken om …* groot in beeld (etenstijd min bereidingstijd).
+- Bij voetbal volgt de etenstijd uit de tijd in de agenda min een half uur eten (instelbaar).
+- Nieuwe recepten: teller met hartjes; bij 4 hartjes hoort het recept bij de vaste lijst.
+- Vaste boodschappen met eigen frequentie (bijv. melk elke week, wc-papier elke 4 weken), in te stellen bij Instellingen.
+- Voorraad: knop *Klopt* om bij te houden wanneer de voorraad is nagekeken.
+
+### Gewijzigd
+- De week loopt van woensdag (bezorgdag) tot en met dinsdag; plannen op dinsdag.
+- Aanbiedingen: alle producten van AH, niet alleen groente.
+- Voorraadplekken: vriezer, koelkast, kasten en garage (drank). De la is samengevoegd met de kasten.
+- Recepten worden niet meer in de app bewerkt; `data/recepten.json` is de receptendatabase en gaat altijd voor.
+
+### Verwijderd
+- Scherm *Recept bewerken* en *Nieuw recept*.
+
 ## [0.1.0] – 2026-10-28
 
 Eerste versie (MVP) voor de testweek met het gezin.
