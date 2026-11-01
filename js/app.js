@@ -1,0 +1,634 @@
+// Schermen van de app. Elk scherm is een functie die HTML teruggeeft en daarna
+// de knoppen koppelt. De adresbalk (#/week, #/recept/<id>, …) bepaalt welk scherm.
+import { db, laad, bewaar, exporteer, importeer, wisAlles } from './store.js';
+import * as L from './logic.js';
+
+const app = document.getElementById('app');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const D = () => db.data;
+
+const ICON = {
+  instellingen: '<svg viewBox="0 0 24 24"><path d="M4 8h10M18 8h2M4 16h2M10 16h10"/><circle cx="16" cy="8" r="2"/><circle cx="8" cy="16" r="2"/></svg>',
+  terug: '<svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>',
+  links: '<svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>',
+  rechts: '<svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>',
+  kar: '<svg viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h11L21 7H6.2"/><circle cx="9" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/></svg>',
+  label: '<svg viewBox="0 0 24 24"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.3"/></svg>',
+  vink: '<svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>',
+  min: '<svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg>',
+  plus: '<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>',
+  prullenbak: '<svg viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>',
+  pijl: '<svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg>',
+  ster: '<svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg>',
+  hart: '<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg>',
+};
+
+// ---------- Hulpjes ----------
+function toast(tekst) {
+  const t = document.getElementById('toast');
+  t.textContent = tekst;
+  t.classList.add('zichtbaar');
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => t.classList.remove('zichtbaar'), 2600);
+}
+function opslaan() { bewaar(); }
+function on(sel, ev, fn, root = app) { root.querySelectorAll(sel).forEach(el => el.addEventListener(ev, e => fn(e, el))); }
+
+// Een week begint op de bezorgdag (standaard woensdag), zie instellingen.weekStart.
+function huidigeWeek() {
+  const m = /week=(\d{4}-\d{2}-\d{2})/.exec(location.hash);
+  return m ? L.weekStartKey(D(), L.vanKey(m[1])) : L.weekStartKey(D());
+}
+function weekTitel(startKey) {
+  const nu = L.weekStartKey(D());
+  const verschil = Math.round((L.vanKey(startKey) - L.vanKey(nu)) / (7 * 86400000));
+  if (verschil === 0) return 'Deze week';
+  if (verschil === 1) return 'Volgende week';
+  if (verschil === -1) return 'Vorige week';
+  return `Week ${L.weeknummer(L.vanKey(startKey))}`;
+}
+function vindDagVoorRecept(id) {
+  // Eerste dag in deze of volgende week waarop dit recept gepland staat.
+  const ma = L.weekStartVan(D(), new Date());
+  for (const m of [ma, L.plusDagen(ma, 7)]) {
+    const w = D().weken[L.dagKey(m)];
+    if (!w) continue;
+    for (const [datum, dag] of Object.entries(w.dagen)) if (dag.recept === id && datum >= L.vandaagKey()) return { datum, dag };
+  }
+  return null;
+}
+async function kopieer(tekst) {
+  try { await navigator.clipboard.writeText(tekst); return true; } catch {
+    const ta = document.createElement('textarea');
+    ta.value = tekst; document.body.appendChild(ta); ta.select();
+    const ok = document.execCommand('copy'); ta.remove(); return ok;
+  }
+}
+function download(naam, tekst) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([tekst], { type: 'application/json' }));
+  a.download = naam; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+function sterTekst(id) {
+  const wie = L.wieKan(D(), id);
+  return wie.length ? `★ ${wie.join(', ')}` : '';
+}
+
+// ---------- Sheet (venster van onderen) ----------
+function sheet(html, koppel) {
+  const achter = document.createElement('div');
+  achter.className = 'sheet-achter';
+  achter.innerHTML = `<div class="sheet" role="dialog" aria-modal="true"><div class="greep"></div>${html}</div>`;
+  const sluit = () => { achter.remove(); render(); };
+  achter.addEventListener('click', e => { if (e.target === achter) sluit(); });
+  document.body.appendChild(achter);
+  koppel(achter.querySelector('.sheet'), sluit);
+  return sluit;
+}
+
+// ================= WEEK =================
+function schermWeek() {
+  const ma = huidigeWeek();
+  const w = L.week(D(), ma);
+  const vandaag = L.vandaagKey();
+  const vd = w.dagen[vandaag];
+  let kaart = '';
+  if (vd) {
+    const r = vd.recept && L.recept(D(), vd.recept);
+    const sub = [vd.kok ? `${esc(vd.kok)} kookt` : null, `eten om ${esc(L.etenstijd(D(), vd))}`, r && L.tijdTekst(r)].filter(Boolean).join(' · ');
+    const start = r ? L.kookStart(D(), vd, r) : null;
+    kaart = `
+      <section class="kaart">
+        <div class="regel1"><span class="dag">Vandaag · ${L.DAGNAMEN[L.weekdag(new Date())]}</span>${vd.voetbal ? `<span class="label oranje">Voetbal${vd.voetbalTekst ? ' ' + esc(vd.voetbalTekst) : ''}</span>` : ''}</div>
+        <h2>${r ? esc(r.naam) : 'Nog niets gepland'}</h2>
+        ${start ? `<p class="begintijd"><span>Begin met koken om</span><strong>${start}</strong></p>` : ''}
+        <p class="sub">${sub}</p>
+        ${r ? `<a class="knop zwart breed" href="#/recept/${esc(r.id)}">Bekijk recept</a>`
+            : `<button class="knop zwart breed" data-dag="${vandaag}">Kies een recept</button>`}
+      </section>`;
+  }
+  const rijen = Object.entries(w.dagen).map(([datum, dag]) => {
+    const r = dag.recept && L.recept(D(), dag.recept);
+    const vrij = L.vrijOp(D(), datum);
+    const labels = [
+      dag.voetbal ? '<span class="label oranje">Voetbal</span>' : '',
+      vrij ? `<span class="label groen">${esc(vrij)} vrij</span>` : '',
+      r && L.isNieuw(D(), r) ? '<span class="label paars">Nieuw</span>' : '',
+      r && D().geschiedenis.some(g => g.recept === r.id && g.datum === datum) ? '<span class="label grijs">Gekookt</span>' : '',
+    ].join('');
+    const code = L.DAGCODES[L.weekdag(L.vanKey(datum))];
+    return `<li><button class="rij" data-dag="${datum}">
+      <span class="dagcode ${datum === vandaag ? 'vandaag' : ''}">${code}</span>
+      <span class="hoofd"><span class="naam ${r ? '' : 'leeg'}">${r ? esc(r.naam) : 'Kies een recept'}</span></span>
+      <span class="rechts">${labels}<span>${esc(dag.kok || '')}</span></span>
+    </button></li>`;
+  }).join('');
+  const aanb = D().instellingen.aanbiedingen.trim();
+  const leeg = Object.values(w.dagen).filter(d => !d.recept).length;
+  const mix = L.weekMixTelling(D(), ma);
+  const doel = D().instellingen.weekMix || {};
+  return {
+    html: `
+    <header class="kop">
+      <div><p class="boven">${esc(L.weekLabel(ma))}</p><h1>${weekTitel(ma)}</h1></div>
+      <div class="kop-knoppen">
+        <a class="rond" href="#/week?week=${L.dagKey(L.plusDagen(L.vanKey(ma), -7))}" aria-label="Vorige week">${ICON.links}</a>
+        <a class="rond" href="#/week?week=${L.dagKey(L.plusDagen(L.vanKey(ma), 7))}" aria-label="Volgende week">${ICON.rechts}</a>
+        <a class="rond" href="#/instellingen" aria-label="Instellingen">${ICON.instellingen}</a>
+      </div>
+    </header>
+    ${kaart}
+    <ul class="lijst">${rijen}</ul>
+    <p class="hint">Weekmix: ${mix.vis} van ${doel.vis ?? 0} vis · ${mix.vlees} van ${doel.vlees ?? 0} vlees · ${mix.vegetarisch} van ${doel.vegetarisch ?? 0} vega</p>
+    <button class="aanbieding" id="aanb">${ICON.label}<span>${aanb ? `In de aanbieding: ${esc(aanb)}` : 'Tik om de aanbiedingen van AH in te vullen'}</span></button>
+    <div class="knoprij">
+      <button class="knop" id="voorstel" ${leeg ? '' : 'disabled'}>${ICON.ster} Voorstel${leeg ? ` (${leeg})` : ''}</button>
+      <a class="knop groen" href="#/boodschappen?week=${ma}">${ICON.kar} Boodschappen</a>
+    </div>`,
+    koppel() {
+      on('[data-dag]', 'click', (e, el) => dagSheet(ma, el.dataset.dag));
+      on('#voorstel', 'click', () => {
+        const n = L.maakVoorstel(D(), ma); opslaan(); render();
+        toast(n ? `${n} ${n === 1 ? 'dag' : 'dagen'} ingevuld. Tik op een dag om te wisselen.` : 'Geen recept gevonden.');
+      });
+      on('#aanb', 'click', () => aanbiedingSheet());
+    },
+  };
+}
+
+function aanbiedingSheet() {
+  sheet(`<h2>Aanbiedingen deze week</h2>
+    <p class="hint">Wat is er bij Albert Heijn in de aanbieding (groente, vlees, vis, biologisch …)? Scheid met komma's. Het voorstel kiest dan liever recepten met deze producten. Seizoensgroente telt vanzelf mee.</p>
+    <label class="veld"><input id="aanbInvoer" value="${esc(D().instellingen.aanbiedingen)}" placeholder="prei, kipfilet, zalm"></label>
+    <button class="knop zwart breed" id="ok">Bewaren</button>`, (s, sluit) => {
+    on('#ok', 'click', () => { D().instellingen.aanbiedingen = s.querySelector('#aanbInvoer').value; opslaan(); sluit(); }, s);
+  });
+}
+
+function dagSheet(ma, datum) {
+  const w = L.week(D(), ma);
+  const dag = w.dagen[datum];
+  const d = L.vanKey(datum);
+  const titel = `${L.DAGNAMEN[L.weekdag(d)].replace(/^./, c => c.toUpperCase())} ${L.kortDatum(d)}`;
+  const koks = D().instellingen.koks.filter(k => k.kookt !== false).map(k => k.naam);
+  sheet(`
+    <h2>${titel}</h2>
+    <div class="chips" id="koks">${koks.map(k => `<button class="chip ${dag.kok === k ? 'aan' : ''}" data-kok="${esc(k)}">${esc(k)}</button>`).join('')}</div>
+    <label class="vink"><input type="checkbox" id="voetbal" ${dag.voetbal ? 'checked' : ''}> Voetbal: vroeg en snel eten</label>
+    <input class="zoek" id="zoek" placeholder="Zoek een recept" autocomplete="off">
+    <div class="keuzes" id="keuzes"></div>
+    <div class="knoprij">
+      ${dag.recept ? '<button class="knop smal" id="leeg">Leegmaken</button>' : ''}
+      ${dag.recept ? `<a class="knop" href="#/recept/${esc(dag.recept)}?datum=${datum}" id="bekijk">Bekijk recept</a>` : ''}
+      <button class="knop zwart" id="klaar">Klaar</button>
+    </div>`, (s, sluit) => {
+    const toon = () => {
+      const q = s.querySelector('#zoek').value.trim().toLowerCase();
+      const lijst = D().recepten
+        .filter(r => !q || r.naam.toLowerCase().includes(q))
+        .map(r => ({ r, laatst: L.laatstGegeten(D(), r.id) }))
+        .map(x => ({ ...x, kan: !!(dag.kok && L.waardering(D(), x.r.id, dag.kok).kan) }))
+        .sort((a, b) => (b.r.id === dag.recept) - (a.r.id === dag.recept) || b.kan - a.kan || (a.laatst || '').localeCompare(b.laatst || '') || a.r.naam.localeCompare(b.r.naam, 'nl'));
+      s.querySelector('#keuzes').innerHTML = `<ul class="lijst">${lijst.map(({ r, laatst }) => `
+        <li><button class="rij ${r.id === dag.recept ? 'gekozen' : ''}" data-recept="${esc(r.id)}">
+          <span class="hoofd"><span class="naam">${esc(r.naam)}</span><span class="klein">${esc([L.isSnel(r) ? 'snel' : '', sterTekst(r.id), 'laatst ' + L.geledenTekst(laatst)].filter(Boolean).join(' · '))}</span></span>
+          ${r.id === dag.recept ? ICON.vink : ''}
+        </button></li>`).join('')}</ul>`;
+      on('[data-recept]', 'click', (e, el) => { dag.recept = el.dataset.recept; opslaan(); sluit(); }, s);
+    };
+    toon();
+    s.querySelector('#zoek').addEventListener('input', toon);
+    on('[data-kok]', 'click', (e, el) => {
+      dag.kok = el.dataset.kok; opslaan();
+      s.querySelectorAll('[data-kok]').forEach(c => c.classList.toggle('aan', c === el));
+    }, s);
+    on('#voetbal', 'change', (e, el) => { dag.voetbal = el.checked; opslaan(); }, s);
+    on('#leeg', 'click', () => { dag.recept = null; opslaan(); sluit(); }, s);
+    on('#klaar', 'click', sluit, s);
+    on('#bekijk', 'click', () => document.querySelector('.sheet-achter')?.remove(), s);
+  });
+}
+
+// ================= RECEPTEN =================
+const filters = { zoek: '', filter: 'alle', tab: 'recepten' };
+const FILTERS = {
+  alle: ['Alle', () => true],
+  vegetarisch: ['Vega', r => r.dieet.includes('vegetarisch')],
+  vlees: ['Vlees', r => r.dieet.includes('vlees')],
+  vis: ['Vis', r => r.dieet.includes('vis')],
+  snel: ['Snel', r => L.isSnel(r)],
+  kinderen: ['Kinderen kunnen het', r => L.kinderenKunnen(D(), r)],
+  aanvullen: ['Aan te vullen', r => r.status !== 'compleet'],
+};
+
+function schermRecepten() {
+  const segment = `<div class="segment">
+    <button data-tab="recepten" class="${filters.tab === 'recepten' ? 'aan' : ''}">Recepten · ${D().recepten.length}</button>
+    <button data-tab="gegeten" class="${filters.tab === 'gegeten' ? 'aan' : ''}">Gegeten · ${D().geschiedenis.length}</button>
+  </div>`;
+  let inhoud;
+  if (filters.tab === 'gegeten') {
+    const g = [...D().geschiedenis].sort((a, b) => b.datum.localeCompare(a.datum));
+    inhoud = g.length ? `<ul class="lijst">${g.map(x => {
+      const r = L.recept(D(), x.recept);
+      return `<li><a class="rij" href="#/recept/${esc(x.recept)}"><span class="hoofd"><span class="naam">${esc(r ? r.naam : x.recept)}</span>
+        <span class="klein">${L.kortDatum(L.vanKey(x.datum))}${x.kok ? ` · ${esc(x.kok)} kookte` : ''}</span></span></a></li>`;
+    }).join('')}</ul>` : '<p class="leeg-staat">Nog niets gegeten. Tik bij een recept op "Gekookt".</p>';
+  } else {
+    const q = filters.zoek.toLowerCase();
+    const lijst = D().recepten.filter(r => FILTERS[filters.filter][1](r) && (!q || r.naam.toLowerCase().includes(q)))
+      .sort((a, b) => a.naam.localeCompare(b.naam, 'nl'));
+    inhoud = `
+      <input class="zoek" id="zoek" placeholder="Zoek een recept" value="${esc(filters.zoek)}" autocomplete="off">
+      <div class="chips">${Object.entries(FILTERS).map(([k, [naam]]) => `<button class="chip ${filters.filter === k ? 'aan' : ''}" data-filter="${k}">${naam}</button>`).join('')}</div>
+      <ul class="lijst" id="receptlijst">${lijst.map(r => {
+        const sub = [r.basis, r.dieet.join(' / '), L.tijdTekst(r), sterTekst(r.id), 'laatst ' + L.geledenTekst(L.laatstGegeten(D(), r.id))].filter(Boolean).join(' · ');
+        const status = r.status === 'compleet' ? '' : r.status === 'concept' ? '<span class="label oranje">concept</span>' : '<span class="label grijs">alleen naam</span>';
+        return `<li><a class="rij" href="#/recept/${esc(r.id)}"><span class="hoofd"><span class="naam">${esc(r.naam)}</span><span class="klein">${esc(sub)}</span></span><span class="rechts">${L.isNieuw(D(), r) ? '<span class="label paars">Nieuw</span>' : ''}${status}</span></a></li>`;
+      }).join('') || '<li class="leeg-staat">Geen recepten gevonden.</li>'}</ul>`;
+  }
+  return {
+    html: `<header class="kop"><div><p class="boven">${D().recepten.filter(r => r.status === 'compleet').length} compleet</p><h1>Recepten</h1></div>
+</header>
+      ${segment}${inhoud}`,
+    koppel() {
+      on('[data-tab]', 'click', (e, el) => { filters.tab = el.dataset.tab; render(); });
+      on('[data-filter]', 'click', (e, el) => { filters.filter = el.dataset.filter; render(); });
+      on('#zoek', 'input', (e, el) => {
+        filters.zoek = el.value;
+        const pos = el.selectionStart; render();
+        const z = app.querySelector('#zoek'); z.focus(); z.setSelectionRange(pos, pos);
+      });
+    },
+  };
+}
+
+const receptTab = { tab: 'ingredienten' };
+function schermRecept(id) {
+  const r = L.recept(D(), id);
+  if (!r) return { html: '<p class="leeg-staat">Recept niet gevonden.</p><a class="knop breed" href="#/recepten">Naar recepten</a>' };
+  const m = /datum=(\d{4}-\d{2}-\d{2})/.exec(location.hash);
+  const gepland = m ? { datum: m[1], dag: D().weken[L.weekStartKey(D(), L.vanKey(m[1]))]?.dagen[m[1]] } : vindDagVoorRecept(id);
+  const context = gepland?.dag
+    ? `${L.DAGNAMEN[L.weekdag(L.vanKey(gepland.datum))].replace(/^./, c => c.toUpperCase())}${gepland.dag.kok ? ` · ${esc(gepland.dag.kok)} kookt` : ''}`
+    : '';
+  const f = L.factor(D(), r);
+  const pers = r.porties ? (f === 1 ? `${r.porties} pers.` : `${D().instellingen.personen} pers. (recept: ${r.porties})`) : '';
+  const meta = [L.tijdTekst(r), r.dieet.join(' / '), r.basis, pers, `Laatst: ${L.geledenTekst(L.laatstGegeten(D(), id))}`].filter(Boolean);
+  const voorraadLabel = i => {
+    const v = L.voorraadItem(D(), i.naam, i.eenheid);
+    if (!v) return i.voorraadkast ? 'uit de kast' : '';
+    return i.hoeveelheid && v.hoeveelheid < i.hoeveelheid ? `${L.getal(v.hoeveelheid)} op voorraad` : 'op voorraad';
+  };
+  const ingr = r.ingredienten.length
+    ? r.ingredienten.map(i => L.geschaald(i, f)).map(i => `<div class="ingr"><span class="hv">${esc(L.hoeveelheidTekst(i))}</span>
+        <span class="nm">${esc(i.naam.replace(/^./, c => c.toUpperCase()))}${i.toelichting ? `<span class="klein" style="display:block;color:var(--zacht);font-size:14px">${esc(i.toelichting)}</span>` : ''}</span>
+        <span class="vr">${esc(voorraadLabel(i))}</span></div>`).join('')
+    : '<p class="hint">Nog geen ingrediënten. Die vullen we aan in de receptendatabase.</p>';
+  const stappen = r.stappen.length ? `<ol class="stappen">${r.stappen.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : '<p class="hint">Nog geen bereiding.</p>';
+  const varianten = r.varianten.length ? `<div class="notitie"><strong>Varianten</strong><ul>${r.varianten.map(v => `<li>${esc(v.naam)}${v.toelichting ? `: ${esc(v.toelichting)}` : ''}</li>`).join('')}</ul></div>` : '';
+  const vragen = r.open_vragen.length ? `<details class="meer"><summary>Nog ${r.open_vragen.length} open ${r.open_vragen.length === 1 ? 'vraag' : 'vragen'} bij dit recept</summary><ul>${r.open_vragen.map(v => `<li>${esc(v)}</li>`).join('')}</ul></details>` : '';
+  const vandaagGekookt = D().geschiedenis.some(g => g.recept === id && g.datum === (gepland?.datum || L.vandaagKey()));
+  return {
+    html: `
+      <div class="terugrij"><a class="terug" href="javascript:history.back()" aria-label="Terug">${ICON.terug}</a></div>
+      ${context ? `<p class="context">${context}</p>` : ''}
+      <h1 class="titel">${esc(r.naam)}</h1>
+      <div class="meta">${meta.map(x => `<span>${esc(x)}</span>`).join('')}</div>
+      <div class="segment">
+        <button data-rt="ingredienten" class="${receptTab.tab === 'ingredienten' ? 'aan' : ''}">Ingrediënten</button>
+        <button data-rt="bereiding" class="${receptTab.tab === 'bereiding' ? 'aan' : ''}">Bereiding</button>
+      </div>
+      ${receptTab.tab === 'ingredienten' ? ingr : stappen + varianten}
+      <p class="sectie">Lekker en zelf maken</p>
+      <ul class="lijst">${D().instellingen.koks.map(k => {
+        const w = L.waardering(D(), id, k.naam);
+        return `<li><div class="rij" style="cursor:default"><span class="hoofd"><span class="naam">${esc(k.naam)}</span></span>
+          <button class="knop klein waard ${w.lekker ? 'aan' : ''}" data-waard="${esc(k.naam)}|lekker" aria-pressed="${!!w.lekker}" aria-label="${esc(k.naam)} vindt het lekker">${ICON.hart}</button>
+          <button class="knop klein waard ${w.kan ? 'aan' : ''}" data-waard="${esc(k.naam)}|kan" aria-pressed="${!!w.kan}" aria-label="${esc(k.naam)} kan het maken">${ICON.ster}</button></div></li>`;
+      }).join('')}</ul>
+      <p class="hint">Hartje = vind ik lekker. Ster = kan ik zelf maken. Het weekvoorstel kiest voor wie kookt liefst iets met een ster.</p>
+      ${r.nieuw ? `<p class="notitie">${L.isNieuw(D(), r)
+        ? `Nieuw recept: ${L.wieLekker(D(), id).length} van ${L.LIKES_VOOR_VAST} hartjes. Bij ${L.LIKES_VOOR_VAST} hartjes komt het op de vaste lijst.`
+        : `${L.LIKES_VOOR_VAST} hartjes: dit recept hoort nu bij de vaste recepten.`}</p>` : ''}
+      ${vragen}
+      <div class="knoprij vastonder">
+        <button class="knop smal" id="plan">Inplannen</button>
+        <button class="knop groen" id="gekookt" ${vandaagGekookt ? 'disabled' : ''}>${ICON.vink} Gekookt</button>
+      </div>`,
+    koppel() {
+      on('[data-rt]', 'click', (e, el) => { receptTab.tab = el.dataset.rt; render(); });
+      on('#gekookt', 'click', () => {
+        const datum = gepland?.datum && gepland.datum <= L.vandaagKey() ? gepland.datum : L.vandaagKey();
+        L.gekookt(D(), id, datum, gepland?.dag?.kok); opslaan(); render();
+        toast('Opgeslagen in de eetgeschiedenis. Gebruikte voorraad is afgeboekt.');
+      });
+      on('#plan', 'click', () => planSheet(id));
+      on('[data-waard]', 'click', (e, el) => { const [naam, veld] = el.dataset.waard.split('|'); L.zetWaardering(D(), id, naam, veld); opslaan(); render(); });
+    },
+  };
+}
+
+function planSheet(id) {
+  const ma = L.weekStartKey(D());
+  const weken = [ma, L.dagKey(L.plusDagen(L.vanKey(ma), 7))];
+  sheet(`<h2>Inplannen</h2>${weken.map(m => {
+    const w = L.week(D(), m);
+    return `<p class="sectie">${weekTitel(m)}</p><ul class="lijst">${Object.entries(w.dagen).map(([datum, dag]) => {
+      const r = dag.recept && L.recept(D(), dag.recept);
+      return `<li><button class="rij" data-plan="${m}|${datum}"><span class="dagcode">${L.DAGCODES[L.weekdag(L.vanKey(datum))]}</span>
+        <span class="hoofd"><span class="naam ${r ? '' : 'leeg'}">${r ? esc(r.naam) : 'leeg'}</span></span><span class="rechts">${esc(dag.kok || '')}</span></button></li>`;
+    }).join('')}</ul>`;
+  }).join('')}`, (s, sluit) => {
+    on('[data-plan]', 'click', (e, el) => {
+      const [m, datum] = el.dataset.plan.split('|');
+      L.week(D(), m).dagen[datum].recept = id; opslaan(); sluit(); toast('Ingepland.');
+    }, s);
+  });
+}
+
+const EENHEDEN = ['', 'stuk', 'teen', 'blik', 'pot', 'pak', 'zak', 'flesje', 'bos', 'g', 'kg', 'ml', 'l', 'tl', 'el', 'snuf'];
+
+// ================= BOODSCHAPPEN =================
+const bsTab = { tab: 'kopen' };
+function schermBoodschappen() {
+  const ma = huidigeWeek();
+  const w = L.week(D(), ma);
+  const lijst = L.boodschappen(D(), ma);
+  const aantalRecepten = Object.values(w.dagen).filter(d => d.recept).length;
+  const regels = bsTab.tab === 'kopen' ? lijst.teKopen : lijst.opVoorraad;
+  let groep = '';
+  const rijen = regels.map(r => {
+    const kop = r.afdeling !== groep ? `<li class="sectie" style="border:0">${esc(r.afdeling)}</li>` : '';
+    groep = r.afdeling;
+    let sub = r.recepten.join(', ');
+    if (r.opVoorraad) sub = r.voorraadkast && !r.inVoorraad ? 'Uit de kast' : 'Op voorraad';
+    else if (r.inVoorraad > 0 && r.nodig) sub = `${L.getal(r.inVoorraad)} van ${L.getal(r.nodig)} al in huis`;
+    else if (r.restje > 0) sub = `Nodig ${L.getal(r.nodig)} ${r.eenheid || ''} · ${L.getal(r.restje)} blijft over`;
+    else if (r.onbekend && !r.nodig) sub += ' · hoeveelheid onbekend';
+    const aanb = L.aanbiedingWoorden(D()).some(a => r.naam.toLowerCase().includes(a)) ? '<span class="label oranje">Aanbieding</span>' : '';
+    return `${kop}<li><div class="rij" style="cursor:default">
+      <button class="check ${r.opVoorraad ? 'aan' : ''}" data-check="${esc(r.key)}" aria-label="Op voorraad">${r.opVoorraad ? ICON.vink : ''}</button>
+      <span class="hoofd"><span class="naam ${r.opVoorraad ? 'doorgestreept' : ''}">${esc(r.naam.replace(/^./, c => c.toUpperCase()))}</span><span class="klein">${esc(sub)}</span></span>
+      ${aanb}
+      ${r.opVoorraad ? '' : `<span class="teller">
+        <button data-min="${esc(r.key)}" aria-label="Minder">${r.aantal <= 1 ? ICON.prullenbak : ICON.min}</button>
+        <span class="aantal">${r.aantal} ${esc(L.eenheidTekst(r.koopEenheid, r.aantal) || 'st')}</span>
+        <button data-plus="${esc(r.key)}" aria-label="Meer">${ICON.plus}</button></span>`}
+    </div></li>`;
+  }).join('');
+  const totaal = bsTab.tab === 'kopen' && lijst.teKopen.length ? `<div class="totaal"><span>Totale kosten<br><span class="klein">${lijst.zonderPrijs ? `${lijst.zonderPrijs} artikelen nog zonder prijs` : 'alle prijzen bekend'}</span></span><span>${L.euro(lijst.totaal)}</span></div>` : '';
+  return {
+    html: `
+      <header class="kop"><div><p class="boven">${esc(L.weekLabel(ma).split(' · ')[0])} · ${aantalRecepten} recepten</p><h1>Boodschappen</h1></div>
+        <div class="kop-knoppen"><a class="rond" href="#/lijsten" aria-label="Opgeslagen lijsten">${ICON.label}</a></div></header>
+      <div class="segment">
+        <button data-bt="kopen" class="${bsTab.tab === 'kopen' ? 'aan' : ''}">Te kopen · ${lijst.teKopen.length}</button>
+        <button data-bt="voorraad" class="${bsTab.tab === 'voorraad' ? 'aan' : ''}">Op voorraad · ${lijst.opVoorraad.length}</button>
+      </div>
+      <p class="hint">${bsTab.tab === 'kopen' ? 'Vink aan wat je al in huis hebt. De rest gaat naar Albert Heijn.' : 'Dit hoef je niet te kopen. Vink uit als het toch op is.'}</p>
+      ${aantalRecepten ? '' : `<p class="leeg-staat">Nog geen recepten gepland voor deze week.<br><a href="#/week?week=${ma}">Naar het weekmenu</a></p>`}
+      <ul class="lijst">${rijen}</ul>
+      ${totaal}
+      ${bsTab.tab === 'kopen' ? `<button class="knop klein" id="extra" style="margin-top:12px">${ICON.plus} Iets extra (melk, brood …)</button>` : ''}
+      ${lijst.teKopen.length ? `<div class="vastonder">
+        <button class="knop groen breed" id="ah">${ICON.pijl} Kopieer weeklijst · ${lijst.teKopen.length}</button>
+        <button class="knop breed" id="gekocht" style="margin-top:8px;background:#fff">Boodschappen zijn binnen</button>
+      </div>` : ''}`,
+    koppel() {
+      const adj = key => (w.aanpassingen[key] ||= {});
+      const regel = key => lijst.regels.find(r => r.key === key);
+      on('[data-bt]', 'click', (e, el) => { bsTab.tab = el.dataset.bt; render(); });
+      on('[data-check]', 'click', (e, el) => { const r = regel(el.dataset.check); adj(r.key).opVoorraad = !r.opVoorraad; opslaan(); render(); });
+      on('[data-plus]', 'click', (e, el) => {
+        const r = regel(el.dataset.plus);
+        if (r.extra) w.extra.find(x => x.id === r.id).aantal++; else adj(r.key).delta = (adj(r.key).delta || 0) + 1;
+        opslaan(); render();
+      });
+      on('[data-min]', 'click', (e, el) => {
+        const r = regel(el.dataset.min);
+        if (r.aantal <= 1) {
+          if (r.extra) w.extra = w.extra.filter(x => x.id !== r.id); else adj(r.key).weg = true;
+          toast(`${r.naam} verwijderd van de lijst.`);
+        } else if (r.extra) w.extra.find(x => x.id === r.id).aantal--;
+        else adj(r.key).delta = (adj(r.key).delta || 0) - 1;
+        opslaan(); render();
+      });
+      on('#extra', 'click', () => extraSheet(w));
+      on('#ah', 'click', async () => {
+        const ok = await kopieer(L.ahTekst(lijst, L.weekLabel(ma)));
+        toast(ok ? 'Gekopieerd. Plak het in Claude Desktop, project "Boodschappen AH".' : 'Kopiëren lukte niet.');
+      });
+      on('#gekocht', 'click', () => {
+        if (!confirm('Alles op de lijst is gekocht? Dan zet ik het in de voorraad en bewaar ik de lijst.')) return;
+        const n = L.gekocht(D(), ma); opslaan(); render();
+        toast(`${n} artikelen in de voorraad gezet. Lijst bewaard.`);
+      });
+    },
+  };
+}
+
+function extraSheet(w) {
+  sheet(`<h2>Iets extra</h2>
+    <label class="veld"><span>Wat</span><input id="xNaam" placeholder="melk"></label>
+    <div class="twee"><label class="veld"><span>Aantal</span><input id="xAantal" inputmode="numeric" value="1"></label>
+    <label class="veld"><span>Prijs per stuk (€, mag leeg)</span><input id="xPrijs" inputmode="decimal"></label></div>
+    <button class="knop zwart breed" id="ok">Toevoegen</button>`, (s, sluit) => {
+    on('#ok', 'click', () => {
+      const naam = s.querySelector('#xNaam').value.trim();
+      if (!naam) return;
+      const prijs = parseFloat(s.querySelector('#xPrijs').value.replace(',', '.'));
+      w.extra.push({ id: crypto.randomUUID(), naam, aantal: Math.max(1, parseInt(s.querySelector('#xAantal').value) || 1), eenheid: 'st', prijs: Number.isFinite(prijs) ? prijs : null });
+      opslaan(); sluit();
+    }, s);
+  });
+}
+
+function schermLijsten() {
+  const l = D().lijsten;
+  return {
+    html: `<div class="terugrij"><a class="terug" href="#/boodschappen" aria-label="Terug">${ICON.terug}</a></div>
+      <h1 class="titel" style="font-size:28px">Opgeslagen lijsten</h1>
+      ${l.length ? l.map(x => `<details class="meer"><summary><strong>${esc(L.weekLabel(x.week))}</strong></summary>
+        <p class="hint">Binnen op ${L.kortDatum(L.vanKey(x.datum))} · ${x.regels.length} artikelen${x.totaal ? ` · ${L.euro(x.totaal)}` : ''}</p>
+        <ul class="lijst">${x.regels.map(r => `<li class="rij" style="min-height:40px;padding:8px 0"><span class="hoofd">${esc(r.naam)}</span><span class="rechts">${r.aantal} ${esc(r.eenheid)}</span></li>`).join('')}</ul></details>`).join('')
+        : '<p class="leeg-staat">Nog geen lijsten. Tik bij Boodschappen op "Boodschappen zijn binnen" om een lijst te bewaren.</p>'}`,
+  };
+}
+
+// ================= VOORRAAD =================
+function schermVoorraad() {
+  const per = {};
+  for (const v of D().voorraad) (per[v.plek] ||= []).push(v);
+  const secties = Object.entries(L.PLEKKEN).filter(([k]) => per[k]?.length).map(([k, naam]) => `
+    <p class="sectie">${naam}</p>
+    <ul class="lijst">${per[k].sort((a, b) => a.naam.localeCompare(b.naam, 'nl')).map(v => `
+      <li><div class="rij" style="cursor:default">
+        <button class="hoofd" data-bewerk="${v.id}" style="background:none;border:0;text-align:left;padding:0;cursor:pointer"><span class="naam">${esc(v.naam.replace(/^./, c => c.toUpperCase()))}</span></button>
+        <span class="teller">
+          <button data-vmin="${v.id}" aria-label="Minder">${ICON.min}</button>
+          <span class="aantal">${L.getal(v.hoeveelheid)} ${esc(L.eenheidTekst(v.eenheid, v.hoeveelheid))}</span>
+          <button data-vplus="${v.id}" aria-label="Meer">${ICON.plus}</button>
+        </span></div></li>`).join('')}</ul>`).join('');
+  return {
+    html: `<header class="kop"><div><p class="boven">${D().voorraad.length} artikelen</p><h1>Voorraad</h1></div>
+      <div class="kop-knoppen"><button class="rond" id="nieuw" aria-label="Toevoegen">${ICON.plus}</button></div></header>
+      <p class="hint">Wat ligt er in de vriezer, de koelkast, de kasten en de garage? De boodschappenlijst houdt hier rekening mee. Na "Gekookt" wordt het gebruikte afgeboekt. Loop de lijst af en toe na en tik op "Klopt".</p>
+      <div class="knoprij"><button class="knop" id="gecontroleerd">${ICON.vink} Klopt</button><span class="hint" style="align-self:center">${D().voorraadGecontroleerd ? `Nagekeken ${L.geledenTekst(D().voorraadGecontroleerd)}` : 'Nog niet nagekeken'}</span></div>
+      ${secties || '<p class="leeg-staat">De voorraad is nog leeg.</p>'}`,
+    koppel() {
+      const vind = id => D().voorraad.find(v => v.id === id);
+      const stap = v => (v.hoeveelheid % 1 !== 0 || ['g', 'ml'].includes(v.eenheid)) ? (['g', 'ml'].includes(v.eenheid) ? 50 : 0.5) : 1;
+      on('[data-vplus]', 'click', (e, el) => { const v = vind(el.dataset.vplus); v.hoeveelheid = Math.round((v.hoeveelheid + stap(v)) * 100) / 100; opslaan(); render(); });
+      on('[data-vmin]', 'click', (e, el) => {
+        const v = vind(el.dataset.vmin); v.hoeveelheid = Math.round((v.hoeveelheid - stap(v)) * 100) / 100;
+        if (v.hoeveelheid <= 0) { D().voorraad = D().voorraad.filter(x => x !== v); toast(`${v.naam} is op.`); }
+        opslaan(); render();
+      });
+      on('[data-bewerk]', 'click', (e, el) => voorraadSheet(vind(el.dataset.bewerk)));
+      on('#nieuw', 'click', () => voorraadSheet(null));
+      on('#gecontroleerd', 'click', () => { D().voorraadGecontroleerd = L.vandaagKey(); opslaan(); render(); toast('Voorraad nagekeken.'); });
+    },
+  };
+}
+
+function voorraadSheet(v) {
+  const x = v || { naam: '', hoeveelheid: 1, eenheid: null, plek: 'vriezer' };
+  sheet(`<h2>${v ? 'Voorraad aanpassen' : 'Voorraad toevoegen'}</h2>
+    <label class="veld"><span>Wat</span><input id="vNaam" value="${esc(x.naam)}" placeholder="spinazie"></label>
+    <div class="twee">
+      <label class="veld"><span>Hoeveel</span><input id="vHv" inputmode="decimal" value="${esc(L.getal(x.hoeveelheid))}"></label>
+      <label class="veld"><span>Eenheid</span><select id="vEh">${EENHEDEN.map(e => `<option value="${e}" ${(x.eenheid || '') === e ? 'selected' : ''}>${e || '–'}</option>`).join('')}</select></label>
+    </div>
+    <label class="veld"><span>Waar</span><select id="vPlek">${Object.entries(L.PLEKKEN).map(([k, n]) => `<option value="${k}" ${x.plek === k ? 'selected' : ''}>${n}</option>`).join('')}</select></label>
+    <p class="hint">Tip: gebruik dezelfde naam en eenheid als in het recept (bijv. "bonen" en "blik"), dan rekent de boodschappenlijst ermee.</p>
+    <div class="knoprij">${v ? '<button class="knop smal rood" id="weg">Weg</button>' : ''}<button class="knop zwart" id="ok">Bewaren</button></div>`, (s, sluit) => {
+    on('#ok', 'click', () => {
+      const naam = s.querySelector('#vNaam').value.trim();
+      const hv = parseFloat(s.querySelector('#vHv').value.replace(',', '.'));
+      if (!naam || !Number.isFinite(hv)) return toast('Vul een naam en hoeveelheid in.');
+      const nieuw = { naam, hoeveelheid: hv, eenheid: s.querySelector('#vEh').value || null, plek: s.querySelector('#vPlek').value };
+      if (v) Object.assign(v, nieuw); else D().voorraad.push({ id: crypto.randomUUID(), ...nieuw });
+      opslaan(); sluit();
+    }, s);
+    on('#weg', 'click', () => { D().voorraad = D().voorraad.filter(y => y !== v); opslaan(); sluit(); }, s);
+  });
+}
+
+// ================= INSTELLINGEN =================
+function schermInstellingen() {
+  const i = D().instellingen;
+  const koks = i.koks.filter(k => k.kookt !== false).map(k => k.naam);
+  const recepten = [...D().recepten].sort((a, b) => a.naam.localeCompare(b.naam, 'nl'));
+  const kokSelect = (n, waarde, leeg) => `<select class="invoer" data-dagveld="${n}">${leeg ? `<option value="">${leeg}</option>` : ''}${koks.map(k => `<option ${waarde === k ? 'selected' : ''}>${esc(k)}</option>`).join('')}</select>`;
+  return {
+    html: `<div class="terugrij"><a class="terug" href="#/week" aria-label="Terug">${ICON.terug}</a></div>
+      <h1 class="titel" style="font-size:28px">Instellingen</h1>
+      <p class="sectie">Gezin</p>
+      <ul class="lijst">${i.koks.map((k, n) => `<li><div class="rij" style="cursor:default"><span class="hoofd"><span class="naam">${esc(k.naam)}</span></span>
+        <label class="vink" style="padding:0"><input type="checkbox" data-kookt="${n}" ${k.kookt !== false ? 'checked' : ''}> kookt</label>
+        <label class="vink" style="padding:0 0 0 8px"><input type="checkbox" data-kind="${n}" ${k.kind ? 'checked' : ''}> kind</label>
+        <button class="knop klein" data-kokweg="${n}" aria-label="Verwijder ${esc(k.naam)}">${ICON.prullenbak}</button></div></li>`).join('')}</ul>
+      <div class="knoprij"><input class="invoer" id="kokNaam" placeholder="Naam toevoegen"><button class="knop smal" id="kokPlus">${ICON.plus}</button></div>
+      <p class="hint">"Kookt" uit: staat niet in de lijst met koks, maar kan wel hartjes en sterren geven. "Kind": het voorstel kiest dan liever recepten met een ster van dat kind.</p>
+
+      <p class="sectie">Vaste week</p>
+      <p class="hint">Dit wordt ingevuld bij elke nieuwe week. Per week kun je het daarna nog aanpassen.</p>
+      ${[1, 2, 3, 4, 5, 6, 7].map(d => `<div style="padding:10px 0;border-bottom:1px solid var(--lijn)">
+        <strong style="display:block;margin-bottom:6px">${L.DAGNAMEN[d].replace(/^./, c => c.toUpperCase())}</strong>
+        <div class="twee">${kokSelect(`${d}|kok`, i.dagen[d].kok)}${kokSelect(`${d}|vrij`, i.dagen[d].vrij, 'niemand vrij')}</div>
+        <div class="twee"><label class="vink"><input type="checkbox" data-voetbal="${d}" ${i.dagen[d].voetbal ? 'checked' : ''}> Voetbal</label>
+        <input class="invoer" data-voetbaltekst="${d}" placeholder="wie en hoe laat" value="${esc(i.dagen[d].voetbalTekst || '')}"></div>
+        <select class="invoer" data-vast="${d}"><option value="">Geen vast gerecht</option>${recepten.map(r => `<option value="${esc(r.id)}" ${i.dagen[d].vastRecept === r.id ? 'selected' : ''}>Vast: ${esc(r.naam)}</option>`).join('')}</select></div>`).join('')}
+      <label class="veld"><span>De week begint op (bezorgdag)</span><select id="weekStart">${[1, 2, 3, 4, 5, 6, 7].map(d => `<option value="${d}" ${Number(i.weekStart) === d ? 'selected' : ''}>${L.DAGNAMEN[d]}</option>`).join('')}</select></label>
+
+      <p class="sectie">Weekmix</p>
+      <p class="hint">Zoveel avonden per soort gerecht kiest het voorstel.</p>
+      <div class="twee drie">${[['vis', 'Vis'], ['vlees', 'Vlees'], ['vegetarisch', 'Vega']].map(([k, n]) => `<label class="veld"><span>${n}</span><input type="number" min="0" max="7" data-mix="${k}" value="${esc(i.weekMix?.[k] ?? 0)}"></label>`).join('')}</div>
+
+      <p class="sectie">Vaste boodschappen</p>
+      <p class="hint">Komen vanzelf op de boodschappenlijst, bijvoorbeeld melk elke week en wc-papier elke 4 weken.</p>
+      <ul class="lijst">${i.vasteBoodschappen.map((v, n) => `<li><div class="rij" style="cursor:default"><span class="hoofd"><span class="naam">${esc(v.aantal)}× ${esc(v.naam)}</span>
+        <span class="klein">${v.elkeWeken > 1 ? `elke ${esc(v.elkeWeken)} weken` : 'elke week'}${v.productnummer ? ` · ${esc(v.productnummer)}` : ''}</span></span>
+        <button class="knop klein" data-vastweg="${n}" aria-label="Verwijder ${esc(v.naam)}">${ICON.prullenbak}</button></div></li>`).join('') || '<li class="leeg-staat">Nog geen vaste boodschappen.</li>'}</ul>
+      <div class="twee"><input class="invoer" id="vbNaam" placeholder="melk"><input class="invoer" id="vbAantal" inputmode="numeric" placeholder="aantal (1)"></div>
+      <div class="twee"><input class="invoer" id="vbWeken" inputmode="numeric" placeholder="elke … weken (1)"><input class="invoer" id="vbNr" placeholder="AH-productnummer (mag leeg)"></div>
+      <div class="knoprij"><button class="knop smal" id="vbPlus">${ICON.plus} Toevoegen</button></div>
+
+      <p class="sectie">Aantal personen</p>
+      <label class="veld"><span>Voor hoeveel personen koken we? Recepten worden hierop omgerekend.</span><input type="number" min="1" id="personen" value="${esc(i.personen)}"></label>
+      <p class="sectie">Etenstijd</p>
+      <div class="twee"><label class="veld"><span>Normaal</span><input type="time" id="tijd" value="${esc(i.etenstijd)}"></label>
+        <label class="veld"><span>Minuten eten voor het voetbal</span><input type="number" min="0" id="eetDuur" value="${esc(i.eetDuur)}"></label></div>
+      <label class="veld"><span>Bij voetbal zonder tijd</span><input type="time" id="tijdV" value="${esc(i.etenstijdVoetbal)}"></label>
+      <p class="hint">Bij voetbal eten we ${esc(i.eetDuur)} minuten voor de tijd uit de vaste week (bijv. "Maup 17:30" wordt eten om 17:00).</p>
+
+      <p class="sectie">Gegevens</p>
+      <p class="hint">Deze versie bewaart alles op dit apparaat, in deze browser. Maak af en toe een back-up. Met een back-up kun je de gegevens ook naar een ander apparaat overzetten.</p>
+      <div class="knoprij"><button class="knop" id="export">Back-up maken</button>
+        <label class="knop" style="cursor:pointer">Back-up terugzetten<input type="file" id="import" accept="application/json,.json" hidden></label></div>
+      <div class="knoprij"><button class="knop rood" id="wis">Alles wissen</button></div>
+      <p class="hint">Recepten uit data/recepten.json, bijgewerkt ${esc(D().bronBijgewerkt || 'onbekend')}.</p>`,
+    koppel() {
+      on('[data-kookt]', 'change', (e, el) => { i.koks[+el.dataset.kookt].kookt = el.checked; opslaan(); render(); });
+      on('[data-kind]', 'change', (e, el) => { i.koks[+el.dataset.kind].kind = el.checked; opslaan(); });
+      on('[data-kokweg]', 'click', (e, el) => { const k = i.koks[+el.dataset.kokweg]; if (confirm(`${k.naam} verwijderen?`)) { i.koks.splice(+el.dataset.kokweg, 1); opslaan(); render(); } });
+      on('#kokPlus', 'click', () => { const n = app.querySelector('#kokNaam').value.trim(); if (n) { i.koks.push({ naam: n, kind: false }); opslaan(); render(); } });
+      on('[data-dagveld]', 'change', (e, el) => { const [d, veld] = el.dataset.dagveld.split('|'); i.dagen[d][veld] = el.value || null; opslaan(); });
+      on('[data-voetbal]', 'change', (e, el) => { i.dagen[el.dataset.voetbal].voetbal = el.checked; opslaan(); });
+      on('[data-voetbaltekst]', 'change', (e, el) => { i.dagen[el.dataset.voetbaltekst].voetbalTekst = el.value.trim(); opslaan(); });
+      on('#personen', 'change', (e, el) => { i.personen = Math.max(1, parseInt(el.value) || 1); opslaan(); });
+      on('#tijd', 'change', (e, el) => { i.etenstijd = el.value; opslaan(); });
+      on('#tijdV', 'change', (e, el) => { i.etenstijdVoetbal = el.value; opslaan(); });
+      on('#eetDuur', 'change', (e, el) => { i.eetDuur = Math.max(0, parseInt(el.value) || 0); opslaan(); render(); });
+      on('[data-vast]', 'change', (e, el) => { i.dagen[el.dataset.vast].vastRecept = el.value || null; opslaan(); });
+      on('#weekStart', 'change', (e, el) => { i.weekStart = Number(el.value); opslaan(); });
+      on('[data-mix]', 'change', (e, el) => { (i.weekMix ||= {})[el.dataset.mix] = Math.max(0, parseInt(el.value) || 0); opslaan(); });
+      on('[data-vastweg]', 'click', (e, el) => { i.vasteBoodschappen.splice(+el.dataset.vastweg, 1); opslaan(); render(); });
+      on('#vbPlus', 'click', () => {
+        const waarde = id => app.querySelector(id).value.trim();
+        if (!waarde('#vbNaam')) return toast('Vul in wat je vast koopt.');
+        i.vasteBoodschappen.push({ id: crypto.randomUUID(), naam: waarde('#vbNaam'), aantal: Math.max(1, parseInt(waarde('#vbAantal')) || 1), eenheid: 'st',
+          elkeWeken: Math.max(1, parseInt(waarde('#vbWeken')) || 1), productnummer: waarde('#vbNr') || null, prijs: null, laatst: null });
+        opslaan(); render();
+      });
+      on('#export', 'click', () => download(`recepten-planner-backup-${L.vandaagKey()}.json`, exporteer()));
+      on('#import', 'change', async (e, el) => {
+        const f = el.files[0]; if (!f) return;
+        try { importeer(await f.text()); toast('Back-up teruggezet.'); render(); } catch (err) { toast(err.message || 'Dit bestand kan ik niet lezen.'); }
+      });
+      on('#wis', 'click', async () => { if (confirm('Echt alles wissen? Maak eerst een back-up.')) { await wisAlles(); toast('Alles gewist.'); render(); } });
+    },
+  };
+}
+
+// ================= ROUTER =================
+const ROUTES = [
+  [/^#\/week/, schermWeek, 'week'],
+  [/^#\/recepten/, schermRecepten, 'recepten'],
+  [/^#\/recept\/([^?]+)/, m => schermRecept(decodeURIComponent(m[1])), 'recepten'],
+  [/^#\/boodschappen/, schermBoodschappen, 'boodschappen'],
+  [/^#\/lijsten/, schermLijsten, 'boodschappen'],
+  [/^#\/voorraad/, schermVoorraad, 'voorraad'],
+  [/^#\/instellingen/, schermInstellingen, 'week'],
+];
+
+let vorigeHash = null;
+function render() {
+  const hash = location.hash || '#/week';
+  const route = ROUTES.find(([re]) => re.test(hash)) || ROUTES[0];
+  const scherm = route[1](route[0].exec(hash));
+  const scroll = hash === vorigeHash ? window.scrollY : 0;
+  app.innerHTML = scherm.html;
+  scherm.koppel?.();
+  window.scrollTo(0, scroll);
+  vorigeHash = hash;
+  document.querySelectorAll('.tabbar a').forEach(a => a.classList.toggle('aan', a.dataset.tab === route[2]));
+}
+
+window.addEventListener('hashchange', render);
+laad().then(render).catch(err => {
+  app.innerHTML = `<p class="leeg-staat">Er ging iets mis bij het laden: ${esc(err.message)}</p>`;
+});

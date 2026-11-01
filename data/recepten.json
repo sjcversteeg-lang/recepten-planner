@@ -1,0 +1,3383 @@
+{
+  "schema_versie": 2,
+  "bijgewerkt": "2026-10-30",
+  "codelijsten": {
+    "dieet": {
+      "Ve": "vegetarisch",
+      "Vl": "vlees",
+      "Vi": "vis"
+    },
+    "basis": {
+      "P": "pasta",
+      "A": "aardappel",
+      "R": "rijst",
+      "T": "taart",
+      "B": "brood"
+    },
+    "eenheid": [
+      "stuk",
+      "teen",
+      "blik",
+      "pot",
+      "pak",
+      "flesje",
+      "g",
+      "kg",
+      "ml",
+      "l",
+      "tl",
+      "el",
+      "snuf"
+    ],
+    "status": {
+      "alleen_naam": "alleen de naam en codes bekend",
+      "concept": "recept ingevoerd, maar nog open vragen",
+      "compleet": "alles bekend: porties, ingrediënten met hoeveelheden, stappen, tijd"
+    }
+  },
+  "recepten": [
+    {
+      "id": "stamppot-andijvie",
+      "naam": "Stamppot andijvie",
+      "dieet": [
+        "vegetarisch",
+        "vlees"
+      ],
+      "basis": "aardappel",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [
+        {
+          "naam": "met kaas",
+          "dieet": "vegetarisch"
+        },
+        {
+          "naam": "met spekjes",
+          "dieet": "vlees"
+        }
+      ],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "dieet 'vlees' voor variant met spekjes (stond geen code bij)"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "macaroni",
+      "naam": "Macaroni",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "tagliatelle-met-zalm-courgette-en-salie",
+      "naam": "Tagliatelle met zalm, courgette en salie",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "moussaka",
+      "naam": "Moussaka",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "aardappel",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "spaghetti-met-spinazie-feta-en-pijnboompitten",
+      "naam": "Spaghetti met spinazie, feta en pijnboompitten",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "bloemkool-met-balgehakt-en-aardappel",
+      "naam": "Bloemkool met balgehakt en aardappel",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "aardappel",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "chili-con-carne",
+      "naam": "Chili con carne",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "nasi-met-surinaamse-paksoi-en-sate",
+      "naam": "Nasi met Surinaamse paksoi en saté",
+      "dieet": [
+        "vegetarisch",
+        "vlees"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Code Ve/Vl: wat is het verschil tussen de vega- en vleesversie (saté van kip of tofu?)"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "bami",
+      "naam": "Bami",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Bami staat als pasta (P). Wil je noedels onder pasta laten vallen of een aparte basis 'noedels'?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "curry",
+      "naam": "Curry",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "'Curry' is erg algemeen. Welke curry is dit (met welk vlees)? Er zijn ook Bloemkoolcurry met kip en Kip madras."
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "vegacurry-met-linzen",
+      "naam": "Vegacurry met linzen",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "pasta-bloemkool-gorgonzola",
+      "naam": "Pasta bloemkool gorgonzola",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "spaghetti-bolognese",
+      "naam": "Spaghetti bolognese",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "hutspot-met-chorizo",
+      "naam": "Hutspot met chorizo",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "aardappel",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Code was lastig leesbaar (leek 'A/l'); gelezen als Vl. Klopt dat?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "zalm-met-kruidenkorst-rijst-en-sambal-balado",
+      "naam": "Zalm met kruidenkorst, rijst en sambal balado",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Klopt 'sambal balado'? Op papier staat 'sambalba…'."
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "bloemkoolcurry-met-kip-en-kokosmelk",
+      "naam": "Bloemkoolcurry met kip en kokosmelk",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "witlofschotel-met-honing-tijmsaus-en-brie",
+      "naam": "Witlofschotel met honing-tijmsaus en brie",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "aardappel",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "makreel-met-boemboe-en-groenten",
+      "naam": "Makreel met boemboe en groenten",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "preitaart",
+      "naam": "Preitaart",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "taart",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Is dit hetzelfde recept als 'Hartige taart met prei, tomaat en mozzarella' (lijst 2)? Dan voeg ik ze samen."
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "broccoli-met-pasta-en-pesto",
+      "naam": "Broccoli met pasta en pesto",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "couscousschotel-uit-de-oven",
+      "naam": "Couscousschotel uit de oven",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Couscous staat als pasta (P). Ik heb de andere couscousgerechten daarom ook als pasta gezet. Liever een aparte basis 'couscous'?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "pad-thai-met-tofu",
+      "naam": "Pad thai met tofu",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "broccoli-met-pasta-en-kaassaus",
+      "naam": "Broccoli met pasta en kaassaus",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "sperziebonen-zalmpasta",
+      "naam": "Sperziebonen-zalmpasta",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "hartige-taart-met-snijbiet",
+      "naam": "Hartige taart met snijbiet",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "taart",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "nasi-met-chinese-kool-kerrie-en-timut-peper",
+      "naam": "Nasi met Chinese kool, kerrie en Timut-peper",
+      "dieet": [],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'rijst' uit 'nasi'",
+        "'Timut' gelezen als Timut-peper"
+      ],
+      "open_vragen": [
+        "Klopt 'Timut-peper'?",
+        "Geen dieetcode: vegetarisch, of zit er vlees/vis in?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "oosterse-witlof",
+      "naam": "Oosterse witlof",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1; recept uit Notion: ekoplaza.nl (Gebakken Oosterse witlof, uit Lekker Weten Herfst)",
+      "porties": null,
+      "bereidingstijd_min": 10,
+      "bereidingstijd_max": 10,
+      "ingredienten": [
+        {
+          "naam": "witlof",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "stronkjes",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rode peper",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "limoensap",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "sojasaus",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "sesamolie",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zonnebloemolie",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "honing",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "sesamzaad",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": "geroosterd",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "peper en zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Snijd elk witlofstronkje in 6 parten. Haal de zaadjes uit de rode peper en snipper hem.",
+        "Verhit de zonnebloemolie, pers de knoflook erboven uit en roerbak peper en witlof 1 minuut op hoog vuur.",
+        "Voeg sesamolie, honing, sojasaus en limoensap toe en roerbak nog 2 à 3 minuten. Breng op smaak met zout en peper.",
+        "Bestrooi met sesamzaad. Serveer met rijst."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "tijd ±10 min geschat uit de stappen"
+      ],
+      "open_vragen": [
+        "Voor hoeveel personen is dit? Het recept noemt geen aantal; 4 stronkjes lijkt een bijgerecht voor 2.",
+        "Hoeveel rijst eet je erbij, en gaat er nog iets bij (tofu, ei, kip)?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "kip-madras-met-bloemkool-en-doperwten",
+      "naam": "Kip madras met bloemkool en doperwten",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "foe-yong-hai",
+      "naam": "Foe yong hai",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Geen basis: eet je dit met rijst?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "couscous-met-koolvisfilet",
+      "naam": "Couscous met koolvisfilet",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 1",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'pasta', net als de andere couscousschotel"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "macaronitaart",
+      "naam": "Macaronitaart",
+      "dieet": [],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Geen dieetcode: met gehakt/ham (vlees) of vegetarisch?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "hartige-taart-met-prei-tomaat-en-mozzarella",
+      "naam": "Hartige taart met prei, tomaat en mozzarella",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "taart",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'taart' uit de naam"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "vegetarische-bonenschotel",
+      "naam": "Vegetarische bonenschotel",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "receptenboekje",
+      "porties": null,
+      "bereidingstijd_min": 60,
+      "bereidingstijd_max": 90,
+      "ingredienten": [
+        {
+          "naam": "prei",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ui",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "groot",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "paprika",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "champignons",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "hoeveelheid onbekend",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "wortel",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rode peper",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "maïs",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "blik",
+          "toelichting": "klein blikje",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "bonen",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "blik",
+          "toelichting": "soort bonen onbekend",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "tomatenpuree",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "blik",
+          "toelichting": "groot blikje",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "bier",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": 2,
+          "eenheid": "flesje",
+          "toelichting": "afhankelijk van gewenste sausdikte",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "geraspte kaas",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "hoeveelheid onbekend",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "gedroogde oregano",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "eenheid onbekend (tl of el?)",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "komijn",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "eenheid onbekend",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "gerookt paprikapoeder",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "eenheid onbekend",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "ongezoete cacao",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "eenheid onbekend",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "groentebouillon",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "hoeveelheid onbekend",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "olie",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "om in te bakken; niet genoemd op het recept, afgeleid uit stap 1",
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Groenten snijden en fruiten.",
+        "Tomatenpuree meebakken.",
+        "Kruiden en cacao toevoegen.",
+        "Bier toevoegen en de alcohol laten verdampen.",
+        "Bonen en maïs toevoegen.",
+        "Ongeveer 20 minuten laten koken.",
+        "Kaas erop laten smelten in de pan."
+      ],
+      "varianten": [
+        {
+          "naam": "ovenversie met nacho's",
+          "dieet": "vegetarisch",
+          "toelichting": "In plaats van stap 7: laagje kaas, dan nacho's, dan weer kaas, en ca. 15 minuten in de oven."
+        }
+      ],
+      "status": "concept",
+      "afgeleid": [
+        "naam: '(boekje)' uit de naam gehaald en als bron vastgelegd",
+        "tijd '1u-1,5u' vastgelegd als 60-90 minuten",
+        "'4 knoflook' gelezen als 4 teentjes"
+      ],
+      "open_vragen": [
+        "Geen basis: eet je dit met rijst, tortilla's, nacho's of brood?",
+        "Voor hoeveel personen is dit recept?",
+        "Welke eenheid hoort bij de kruiden (4 oregano, 1 komijn, 1 paprikapoeder, 2 cacao): theelepels of eetlepels?",
+        "Welke bonen gebruik je (kidneybonen, zwarte bonen, bruine bonen, mix)? En hoe groot zijn de blikken?",
+        "Hoeveel champignons en hoeveel geraspte kaas?",
+        "Hoe groot zijn 'klein blikje maïs' en 'groot blikje tomatenpuree' in grammen? Dat is nodig om bij AH het juiste product te kiezen.",
+        "Groentebouillon staat bij de ingrediënten maar niet in de stappen. Hoeveel gebruik je en wanneer gaat het erin?",
+        "Welk bier (bijv. donker bier of pils)? Of mag dit ook alcoholvrij?",
+        "Ik heb olie om in te bakken toegevoegd. Klopt dat?",
+        "Wat bedoel je met 'oven ± 15 min': op welke temperatuur?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "zuurkoolschotel-met-broodkruim",
+      "naam": "Zuurkoolschotel met broodkruim",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": null,
+      "bron": "Herman",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "'Herman' uit de naam gehaald en als bron vastgelegd"
+      ],
+      "open_vragen": [
+        "Geen basis: met aardappelpuree?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "pasta-puttanesca",
+      "naam": "Pasta puttanesca",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 2; recept uit Notion: smaakmenutie.nl/spaghetti-alla-puttanesca",
+      "porties": 2,
+      "bereidingstijd_min": 25,
+      "bereidingstijd_max": 25,
+      "ingredienten": [
+        {
+          "naam": "spaghetti",
+          "hoeveelheid": 180,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "tomatenblokjes",
+          "hoeveelheid": 400,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "blik",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "zwarte olijven",
+          "hoeveelheid": 70,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ansjovis",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "blik",
+          "toelichting": "ca. 45 g",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "sjalot",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kappertjes",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "Parmezaanse kaas",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "naar smaak",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "peterselie",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "optioneel",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "chilivlokken",
+          "hoeveelheid": 0.5,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "goede scheut",
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Kook de spaghetti beetgaar (11-12 minuten).",
+        "Hak de ansjovis fijn en bak in olijfolie op middelhoog vuur. Fruit sjalot en knoflook kort mee.",
+        "Voeg de chilivlokken toe.",
+        "Snijd de olijven in plakjes en bak ze met de kappertjes kort mee.",
+        "Voeg de tomatenblokjes toe en laat pruttelen tot de spaghetti klaar is.",
+        "Meng de spaghetti door de saus en serveer met Parmezaanse kaas en eventueel peterselie."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "basis 'pasta' uit de naam"
+      ],
+      "open_vragen": [
+        "Hoeveel Parmezaanse kaas gebruik je ongeveer?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "noodles-met-broccoli-en-cashewnoten",
+      "naam": "Noodles met broccoli en cashewnoten",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'pasta' (noedels, net als bami en pad thai)"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "snijbonenkorma-met-gekookt-ei",
+      "naam": "Snijbonenkorma met gekookt ei",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2; recept uit Notion: dehippevegetarier.nl (vegan Indiase korma met snijbonen)",
+      "porties": 4,
+      "bereidingstijd_min": 30,
+      "bereidingstijd_max": 30,
+      "ingredienten": [
+        {
+          "naam": "snijbonen",
+          "hoeveelheid": 300,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "gesneden",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "doperwten",
+          "hoeveelheid": 200,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "tomaten",
+          "hoeveelheid": 150,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kokosmelk",
+          "hoeveelheid": 400,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "vegetarische kipstukjes",
+          "hoeveelheid": 160,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "sjalot",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "gember",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "cm, vers",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "tomatenpuree",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "santen",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": "kokosroom",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kurkuma",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kardemompoeder",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kaneelpoeder",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "komijnpoeder",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "cayennepeper",
+          "hoeveelheid": 0.5,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zonnebloemolie",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Maak de kormapasta: maal tomatenpuree, sjalot, santen, knoflook, gember, specerijen en 1 tl water fijn tot een pasta (of gebruik 2 el kant-en-klare kormapasta).",
+        "Verhit 2 el olie in een wok en bak 2 el van de kormapasta kort aan (niet laten aanbakken).",
+        "Voeg na 3 minuten de tomaat toe, na nog 2 minuten de kokosmelk. Laat 5 minuten koken.",
+        "Bak ondertussen de vegetarische kipstukjes kort in 2 el olie op hoog vuur.",
+        "Voeg snijbonen, kipstukjes en doperwten toe aan de saus en laat 10 minuten sudderen."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "recept 'Vegan Indiase korma met snijbonen' uit Notion gekoppeld aan dit gerecht",
+        "tijd ±30 min geschat"
+      ],
+      "open_vragen": [
+        "Geen basis: met rijst?",
+        "Het Notion-recept gebruikt vegetarische kipstukjes in plaats van gekookt ei. Gebruik je ei, kipstukjes of allebei? Hoeveel eieren?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "risotto-met-venkel",
+      "naam": "Risotto met venkel",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "rijst",
+      "bron": "Herman",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'rijst' uit 'risotto'",
+        "'Herman' uit de naam gehaald en als bron vastgelegd"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "sajoer-boontjes-met-nasi",
+      "naam": "Sajoer boontjes met nasi",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 2; recept uit Notion: culy.nl/recepten/sajoer-boontjes",
+      "porties": 2,
+      "bereidingstijd_min": 30,
+      "bereidingstijd_max": 30,
+      "ingredienten": [
+        {
+          "naam": "sperziebonen",
+          "hoeveelheid": 250,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ui",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rode peper",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "laos",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "schijfjes vers",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "gember",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "schijfjes vers",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "santen",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": "kokoscrème",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "bouillonblokje",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "Maggi, met 250 ml water",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "sambal oelek",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "trassi",
+          "hoeveelheid": 0.5,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": "garnalenpasta",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "gula djawa",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": "palmsuiker",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "daun salam",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "Indische laurier",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "djeroek poeroet",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "limoenblad",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "limoensap",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "scheutje",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zonnebloemolie",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "om te bakken",
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Maak de sperziebonen schoon en snijd ze schuin doormidden.",
+        "Snipper de ui en hak de knoflook fijn. Bak glazig in wat olie op laag vuur.",
+        "Voeg gember en laos toe en bak 5 minuten rustig mee.",
+        "Hak de rode peper fijn (zonder zaadjes) en bak een paar minuten mee met limoenblad en daun salam.",
+        "Voeg sperziebonen, sambal, trassi en gula djawa toe. Verkruimel het bouillonblokje erover en giet er 250 ml heet water bij.",
+        "Laat 8 à 12 minuten zachtjes pruttelen zonder deksel.",
+        "Roer de santen erdoor, proef en breng op smaak met limoensap. Vis gember, laos, salam en limoenblad eruit."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "basis 'rijst' uit 'nasi'",
+        "tijd ±30 min geschat uit de stappen"
+      ],
+      "open_vragen": [
+        "Het recept uit Notion beschrijft alleen de boontjes. Hoe maak je de nasi, en hoeveel rijst gebruik je?",
+        "Dit recept is voor 2 personen als bijgerecht. Is het bij jullie hoofdgerecht (met nasi), en voor hoeveel personen?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "pannenkoek-met-spinazie-en-mais",
+      "naam": "Pannenkoek met spinazie en maïs",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Goed gelezen als 'pannenkoek'? Het woord 'groente' was doorgestreept.",
+        "Basis: aparte basis 'pannenkoek/beslag' of 'overig'?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "bietensoep-met-pittige-yoghurt-brood-en-zalmsalade",
+      "naam": "Bietensoep met pittige yoghurt, brood en zalmsalade",
+      "dieet": [
+        "vegetarisch",
+        "vis"
+      ],
+      "basis": "brood",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [
+        {
+          "naam": "zonder zalmsalade",
+          "dieet": "vegetarisch"
+        },
+        {
+          "naam": "met zalmsalade",
+          "dieet": "vis"
+        }
+      ],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "dieet aangepast: stond als Ve, maar zalmsalade is vis. Nu Ve/Vi (soep vega, zalmsalade erbij)",
+        "basis 'brood' uit de naam"
+      ],
+      "open_vragen": [
+        "Stond als vegetarisch, maar met zalmsalade. Is de zalmsalade optioneel (dan klopt Ve/Vi) of hoort hij er altijd bij (dan alleen vis)?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "broodje-hamburger",
+      "naam": "Broodje hamburger",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "brood",
+      "bron": "handgeschreven lijst 2; recept uit Notion: eigen notitie 'Hamburger'",
+      "porties": 4,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [
+        {
+          "naam": "rundergehakt",
+          "hoeveelheid": 350,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "half-om-half gehakt",
+          "hoeveelheid": 150,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "gemengd gehakt",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ei",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "hamburgerbroodjes",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        }
+      ],
+      "stappen": [
+        "Meng 350 g rundergehakt, 150 g gemengd gehakt en 2 eieren (samen ca. 600 g).",
+        "Vorm 2 burgers van 175 g en 2 van 125 g.",
+        "Bak de burgers en serveer op een broodje."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "basis 'brood' uit de naam",
+        "4 broodjes afgeleid uit 4 burgers",
+        "kruiden, toppings en baktijd staan niet in de notitie"
+      ],
+      "open_vragen": [
+        "Wat gaat er nog in het gehakt (zout, peper, ui, paneermeel)?",
+        "Welke toppings en sauzen eten jullie erbij, en wat als bijgerecht?",
+        "Hoe lang bak je de burgers (pan of bbq)?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "broodje-shoarma-met-tomatensambal",
+      "naam": "Broodje shoarma met tomatensambal",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "brood",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'brood' uit de naam"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "sambal-boontjes",
+      "naam": "Sambal boontjes",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Is dit een hoofdgerecht of een bijgerecht? Basis?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "ore-are",
+      "naam": "Ore Are",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Naam slecht leesbaar: wat is 'Ore Are'?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "broodje-falafel-met-tzatziki-en-paprikasalade",
+      "naam": "Broodje falafel met tzatziki en paprikasalade",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "brood",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'brood' uit de naam"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "witlofschotel-met-kabeljauw-en-kruidensaus",
+      "naam": "Witlofschotel met kabeljauw en kruidensaus",
+      "dieet": [
+        "vis"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Geen basis: met aardappel, net als de andere witlofschotel?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "indische-roerbak-met-spitskool-boontjes-en-tofu",
+      "naam": "Indische roerbak met spitskool, boontjes en tofu",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Geen basis: met rijst?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "geroosterde-bloemkool",
+      "naam": "Geroosterde bloemkool",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "dieet 'vegetarisch' (stond geen code bij)"
+      ],
+      "open_vragen": [
+        "Is dit een apart gerecht, of hetzelfde als 'Geroosterde bloemkool met linzendahl en ei' of 'Couscous met geroosterde bloemkool'? Dan voeg ik ze samen."
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "makreel-met-brengkes-ikan",
+      "naam": "Makreel met brengkes ikan",
+      "dieet": [
+        "vis"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "dieet 'vis' (makreel; stond geen code bij)"
+      ],
+      "open_vragen": [
+        "Geen basis: met rijst?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "geroosterde-bloemkool-met-linzendahl-en-ei",
+      "naam": "Geroosterde bloemkool met linzendahl en ei",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2; recept uit Notion: miljuschka.nl/dahl-met-geroosterde-bloemkool",
+      "porties": null,
+      "bereidingstijd_min": 30,
+      "bereidingstijd_max": 30,
+      "ingredienten": [
+        {
+          "naam": "bloemkool",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rode linzen",
+          "hoeveelheid": 250,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ui",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "gember",
+          "hoeveelheid": 10,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "vers",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "tomatenpuree",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "citroen",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "koriander",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "takjes vers",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "groentebouillon",
+          "hoeveelheid": 500,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "komijnpoeder",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "korianderpoeder",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kurkuma",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kardemompoeder",
+          "hoeveelheid": 0.5,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kaneelpoeder",
+          "hoeveelheid": 0.5,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "cayennepeper",
+          "hoeveelheid": 0.5,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zout",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "sesamolie",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Verwarm de oven voor op 200 °C. Snijd de bloemkool in roosjes, meng met wat olie en zout en rooster ca. 25 minuten tot ze zacht en bruin zijn.",
+        "Fruit de ui in olie in een pan met dikke bodem tot hij glazig is. Voeg knoflook en gember toe.",
+        "Voeg de specerijen toe en bak kort tot ze geuren (niet laten verbranden).",
+        "Voeg groentebouillon, linzen en tomatenpuree toe en laat ca. 15 minuten pruttelen tot de linzen uit elkaar vallen.",
+        "Serveer de dahl met de geroosterde bloemkool, verse koriander en een partje citroen."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "dieet 'vegetarisch' (stond geen code bij)",
+        "recept 'Dahl met geroosterde bloemkool' uit Notion gekoppeld aan dit gerecht",
+        "oventijd bloemkool (ca. 25 min, 200 °C) en totale tijd geschat; het recept noemt die niet"
+      ],
+      "open_vragen": [
+        "Geen basis: met rijst of naan?",
+        "Voor hoeveel personen is dit recept?",
+        "Het ei staat niet in het Notion-recept: hoeveel eieren, gekookt?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "paella",
+      "naam": "Paella",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'rijst' uit 'paella'"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "caponata",
+      "naam": "Caponata",
+      "dieet": [
+        "vis"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [],
+      "open_vragen": [
+        "Staat als vis, maar caponata is normaal vegetarisch. Gaat er vis bij (bijv. vis erbij geserveerd), of moet het Ve zijn?",
+        "Basis?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "spaghetti-met-tomaat-en-garnalen",
+      "naam": "Spaghetti met tomaat en garnalen",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "basis 'pasta' uit de naam"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "couscous-met-geroosterde-bloemkool",
+      "naam": "Couscous met geroosterde bloemkool",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "handgeschreven lijst 2; recept uit Notion: uitpaulineskeuken.nl/recept/geroosterde-bloemkool",
+      "porties": 4,
+      "bereidingstijd_min": 40,
+      "bereidingstijd_max": 40,
+      "ingredienten": [
+        {
+          "naam": "bloemkool",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "groot",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "trostomaatjes",
+          "hoeveelheid": 500,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "klein",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "groene olijven",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": "zonder pit",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "pesto",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": 6,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "couscous",
+          "hoeveelheid": 300,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "basilicum",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "takjes",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "saffraan",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "buisje",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "peper en zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Verwarm de oven voor op 200 °C (hetelucht 180 °C).",
+        "Meng de olijfolie met geperste knoflook, peper en zout. Snijd de bloemkool in roosjes en hussel ze door de olie.",
+        "Verdeel de bloemkool over een bakplaat en rooster 30 minuten.",
+        "Leg de trostomaatjes op een andere bakplaat, besprenkel met wat olie en zet ze de laatste 10 minuten in de oven.",
+        "Roer de saffraan door de couscous, giet er net genoeg kokend water op en laat afgedekt 15 minuten staan.",
+        "Halveer de olijven en pluk de basilicum. Serveer bloemkool, tomaatjes en couscous met olijven, basilicum en een lepel pesto."
+      ],
+      "varianten": [],
+      "status": "compleet",
+      "afgeleid": [
+        "basis 'pasta', net als de andere couscousgerechten",
+        "recept 'Geroosterde bloemkool met couscous' uit Notion gekoppeld aan dit gerecht"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
+    },
+    {
+      "id": "sticky-aubergine",
+      "naam": "Sticky aubergine",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "rijst",
+      "bron": "handgeschreven lijst 2; recept uit Notion: flyingfoodie.nl (Sticky Indonesische aubergine, terong blado)",
+      "porties": 3,
+      "bereidingstijd_min": 30,
+      "bereidingstijd_max": 30,
+      "ingredienten": [
+        {
+          "naam": "aubergine",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "gember",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "duim, vers",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rawit",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "naar smaak",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "maïzena",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kaffir limoenblad",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "daun salam",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "of 2-3 gewone laurierblaadjes",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "Javaanse suiker",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": "of bruine suiker",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "ketjap manis",
+          "hoeveelheid": 5,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zout",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "snuf",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "plantaardige olie",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "om te bakken",
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Snijd de aubergines in de lengte in vieren en dan in dikke plakken. Bestrooi met zout en laat 10 à 15 minuten staan.",
+        "Giet het vocht af en schud de aubergine om met de maïzena, lepel voor lepel.",
+        "Bak de aubergine in een laagje olie goudbruin. Zet apart.",
+        "Hak gember en knoflook fijn en snijd eventueel de rawit in ringen. Fruit gember en knoflook in wat olie.",
+        "Voeg limoenblad, salam, suiker, 2 el water, ketjap en rawit toe. Laat 2 à 3 minuten zacht pruttelen tot de saus weer stroperig is.",
+        "Schep de aubergine erdoor tot alles bedekt is. Serveer met rijst."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "basis 'rijst': het recept zegt 'lekker met rijst'"
+      ],
+      "open_vragen": [
+        "Hoeveel rijst eet je erbij, en gaat er nog iets bij (bijv. ei of tempeh)?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "pasta-alla-norma",
+      "naam": "Pasta alla Norma",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "Notion: joorkitchen.nl/recepten/diner/pasta-alla-norma",
+      "porties": 5,
+      "bereidingstijd_min": 35,
+      "bereidingstijd_max": 35,
+      "ingredienten": [
+        {
+          "naam": "penne",
+          "hoeveelheid": 330,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "aubergine",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "tomaten in blik",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "blik",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "basilicum",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "bakje vers",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rode peper",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "zwarte olijven",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "naar smaak",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "peper en zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Draai de tomaten met de helft van de basilicum (met steeltjes), knoflook, rode peper en olijfolie glad in de keukenmachine.",
+        "Laat de saus op laag vuur ca. 20 minuten inkoken tot een derde minder.",
+        "Snijd de aubergine in plakken, bestrooi beide kanten met zout en laat ze 'zweten'.",
+        "Kook de penne volgens de verpakking.",
+        "Dep het zout van de aubergine, bestrijk met olie en gril op hoog vuur gaar. Snijd in stukjes.",
+        "Schep penne en aubergine door de saus. Serveer met de rest van de basilicum en zwarte olijven."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "toegevoegd uit Notion (28-10-2026)",
+        "tijd ±35 min geschat uit de stappen"
+      ],
+      "open_vragen": [],
+      "te_controleren": false,
+      "nieuw": true
+    },
+    {
+      "id": "zalm-aardappel-ovenschotel",
+      "naam": "Zalm-aardappel-ovenschotel",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "aardappel",
+      "bron": "Notion: eismann.nl (Zalm-aardappel-ovenschotel)",
+      "porties": 4,
+      "bereidingstijd_min": 65,
+      "bereidingstijd_max": 70,
+      "ingredienten": [
+        {
+          "naam": "aardappelgratin",
+          "hoeveelheid": 1000,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "kant-en-klaar (diepvries)",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "uienblokjes",
+          "hoeveelheid": 150,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "zalmfilet",
+          "hoeveelheid": 600,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "bladspinazie",
+          "hoeveelheid": 300,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "prei",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "geraspte kaas",
+          "hoeveelheid": 100,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "melk",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "scheutje",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kookroom",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "scheutje",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "staat in de stappen, niet in de lijst",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "nootmuskaat",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "peper en zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Snijd de prei in ringen. Fruit ui en knoflook in wat olijfolie en voeg prei en spinazie toe.",
+        "Voeg een scheutje room en melk toe en breng op smaak met nootmuskaat, zout en peper.",
+        "Leg de aardappelgratin in een ovenschaal, verdeel de zalm erover, giet de saus erop en bestrooi met kaas.",
+        "Bak 45 à 50 minuten in de oven."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "toegevoegd uit Notion (28-10-2026)",
+        "tijd: 20 min voorbereiden + 45-50 min oven"
+      ],
+      "open_vragen": [
+        "Gebruik je kant-en-klare aardappelgratin (diepvries) of snijd je zelf aardappels? Op welke oventemperatuur?",
+        "Hoeveel knoflook?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "snelle-zalm-krieltjes-prei-spinazie",
+      "naam": "Snelle zalm met krieltjes, prei en spinazie",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "aardappel",
+      "bron": "Notion: eigen recept (1-pan)",
+      "porties": 5,
+      "bereidingstijd_min": 30,
+      "bereidingstijd_max": 30,
+      "ingredienten": [
+        {
+          "naam": "krieltjes",
+          "hoeveelheid": 1.5,
+          "hoeveelheid_max": null,
+          "eenheid": "kg",
+          "toelichting": "voorgekookt",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "zalmfilet",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "kg",
+          "toelichting": "in blokjes",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "prei",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "spinazie",
+          "hoeveelheid": 400,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kookroom",
+          "hoeveelheid": 200,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "citroen",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "optioneel",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "nootmuskaat",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "peper en zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Bak de krieltjes goudbruin in olijfolie.",
+        "Voeg de prei toe en bak 3 à 4 minuten mee.",
+        "Laat de spinazie erin slinken.",
+        "Voeg zalmblokjes, room en kruiden toe en laat 4 à 5 minuten zacht garen.",
+        "Maak af met citroen."
+      ],
+      "varianten": [],
+      "status": "compleet",
+      "afgeleid": [
+        "toegevoegd uit Notion (28-10-2026)"
+      ],
+      "open_vragen": [],
+      "te_controleren": false,
+      "snel": true
+    },
+    {
+      "id": "hollandse-visschotel",
+      "naam": "Hollandse visschotel uit de oven",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "aardappel",
+      "bron": "Notion: simpele-recepten.nl/recept/hollandse-visschotel",
+      "porties": 4,
+      "bereidingstijd_min": 45,
+      "bereidingstijd_max": 45,
+      "ingredienten": [
+        {
+          "naam": "bloemkool",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kabeljauwhaas",
+          "hoeveelheid": 300,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "aardappelschijfjes",
+          "hoeveelheid": 600,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ui",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "geraspte kaas",
+          "hoeveelheid": 100,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "crème fraîche",
+          "hoeveelheid": 200,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kerriepoeder",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "peper en zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Verwarm de oven voor op 200 °C. Kook de bloemkoolroosjes 6 minuten beetgaar.",
+        "Snijd de uien in parten en fruit ze 4 minuten in olie. Snijd de vis in stukken en bestrooi met 1 tl kerrie, peper en zout.",
+        "Verdeel bloemkool over de ovenschaal, leg ui en vis ertussen en dek af met de aardappelschijfjes.",
+        "Verwarm de crème fraîche, klop los met 1 tl kerrie, de helft van de kaas, peper en zout. Giet over de schotel en bestrooi met de rest van de kaas.",
+        "Bak 30 minuten tot gaar en goudbruin."
+      ],
+      "varianten": [],
+      "status": "compleet",
+      "afgeleid": [
+        "toegevoegd uit Notion (28-10-2026)"
+      ],
+      "open_vragen": [],
+      "te_controleren": false,
+      "nieuw": true
+    },
+    {
+      "id": "ravioli-met-prei-paprika-en-tomaat",
+      "naam": "Ravioli met prei, paprika en tomaat",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "Notion: eigen recept (naar Ekomenu)",
+      "porties": 5,
+      "bereidingstijd_min": 20,
+      "bereidingstijd_max": 25,
+      "ingredienten": [
+        {
+          "naam": "verse ravioli",
+          "hoeveelheid": 1.25,
+          "hoeveelheid_max": 1.5,
+          "eenheid": "kg",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "prei",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "puntpaprika",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "tomaat",
+          "hoeveelheid": 6,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ui",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "roomboter",
+          "hoeveelheid": 100,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "of 200 ml kookroom",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "basilicum",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "vers",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "chilivlokken",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "mild houden voor de kinderen",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Halveer de prei in de lengte, spoel en snijd klein. Bak kort in olie, voeg een scheutje water toe en stoof afgedekt ca. 10 minuten. Roer boter en chilivlokken erdoor en breng op smaak met zout.",
+        "Snijd ui in halve ringen en tomaat en paprika in blokjes. Bak ze een paar minuten in een andere pan op middelhoog vuur. Schep de basilicum erdoor.",
+        "Kook de ravioli 3 minuten in water met zout en giet af.",
+        "Meng ravioli en groenten en garneer met basilicum."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "toegevoegd uit Notion (28-10-2026)",
+        "vegetarisch aangenomen: de vulling van de ravioli staat er niet bij"
+      ],
+      "open_vragen": [
+        "Welke ravioli koop je (vulling)? Dan weet ik ook of het vegetarisch is."
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "kapsalon-met-kip-verspakket",
+      "naam": "Kapsalon met kip (verspakket)",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "aardappel",
+      "bron": "Notion: AH verspakket wi555345",
+      "porties": 5,
+      "bereidingstijd_min": 35,
+      "bereidingstijd_max": 35,
+      "ingredienten": [
+        {
+          "naam": "AH verspakket kapsalon met kip",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "pak",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi555345",
+            "verpakking": 1,
+            "verpakking_naam": "pak",
+            "prijs": null
+          }
+        },
+        {
+          "naam": "kruimige aardappelen",
+          "hoeveelheid": 1.5,
+          "hoeveelheid_max": null,
+          "eenheid": "kg",
+          "toelichting": "of 1 kg krieltjes",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kipdijfilet",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "kg",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "komkommer",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "tomaat",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ijsbergsla",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "geraspte kaas",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflooksaus",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        }
+      ],
+      "stappen": [
+        "Volg de bereiding op het verspakket.",
+        "Tip: bak de aardappels of krieltjes extra krokant en houd de toppings mild voor de kinderen."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "toegevoegd uit Notion (28-10-2026)"
+      ],
+      "open_vragen": [
+        "Hoeveel komkommer, tomaat, ijsbergsla, kaas en knoflooksaus koop je? Of zit dat in het verspakket?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "kip-madras-verspakket",
+      "naam": "Kip madras (verspakket)",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "rijst",
+      "bron": "Notion: AH verspakket wi552938",
+      "porties": 5,
+      "bereidingstijd_min": 25,
+      "bereidingstijd_max": 25,
+      "ingredienten": [
+        {
+          "naam": "AH verspakket kip madras",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "pak",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi552938",
+            "verpakking": 1,
+            "verpakking_naam": "pak",
+            "prijs": null
+          }
+        },
+        {
+          "naam": "kipdijfilet",
+          "hoeveelheid": 900,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "basmatirijst",
+          "hoeveelheid": 600,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "yoghurt of kokosmelk",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "naar smaak, maakt het milder",
+          "groep": "hoofd",
+          "voorraadkast": false
+        }
+      ],
+      "stappen": [
+        "Volg de bereiding op het verspakket.",
+        "Proef en maak milder met yoghurt of kokosmelk."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "toegevoegd uit Notion (28-10-2026)"
+      ],
+      "open_vragen": [
+        "Is dit hetzelfde gerecht als 'Kip madras met bloemkool en doperwten' op je lijst, of een ander?"
+      ],
+      "te_controleren": true,
+      "snel": true
+    },
+    {
+      "id": "terra-groentecurry-verspakket",
+      "naam": "Terra groentecurry (verspakket)",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "rijst",
+      "bron": "Notion: AH verspakket wi572383",
+      "porties": 5,
+      "bereidingstijd_min": 20,
+      "bereidingstijd_max": 25,
+      "ingredienten": [
+        {
+          "naam": "AH verspakket Terra groentecurry",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "pak",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi572383",
+            "verpakking": 1,
+            "verpakking_naam": "pak",
+            "prijs": null
+          }
+        },
+        {
+          "naam": "basmatirijst",
+          "hoeveelheid": 600,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "of naan",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kikkererwten",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "blik",
+          "toelichting": "400 g, optioneel",
+          "groep": "hoofd",
+          "voorraadkast": false
+        }
+      ],
+      "stappen": [
+        "Volg de bereiding op het verspakket.",
+        "Voeg eventueel kikkererwten toe voor extra vulling."
+      ],
+      "varianten": [],
+      "status": "compleet",
+      "afgeleid": [
+        "toegevoegd uit Notion (28-10-2026)"
+      ],
+      "open_vragen": [],
+      "te_controleren": false,
+      "snel": true
+    },
+    {
+      "id": "italiaanse-pasta-pesto-verspakket",
+      "naam": "Italiaanse pasta pesto (verspakket)",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "Notion: AH verspakket wi570333",
+      "porties": 5,
+      "bereidingstijd_min": 30,
+      "bereidingstijd_max": 35,
+      "ingredienten": [
+        {
+          "naam": "AH verspakket Italiaanse pasta pesto",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "pak",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi570333",
+            "verpakking": 1,
+            "verpakking_naam": "pak",
+            "prijs": null
+          }
+        },
+        {
+          "naam": "cherrytomaatjes",
+          "hoeveelheid": 500,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "spinazie",
+          "hoeveelheid": 200,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "pijnboompitten",
+          "hoeveelheid": 60,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "optioneel",
+          "groep": "hoofd",
+          "voorraadkast": false
+        }
+      ],
+      "stappen": [
+        "Volg de bereiding op het verspakket.",
+        "Roer op het eind de tomaatjes en spinazie erdoor."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "toegevoegd uit Notion (28-10-2026)"
+      ],
+      "open_vragen": [
+        "Is dit hetzelfde als 'Broccoli met pasta en pesto' op je lijst, of een ander gerecht?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "pompoen-mac-and-cheese",
+      "naam": "Pompoen mac & cheese",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "pasta",
+      "bron": "Notion: TikTok @superdushichef",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "toegevoegd uit Notion (28-10-2026)",
+        "vegetarisch aangenomen"
+      ],
+      "open_vragen": [
+        "In Notion staat alleen een TikTok-link. Wil je de ingrediënten en stappen uit de video overnemen?"
+      ],
+      "te_controleren": true,
+      "nieuw": true
+    },
+    {
+      "id": "kippenbout-met-aardappelpartjes-en-sla",
+      "naam": "Kippenbout met aardappelpartjes en sla",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "aardappel",
+      "bron": "vaste vrijdag (wens van Inge, oktober 2026); hoeveelheden aangenomen, graag controleren",
+      "porties": 5,
+      "bereidingstijd_min": 60,
+      "bereidingstijd_max": 60,
+      "ingredienten": [
+        {
+          "naam": "kippenbouten",
+          "hoeveelheid": 5,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kruimige aardappelen",
+          "hoeveelheid": 1.5,
+          "hoeveelheid_max": null,
+          "eenheid": "kg",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "sla",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "zak",
+          "toelichting": "gemengde sla",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "komkommer",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "cherrytomaatjes",
+          "hoeveelheid": 250,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "paprikapoeder",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kipkruiden",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "peper en zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "dressing",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "naar keuze",
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Verwarm de oven voor op 200 °C (hetelucht 180 °C).",
+        "Wrijf de kippenbouten in met 2 el olijfolie, kipkruiden, peper en zout. Leg ze in een ovenschaal en zet ze 50–60 minuten in de oven, tot het vocht helder is als je erin prikt.",
+        "Was de aardappelen en snijd ze in partjes (schillen hoeft niet). Hussel ze met 2 el olijfolie, paprikapoeder en zout en verdeel ze over een bakplaat met bakpapier.",
+        "Zet de aardappelpartjes na 15 minuten ook in de oven en bak ze 40–45 minuten mee. Keer ze halverwege.",
+        "Maak de sla: snijd komkommer en halveer de tomaatjes, meng met de sla. Dressing pas aan tafel erbij."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "hoeveelheden voor 5 personen aangenomen"
+      ],
+      "open_vragen": [
+        "Kloppen de hoeveelheden en welke dressing gebruiken jullie?"
+      ],
+      "te_controleren": true
+    }
+  ]
+}
