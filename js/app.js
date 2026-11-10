@@ -419,7 +419,7 @@ function schermBoodschappen() {
       on('#extra', 'click', () => extraSheet(w));
       on('#ah', 'click', async () => {
         const ok = await kopieer(L.ahTekst(lijst, L.weekLabel(ma)));
-        toast(ok ? 'Gekopieerd. Plak het in Claude Desktop, project "Boodschappen AH".' : 'Kopiëren lukte niet.');
+        if (ok) plakUitleg(); else toast('Kopiëren lukte niet.');
       });
       on('#gekocht', 'click', () => {
         if (!confirm('Alles op de lijst is gekocht? Dan zet ik het in de voorraad en bewaar ik de lijst.')) return;
@@ -428,6 +428,21 @@ function schermBoodschappen() {
       });
     },
   };
+}
+
+// Na *Kopieer weeklijst*: waar plak je de lijst? (v0.5; vervangt de verwijzing naar het project "Boodschappen AH")
+function plakUitleg() {
+  sheet(`<h2>Gekopieerd. Nu plakken in Claude</h2>
+    <p class="hint">Doe dit op de computer waar de AH-koppeling (ah) in Claude Desktop staat.</p>
+    <ol class="stappen">
+      <li>Open <strong>Claude Desktop</strong> en begin een <strong>nieuwe chat</strong> (geen project nodig).</li>
+      <li>Klik op het plus- of schuifjes-icoon onder het tekstvak. Zet alleen <strong>ah</strong> aan, de rest uit.</li>
+      <li>Plak de lijst (Ctrl+V) en verstuur. De opdracht staat al bovenaan de lijst.</li>
+      <li>Vraagt Claude om in te loggen bij AH? Open de link en log in (thuis, op je eigen wifi).</li>
+      <li>Kijk het mandje na in de AH-app en reken daar zelf af. Claude rekent nooit af.</li>
+    </ol>
+    <p class="hint">Tip: kies een licht model (Haiku of Sonnet) en begin elke week een nieuwe chat. Dat scheelt verbruik.</p>
+    <button class="knop zwart breed" id="ok">Begrepen</button>`, (s, sluit) => on('#ok', 'click', sluit, s));
 }
 
 function extraSheet(w) {

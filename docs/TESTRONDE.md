@@ -13,7 +13,7 @@ zeg het tegen Bas.
 
 ## Boodschappen
 1. Open *Boodschappen*. Vink aan wat je al hebt. Pas aantallen aan met − en +.
-2. Tik *Kopieer weeklijst* en plak de tekst in Claude Desktop (project "Boodschappen AH").
+2. Tik *Kopieer weeklijst*. De app laat zien waar je plakt: een nieuwe chat in Claude Desktop met alleen de koppeling *ah* aan.
 3. Als de boodschappen binnen zijn: *Boodschappen zijn binnen*.
 
 ## Elke dag (wie kookt)
