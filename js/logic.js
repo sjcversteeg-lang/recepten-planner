@@ -367,7 +367,9 @@ export function boodschappen(data, startKey) {
 // De eerste regel is de opdracht zelf (sinds v0.5), zodat de tekst overal werkt:
 // een gewone nieuwe chat in Claude Desktop is genoeg, er is geen apart project nodig.
 // Regels zonder productnummer gaan apart, met de verpakking erbij, zodat Claude alleen die hoeft te zoeken.
-export const AH_OPDRACHT = 'Zet dit in mijn AH-winkelmandje (ah_update_cart_item). Niet afrekenen, niets anders wijzigen. Regel = productnummer aantal naam. Onder Zoeken: kies het best passende product. Meld kort wat niet lukte.';
+// Vaste merkkeuzes van het gezin; gelden bij het zoeken naar producten zonder productnummer.
+export const MERKREGELS = ['Vis in blik: altijd John West, op zonnebloemolie als die variant er is.'];
+export const AH_OPDRACHT = 'Zet dit in mijn AH-winkelmandje (ah_update_cart_item). Niet afrekenen, niets anders wijzigen. Regel = productnummer aantal naam. Onder Zoeken: kies het best passende product. ' + MERKREGELS.join(' ') + ' Meld kort wat niet lukte.';
 export function ahTekst(lijst, label) {
   const verp = r => r.ah.verpakking ? `${r.koopEenheid} ${getal(r.ah.verpakking)} ${r.eenheid || ''}`.trim() : r.koopEenheid;
   const met = lijst.teKopen.filter(r => r.ah.productnummer).map(r => `${r.ah.productnummer} ${r.aantal}x ${r.naam}`);

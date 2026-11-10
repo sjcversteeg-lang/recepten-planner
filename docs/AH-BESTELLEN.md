@@ -21,6 +21,12 @@ Zoeken:
 1x Spinazie (zak 400 g)
 ```
 
+## Merkregels
+Vaste merkkeuzes van het gezin staan in `MERKREGELS` in `js/logic.js` en gaan mee in de opdracht bovenaan de lijst.
+- Vis in blik: altijd John West, op zonnebloemolie als die variant er is (Bas, 10-11-2026).
+
+Krijgt een ingrediënt later een vast AH-productnummer, kies dan meteen het product dat aan deze regels voldoet.
+
 ## Waarom niet: Claude klikt zelf in de browser
 Afgewogen op 2026-11-10, op verzoek van Bas. Idee: Bas logt in op ah.nl, Claude zoekt en klikt de producten aan
 (Claude in Chrome of computergebruik).
