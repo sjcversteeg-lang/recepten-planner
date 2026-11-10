@@ -3548,6 +3548,139 @@
         "Welke kruiden en hoeveel deeg (bloem) gebruik je voor dit aantal pizza's?"
       ],
       "te_controleren": true
+    },
+    {
+      "id": "vegetarische-roti-met-aardappel-en-snijbonen",
+      "naam": "Vegetarische roti met aardappel en snijbonen",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "brood",
+      "bron": "Allerhande: Vegetarische 'roti' met aardappel en sperziebonen (R-R1193648)",
+      "bronurl": "https://www.ah.nl/allerhande/recept/R-R1193648/vegetarische-roti-met-aardappel-en-sperziebonen",
+      "porties": 4,
+      "bereidingstijd_min": 30,
+      "bereidingstijd_max": 30,
+      "ingredienten": [
+        {
+          "naam": "vastkokende krieltjes",
+          "hoeveelheid": 500,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "stoomkrieltjes",
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi215683",
+            "verpakking": 1,
+            "verpakking_naam": "kg",
+            "prijs": 2.39
+          }
+        },
+        {
+          "naam": "vegetarische kipstukjes",
+          "hoeveelheid": 400,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "in plaats van de rulstukjes uit het originele recept",
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi580545",
+            "verpakking": 300,
+            "verpakking_naam": "g",
+            "prijs": 3.45
+          }
+        },
+        {
+          "naam": "tomatenpuree",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": true
+        },
+        {
+          "naam": "masalakruiden",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": "zakje",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "water",
+          "hoeveelheid": 300,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": true
+        },
+        {
+          "naam": "scharreleieren",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "middelgroot",
+          "groep": "hoofd",
+          "voorraadkast": true
+        },
+        {
+          "naam": "snijbonen",
+          "hoeveelheid": 800,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rotivellen",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "kant-en-klaar",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "arachideolie",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "peper en zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Snijd de krieltjes in kwarten. Verhit de helft van de olie in een koekenpan en bak de kipstukjes 3 minuten op hoog vuur. Haal ze uit de pan.",
+        "Verhit de rest van de olie in dezelfde pan. Fruit de tomatenpuree en masalakruiden 2 minuten op middelhoog vuur. Voeg de aardappelen en het water toe, breng aan de kook en stoof 20 minuten met deksel op laag vuur. Voeg de laatste 2 minuten de kipstukjes toe. Breng op smaak met peper en zout.",
+        "Kook ondertussen de eieren 6 minuten, laat schrikken onder koud water, pel en halveer ze. Snijd de bonen in dunne repen en kook ze 5 minuten beetgaar.",
+        "Verwarm de rotivellen volgens de verpakking. Verdeel aardappel, kipstukjes, snijbonen en ei over de rotivellen en serveer."
+      ],
+      "varianten": [
+        "origineel recept: 400 g vegetarische rulstukjes in plaats van kipstukjes"
+      ],
+      "status": "compleet",
+      "afgeleid": [
+        "toegevoegd uit Allerhande (10-11-2026), stappen in eigen woorden",
+        "vegetarische kipstukjes in plaats van rulstukjes, op verzoek van Bas"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
     }
   ]
 }
