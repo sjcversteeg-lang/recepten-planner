@@ -2,6 +2,15 @@
 
 Alle wijzigingen per versie. Nieuwste bovenaan.
 
+## [0.2.1] – 2026-11-10
+
+### Toegevoegd
+- Recepten *Zelfgemaakte pizza*, *Vegetarische roti met aardappel en snijbonen* en *Massaman curry met kikkererwten, pompoen en rijst*.
+- Regel: verse pasta wordt alleen voorgesteld als die bij AH 1+1 gratis is (invullen bij de aanbiedingen).
+
+### Gewijzigd
+- Kappertjes, tomatenblokjes, knoflook, diepvries spinazie, snoeptomaatjes en diepvries sperziebonen staan op de boodschappenlijst als AH Biologisch.
+
 ## [0.2.0] – 2026-10-30
 
 Feedback van Inge verwerkt.

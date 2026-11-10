@@ -174,6 +174,18 @@ const SEIZOEN = [
 ];
 export function seizoen(d = new Date()) { return SEIZOEN[d.getMonth()]; }
 
+// Verse pasta (ravioli, tortellini, verse tagliatelle …) plannen we alleen als die bij AH 1+1 gratis is.
+// Vul bij de aanbiedingen bijvoorbeeld "verse pasta 1+1" of "ravioli 1+1" in.
+const PASTA = ['pasta', 'ravioli', 'tortellini', 'tortelloni', 'tagliatelle', 'fettuccine', 'pappardelle', 'lasagne', 'gnocchi', 'cappelletti'];
+function versePasta(r) {
+  return r.ingredienten.map(i => norm(i.naam)).filter(n => n.startsWith('vers') && PASTA.some(p => n.includes(p)));
+}
+export function versePastaToegestaan(r, woorden) {
+  const pasta = versePasta(r);
+  if (!pasta.length) return true;
+  return woorden.some(w => w.includes('1+1') && (w.includes('verse pasta') || pasta.some(n => PASTA.some(p => n.includes(p) && w.includes(p)))));
+}
+
 function bevatAanbieding(r, woorden) {
   const tekst = norm(r.naam + ' ' + r.ingredienten.map(i => i.naam).join(' '));
   return woorden.filter(w => tekst.includes(w)).length;
@@ -228,6 +240,7 @@ export function maakVoorstel(data, startKey) {
       if (gebruikt.has(r.id)) continue;
       const nieuw = isNieuw(data, r);
       if (nieuw && nieuwe >= 1) continue;
+      if (!versePastaToegestaan(r, woorden)) continue;
       const laatst = laatstGegeten(data, r.id);
       const dagenTerug = laatst ? Math.round((vanKey(datum) - vanKey(laatst)) / 86400000) : 60;
       let score = Math.min(dagenTerug, 60);
