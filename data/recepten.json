@@ -3712,6 +3712,172 @@
       ],
       "open_vragen": [],
       "te_controleren": false
+    },
+    {
+      "id": "massaman-curry-met-kikkererwten-pompoen-en-rijst",
+      "naam": "Massaman curry met kikkererwten, pompoen en rijst",
+      "dieet": [
+        "vegetarisch"
+      ],
+      "basis": "rijst",
+      "bron": "Picnic: Massaman curry met kip en rijst (recept per mail, 16-10-2026)",
+      "porties": 4,
+      "bereidingstijd_min": 15,
+      "bereidingstijd_max": 20,
+      "ingredienten": [
+        {
+          "naam": "kikkererwten",
+          "hoeveelheid": 500,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "in plaats van 350 g kipfiletblokjes; AH Terra Biologisch in glazen pot, uitgelekt",
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi168813",
+            "verpakking": 330,
+            "verpakking_naam": "pot",
+            "prijs": 1.16
+          }
+        },
+        {
+          "naam": "pompoen",
+          "hoeveelheid": 400,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "in blokjes, in plaats van zoete aardappelblokjes",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "massaman-currypasta",
+          "hoeveelheid": 70,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi450179",
+            "verpakking": 70,
+            "verpakking_naam": "potje",
+            "prijs": 1.99
+          }
+        },
+        {
+          "naam": "kokosmelk",
+          "hoeveelheid": 400,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi553395",
+            "verpakking": 500,
+            "verpakking_naam": "pak",
+            "prijs": 2.75
+          }
+        },
+        {
+          "naam": "spinazie",
+          "hoeveelheid": 400,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi769",
+            "verpakking": 450,
+            "verpakking_naam": "zak",
+            "prijs": 0.85
+          }
+        },
+        {
+          "naam": "kant-en-klare rijst",
+          "hoeveelheid": 500,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "pandanrijst",
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi613348",
+            "verpakking": 250,
+            "verpakking_naam": "bakje",
+            "prijs": 1.49
+          }
+        },
+        {
+          "naam": "koriander",
+          "hoeveelheid": 15,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi238968",
+            "verpakking": 15,
+            "verpakking_naam": "bosje",
+            "prijs": 1.29
+          }
+        },
+        {
+          "naam": "limoen",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi231211",
+            "verpakking": 1,
+            "verpakking_naam": "stuk",
+            "prijs": 0.69
+          }
+        },
+        {
+          "naam": "zonnebloemolie",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zout en zwarte peper",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Kook de pompoenblokjes in een laagje water met zout gaar (net onder water). Giet af.",
+        "Verhit ondertussen de olie in een ruime hapjespan en bak de uitgelekte kikkererwten 2 tot 3 minuten op hoog vuur.",
+        "Zet het vuur lager, roer de currypasta en de kokosmelk erdoor en leg de spinazie erbovenop.",
+        "Laat 3 minuten met de deksel op de pan koken op middelhoog vuur tot de spinazie geslonken is.",
+        "Verwarm de rijst volgens de verpakking in de magnetron.",
+        "Snijd de koriander grof en de limoen in partjes.",
+        "Roer de pompoen door de curry en breng op smaak met peper en zout.",
+        "Verdeel rijst en curry over diepe borden en garneer met koriander en een partje limoen. Lekker met naan."
+      ],
+      "varianten": [
+        "origineel van Picnic: 350 g kipfiletblokjes en 400 g zoete aardappelblokjes"
+      ],
+      "status": "compleet",
+      "afgeleid": [
+        "toegevoegd uit de Picnic-mail (10-11-2026), stappen in eigen woorden",
+        "kikkererwten in plaats van kip en pompoen in plaats van zoete aardappel, op verzoek van Bas; hoeveelheid kikkererwten en kooktijd pompoen aangenomen"
+      ],
+      "open_vragen": [],
+      "te_controleren": false
     }
   ]
 }

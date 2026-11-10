@@ -5,7 +5,7 @@ Alle wijzigingen per versie. Nieuwste bovenaan.
 ## [0.2.1] – 2026-11-10
 
 ### Toegevoegd
-- Recepten *Zelfgemaakte pizza* en *Vegetarische roti met aardappel en snijbonen*.
+- Recepten *Zelfgemaakte pizza*, *Vegetarische roti met aardappel en snijbonen* en *Massaman curry met kikkererwten, pompoen en rijst*.
 - Regel: verse pasta wordt alleen voorgesteld als die bij AH 1+1 gratis is (invullen bij de aanbiedingen).
 
 ### Gewijzigd
