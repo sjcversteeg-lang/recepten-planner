@@ -71,6 +71,7 @@ export function normaliseerRecept(r) {
     // velden van de app
     frequentie_weken: null, snel: false, kinderen_kunnen: false, nieuw: false,
     bewerkt_in_app: false, // true = in de app aangepast; dan niet meer overschrijven vanuit recepten.json
+    in_app_toegevoegd: null, // datum: zelf ingevoerd in de app en (nog) niet in recepten.json
   };
   const uit = { ...leeg, ...r };
   uit.ingredienten = (uit.ingredienten || []).map(normaliseerIngredient);
@@ -105,6 +106,8 @@ function vulAan(data) {
 
 // Recepten uit data/recepten.json overnemen. Dat bestand is de receptendatabase: recepten worden
 // daar aangepast, niet in de app (wens van Inge). Elke keer laden neemt de nieuwste versie over.
+// Een recept dat zelf in de app is ingevoerd blijft staan tot het (met hetzelfde id) in
+// recepten.json staat; dan neemt de database het over.
 function voegBronToe(data, bron) {
   if (!bron || !Array.isArray(bron.recepten)) return;
   const weg = new Set(data.verwijderdeRecepten);

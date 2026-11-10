@@ -94,6 +94,7 @@ main {
 
 /* Chips (filters) */
 .chips { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 8px; scrollbar-width: none; }
+.chips.wrap { flex-wrap: wrap; overflow: visible; }
 .chip { border: 1px solid var(--lijn); background: var(--bg); border-radius: 999px; padding: 7px 14px; white-space: nowrap; cursor: pointer; font-size: 14px; }
 .chip.aan { background: var(--tekst); color: #fff; border-color: var(--tekst); }
 

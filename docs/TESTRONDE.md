@@ -25,3 +25,12 @@ zeg het tegen Bas.
 - Klopt de boodschappenlijst (aantallen, verpakkingen, wat al in huis is)?
 - Is het recept duidelijk genoeg voor wie kookt (ook voor de kinderen)?
 - Wat mis je het meest: gedeelde gegevens tussen telefoons, de agenda, iets anders?
+
+## Versie 0.4 – zelf een recept toevoegen
+1. Ga naar *Recepten* en zoek een gerecht dat er niet bij staat. Tik *"…" toevoegen*: de naam staat al ingevuld.
+2. Kies vis, vlees of vega en de basis, vul personen en kooktijd in.
+3. Typ de ingrediënten, één per regel met hoeveelheid, bijv. `400 g kipfilet`, `2 tenen knoflook, fijngesneden`, `1 blik tomatenblokjes`, `zout en peper`. Kijk onder het vak hoe de app ze leest. Klopt *uit de kast* niet? Tik het ingrediënt aan.
+4. Typ de bereiding, één stap per regel, en tik *Bewaren*. Je ziet het recept met het label *eigen*.
+5. Probeer *Aanpassen* en *Verwijderen*.
+6. Week: tik een dag, zoek een recept dat er niet is en tik *Nieuw recept toevoegen*. Na *Bewaren en inplannen* staat het op die dag.
+7. Tevreden met een recept? Tik *Doorgeven* en plak de tekst in de projectchat met Claude. Dan komt het in de receptendatabase en op alle telefoons.

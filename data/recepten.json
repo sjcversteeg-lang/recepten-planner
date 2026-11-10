@@ -1,6 +1,6 @@
 {
   "schema_versie": 2,
-  "bijgewerkt": "2026-10-30",
+  "bijgewerkt": "2026-10-31",
   "codelijsten": {
     "dieet": {
       "Ve": "vegetarisch",
@@ -1786,58 +1786,12 @@
     },
     {
       "id": "geroosterde-bloemkool",
-      "naam": "Geroosterde bloemkool",
+      "naam": "Geroosterde bloemkool met linzendahl",
       "dieet": [
         "vegetarisch"
       ],
       "basis": null,
-      "bron": "handgeschreven lijst 2",
-      "porties": null,
-      "bereidingstijd_min": null,
-      "bereidingstijd_max": null,
-      "ingredienten": [],
-      "stappen": [],
-      "varianten": [],
-      "status": "alleen_naam",
-      "afgeleid": [
-        "dieet 'vegetarisch' (stond geen code bij)"
-      ],
-      "open_vragen": [
-        "Is dit een apart gerecht, of hetzelfde als 'Geroosterde bloemkool met linzendahl en ei' of 'Couscous met geroosterde bloemkool'? Dan voeg ik ze samen."
-      ],
-      "te_controleren": true
-    },
-    {
-      "id": "makreel-met-brengkes-ikan",
-      "naam": "Makreel met brengkes ikan",
-      "dieet": [
-        "vis"
-      ],
-      "basis": null,
-      "bron": "handgeschreven lijst 2",
-      "porties": null,
-      "bereidingstijd_min": null,
-      "bereidingstijd_max": null,
-      "ingredienten": [],
-      "stappen": [],
-      "varianten": [],
-      "status": "alleen_naam",
-      "afgeleid": [
-        "dieet 'vis' (makreel; stond geen code bij)"
-      ],
-      "open_vragen": [
-        "Geen basis: met rijst?"
-      ],
-      "te_controleren": true
-    },
-    {
-      "id": "geroosterde-bloemkool-met-linzendahl-en-ei",
-      "naam": "Geroosterde bloemkool met linzendahl en ei",
-      "dieet": [
-        "vegetarisch"
-      ],
-      "basis": null,
-      "bron": "handgeschreven lijst 2; recept uit Notion: miljuschka.nl/dahl-met-geroosterde-bloemkool",
+      "bron": "handgeschreven lijst 2 (stond er twee keer op: \"Geroosterde bloemkool\" en \"Geroosterde bloemkool met linzendahl en ei\"); recept: miljuschka.nl/dahl-met-geroosterde-bloemkool",
       "porties": null,
       "bereidingstijd_min": 30,
       "bereidingstijd_max": 30,
@@ -2016,13 +1970,34 @@
       "status": "concept",
       "afgeleid": [
         "dieet 'vegetarisch' (stond geen code bij)",
-        "recept 'Dahl met geroosterde bloemkool' uit Notion gekoppeld aan dit gerecht",
-        "oventijd bloemkool (ca. 25 min, 200 °C) en totale tijd geschat; het recept noemt die niet"
+        "31-10-2026 samengevoegd met 'geroosterde-bloemkool-met-linzendahl-en-ei'; zonder ei (Bas)"
       ],
       "open_vragen": [
-        "Geen basis: met rijst of naan?",
         "Voor hoeveel personen is dit recept?",
-        "Het ei staat niet in het Notion-recept: hoeveel eieren, gekookt?"
+        "Basis: met rijst of naan?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "makreel-met-brengkes-ikan",
+      "naam": "Makreel met brengkes ikan",
+      "dieet": [
+        "vis"
+      ],
+      "basis": null,
+      "bron": "handgeschreven lijst 2",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [],
+      "stappen": [],
+      "varianten": [],
+      "status": "alleen_naam",
+      "afgeleid": [
+        "dieet 'vis' (makreel; stond geen code bij)"
+      ],
+      "open_vragen": [
+        "Geen basis: met rijst?"
       ],
       "te_controleren": true
     },

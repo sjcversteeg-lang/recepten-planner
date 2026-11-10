@@ -445,3 +445,122 @@ export function gekocht(data, startKey) {
   });
   return lijst.teKopen.length;
 }
+
+// ---------- Zelf een recept invoeren ----------
+// Eén ingrediënt per regel, zoals je het opschrijft: "400 g kipfilet", "2 tenen knoflook, fijngesneden",
+// "1-2 el sambal", "zout". We maken daar hetzelfde uniforme formaat van als in data/recepten.json.
+const EENHEID_WOORDEN = {
+  g: 'g', gr: 'g', gram: 'g', kg: 'kg', kilo: 'kg', ml: 'ml', cl: 'cl', dl: 'dl', l: 'l', liter: 'l',
+  el: 'el', eetlepel: 'el', eetlepels: 'el', tl: 'tl', theelepel: 'tl', theelepels: 'tl',
+  teen: 'teen', tenen: 'teen', teentje: 'teen', teentjes: 'teen',
+  blik: 'blik', blikken: 'blik', blikje: 'blik', blikjes: 'blik',
+  pot: 'pot', potten: 'pot', potje: 'pot', potjes: 'pot',
+  pak: 'pak', pakken: 'pak', pakje: 'pak', pakjes: 'pak',
+  zak: 'zak', zakken: 'zak', zakje: 'zak', zakjes: 'zak',
+  flesje: 'flesje', flesjes: 'flesje', snuf: 'snuf', snufje: 'snuf',
+  stuk: 'stuk', stuks: 'stuk', bos: 'bos', bosje: 'bos', bossen: 'bos',
+};
+// Naar de eenheden van de database (codelijst eenheid).
+const OMREKENEN = { cl: ['ml', 10], dl: ['ml', 100] };
+// Wat meestal in de kast staat; aangevuld met alles wat in bestaande recepten als voorraadkast staat.
+const KAST_WOORDEN = ['zout', 'peper', 'olie', 'olijfolie', 'zonnebloemolie', 'boter', 'bloem', 'suiker', 'azijn', 'sojasaus',
+  'ketjap', 'sambal', 'kerrie', 'komijn', 'paprikapoeder', 'kurkuma', 'oregano', 'tijm', 'bouillon', 'bouillonblokje',
+  'honing', 'mosterd', 'chilivlokken', 'kaneel', 'nootmuskaat', 'gember poeder', 'knoflookpoeder', 'laurier'];
+
+function leesGetal(s) {
+  if (!s) return null;
+  const breuk = { '½': 0.5, '¼': 0.25, '¾': 0.75 }[s];
+  if (breuk) return breuk;
+  const b = /^(\d+)\/(\d+)$/.exec(s);
+  if (b) return Number(b[1]) / Number(b[2]);
+  const n = Number(s.replace(',', '.'));
+  return Number.isFinite(n) ? n : null;
+}
+
+export function kastNamen(data) {
+  const s = new Set(KAST_WOORDEN);
+  for (const r of data.recepten) for (const i of r.ingredienten) if (i.voorraadkast) s.add(norm(i.naam));
+  return s;
+}
+
+export function leesIngredient(regel, kast = new Set()) {
+  let t = regel.replace(/^[-*•·\s]+/, '').replace(/\s+/g, ' ').trim();
+  if (!t) return null;
+  let toelichting = null;
+  const haakjes = /\(([^)]*)\)/.exec(t);
+  if (haakjes) { toelichting = haakjes[1].trim() || null; t = t.replace(haakjes[0], ' ').replace(/\s+/g, ' ').trim(); }
+  const komma = t.search(/,(?!\d)/); // niet de komma in 1,5
+  if (komma > 0) { toelichting = [t.slice(komma + 1).trim(), toelichting].filter(Boolean).join('; ') || null; t = t.slice(0, komma).trim(); }
+  const GETAL = '(\\d+(?:[.,]\\d+)?|\\d+\\/\\d+|[½¼¾])';
+  const m = new RegExp(`^${GETAL}(?:\\s*(?:-|–|tot)\\s*${GETAL})?\\s*(.*)$`).exec(t);
+  let hoeveelheid = null, hoeveelheid_max = null, eenheid = null, naam = t;
+  if (m) {
+    hoeveelheid = leesGetal(m[1]);
+    hoeveelheid_max = leesGetal(m[2]);
+    const [woord, ...rest] = m[3].split(' ');
+    const e = EENHEID_WOORDEN[woord.replace(/\.$/, '').toLowerCase()];
+    if (e && rest.length) { eenheid = e; naam = rest.join(' '); }
+    else { eenheid = 'stuk'; naam = m[3]; }
+    if (OMREKENEN[eenheid]) {
+      const [nieuw, x] = OMREKENEN[eenheid];
+      hoeveelheid *= x; if (hoeveelheid_max) hoeveelheid_max *= x; eenheid = nieuw;
+    }
+  }
+  naam = naam.replace(/^(van|de|het)\s+/i, '').trim().toLowerCase();
+  if (!naam) return null;
+  const isKast = n => kast.has(n) || [...kast].some(k => k.length > 3 && n.endsWith(k) && n.split(' ').length <= 2);
+  const inKast = naam.split(/ en | of /).every(isKast); // ook "peper en zout"
+  return {
+    naam, hoeveelheid, hoeveelheid_max: hoeveelheid_max && hoeveelheid_max > hoeveelheid ? hoeveelheid_max : null,
+    eenheid, toelichting, groep: inKast ? 'kruiden' : 'hoofd', voorraadkast: inKast,
+  };
+}
+
+export function leesIngredienten(tekst, kast) {
+  return (tekst || '').split('\n').map(r => leesIngredient(r, kast)).filter(Boolean);
+}
+
+export function leesStappen(tekst) {
+  return (tekst || '').split('\n').map(s => s.replace(/^\s*(\d+[.)]|[-*•·])\s*/, '').trim()).filter(Boolean);
+}
+
+// Maakt een recept in het uniforme formaat van data/recepten.json (schema_versie 2).
+// invoer: { naam, dieet[], basis, porties, tijd, ingredienten[], stappen[], bron }
+export function receptUitInvoer(data, invoer, bestaand = null) {
+  const tijd = Number(invoer.tijd) || null;
+  const heeftIngr = invoer.ingredienten.length > 0, heeftStappen = invoer.stappen.length > 0;
+  const open = [];
+  if (!invoer.porties) open.push('Voor hoeveel personen is dit recept?');
+  if (!tijd) open.push('Hoe lang duurt het koken?');
+  const zonder = invoer.ingredienten.filter(i => i.hoeveelheid === null && !i.voorraadkast).map(i => i.naam);
+  if (zonder.length) open.push(`Hoeveel ${zonder.join(', ')}?`);
+  return {
+    ...(bestaand || {}),
+    id: bestaand ? bestaand.id : maakId(data, invoer.naam),
+    naam: invoer.naam.trim().replace(/^./, c => c.toUpperCase()),
+    dieet: invoer.dieet,
+    basis: invoer.basis || null,
+    bron: invoer.bron?.trim() || 'zelf ingevoerd in de app',
+    porties: Number(invoer.porties) || null,
+    bereidingstijd_min: tijd, bereidingstijd_max: tijd,
+    ingredienten: invoer.ingredienten,
+    stappen: invoer.stappen,
+    varianten: bestaand?.varianten || [],
+    status: heeftIngr && heeftStappen ? 'concept' : 'alleen_naam',
+    afgeleid: [`ingevoerd in de app op ${bestaand?.in_app_toegevoegd || vandaagKey()}`],
+    open_vragen: open,
+    te_controleren: true,
+    nieuw: true,
+    in_app_toegevoegd: bestaand?.in_app_toegevoegd || vandaagKey(),
+  };
+}
+
+// Korte tekst om aan Claude te geven, zodat het recept in data/recepten.json komt (en op alle telefoons).
+export function receptVoorDatabase(r) {
+  const velden = ['id', 'naam', 'dieet', 'basis', 'bron', 'porties', 'bereidingstijd_min', 'bereidingstijd_max',
+    'ingredienten', 'stappen', 'varianten', 'status', 'afgeleid', 'open_vragen', 'te_controleren', 'nieuw'];
+  const uit = Object.fromEntries(velden.map(k => [k, r[k]]));
+  uit.ingredienten = r.ingredienten.map(({ naam, hoeveelheid, hoeveelheid_max, eenheid, toelichting, groep, voorraadkast }) =>
+    ({ naam, hoeveelheid, hoeveelheid_max, eenheid, toelichting, groep, voorraadkast }));
+  return `Nieuw recept voor de receptendatabase (data/recepten.json):\n${JSON.stringify(uit)}`;
+}

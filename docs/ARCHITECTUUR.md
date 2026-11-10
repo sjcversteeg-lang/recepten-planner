@@ -22,6 +22,8 @@ manifest.webmanifest  Zodat de app op het beginscherm van een telefoon kan
 |---|---|
 | `#/week?week=JJJJ-MM-DD` | Weekmenu (eerste dag van de week, standaard woensdag; zonder = deze week) |
 | `#/recepten` | Receptenlijst en eetgeschiedenis |
+| `#/recept-nieuw?naam=…&datum=…` | Recept toevoegen (naam vooraf ingevuld vanuit zoeken; met `datum` meteen ingepland) |
+| `#/recept-aanpassen/<id>` | Eigen recept aanpassen (alleen recepten met `in_app_toegevoegd`) |
 | `#/recept/<id>` | Recept bekijken (`?datum=` voor de context van die dag) |
 | `#/boodschappen?week=…` | Boodschappenlijst van een week |
 | `#/lijsten` | Opgeslagen boodschappenlijsten |
@@ -69,6 +71,16 @@ Elk scherm is een functie `schermX()` die `{ html, koppel }` teruggeeft: eerst w
 `data/recepten.json` is de receptendatabase. Recepten worden daar aangepast (door Claude of in GitHub), niet in de
 app. Bij het opstarten neemt de app de nieuwste versie over. Een nieuw recept heeft `nieuw: true`; zodra het 4
 hartjes heeft (`LIKES_VOOR_VAST`) telt het als vast recept. Later zetten we dan ook `nieuw: false` in het bestand.
+
+**Zelf een recept toevoegen (v0.4).** Het formulier (`schermReceptInvoer` in app.js) leest ingrediënten per regel
+(`leesIngredient` in logic.js): getal of bereik (`1-2`, `2 tot 3`, `½`, `1,5`), eenheid (g, kg, ml, dl/cl → ml, l,
+el, tl, teen, blik, pot, pak, zak, flesje, snuf, bos; anders `stuk`), naam, en na een komma of tussen haakjes de
+toelichting. Kruiden en olie die in andere recepten `voorraadkast` zijn, krijgen dat ook (aan/uit te tikken).
+`receptUitInvoer` maakt er een recept van met alle velden van schema 2, `status` *concept* (of *alleen_naam* zonder
+ingrediënten of stappen), `nieuw: true`, `te_controleren: true`, open vragen voor wat ontbreekt, en het app-veld
+`in_app_toegevoegd` (datum). Zo'n recept staat alleen in localStorage van dat apparaat. *Doorgeven* kopieert
+`receptVoorDatabase(r)`: één regel JSON die Claude zo in `data/recepten.json` (en de projectbestanden) zet. Staat het
+id daarna in recepten.json, dan neemt de database het over en verdwijnt `in_app_toegevoegd` vanzelf.
 
 Vanaf versie 2 migreert `store.js` oude gegevens: week vanaf woensdag, *la* wordt *kast* (flesjes naar *garage*),
 vrijdag vast kippenbout. Oude weken (vanaf maandag) blijven bewaard.
