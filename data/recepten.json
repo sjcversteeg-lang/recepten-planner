@@ -1,6 +1,6 @@
 {
   "schema_versie": 2,
-  "bijgewerkt": "2026-10-30",
+  "bijgewerkt": "2026-11-10",
   "codelijsten": {
     "dieet": {
       "Ve": "vegetarisch",
@@ -3376,6 +3376,176 @@
       ],
       "open_vragen": [
         "Kloppen de hoeveelheden en welke dressing gebruiken jullie?"
+      ],
+      "te_controleren": true
+    },
+    {
+      "id": "zelfgemaakte-pizza",
+      "naam": "Zelfgemaakte pizza",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "brood",
+      "bron": "eigen recept (doorgegeven door Bas, 10-11-2026)",
+      "porties": 5,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [
+        {
+          "naam": "pizzadeeg",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "zelfgemaakt van wat in huis is (bloem, gist, water, olijfolie, zout)",
+          "groep": "hoofd",
+          "voorraadkast": true
+        },
+        {
+          "naam": "tomatenblokjes",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "blik",
+          "toelichting": "voor de saus",
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi30851",
+            "verpakking": 400,
+            "verpakking_naam": "g",
+            "prijs": 0.35
+          }
+        },
+        {
+          "naam": "salami",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "pak",
+          "toelichting": "Stegeman",
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi374021",
+            "verpakking": 200,
+            "verpakking_naam": "g",
+            "prijs": 4.29
+          }
+        },
+        {
+          "naam": "rode paprika",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi4117",
+            "verpakking": 1,
+            "verpakking_naam": "stuk",
+            "prijs": 1.29
+          }
+        },
+        {
+          "naam": "ananasschijven",
+          "hoeveelheid": 0.5,
+          "hoeveelheid_max": null,
+          "eenheid": "blik",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi857",
+            "verpakking": 227,
+            "verpakking_naam": "g",
+            "prijs": 1.29
+          }
+        },
+        {
+          "naam": "gekookte achterham",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "pak",
+          "toelichting": "plakjes",
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi543345",
+            "verpakking": 150,
+            "verpakking_naam": "g",
+            "prijs": 1.62
+          }
+        },
+        {
+          "naam": "truffeltapenade",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "pot",
+          "toelichting": "de duurste met het hoogste percentage truffel; nu Urbani (8% zomertruffel)",
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi461973",
+            "verpakking": 80,
+            "verpakking_naam": "g",
+            "prijs": 5.99
+          }
+        },
+        {
+          "naam": "parmaham",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "pak",
+          "toelichting": "of andere gedroogde ham",
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi454461",
+            "verpakking": 90,
+            "verpakking_naam": "g",
+            "prijs": 3.79
+          }
+        },
+        {
+          "naam": "rucola",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "pak",
+          "toelichting": "klein zakje",
+          "groep": "hoofd",
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi111767",
+            "verpakking": 85,
+            "verpakking_naam": "g",
+            "prijs": 1.09
+          }
+        },
+        {
+          "naam": "pizzakruiden",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "eigen kruiden",
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Maak het pizzadeeg en laat het rijzen.",
+        "Maak de saus van de tomatenblokjes en eigen kruiden.",
+        "Rol het deeg uit, besmeer met saus en beleg met salami, paprika, ananas, achterham en truffeltapenade naar keuze.",
+        "Bak de pizza in een hete oven gaar en knapperig.",
+        "Leg na het bakken de parmaham en rucola erop."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "toegevoegd uit de chat (10-11-2026)",
+        "bereidingsstappen, porties (5) en 'pizzakruiden' zijn aangenomen; de ingrediënten en hoeveelheden zijn zoals doorgegeven"
+      ],
+      "open_vragen": [
+        "Hoe lang duurt het van deeg maken tot eten, en hoe heet en hoe lang bak je de pizza?",
+        "Welke kruiden en hoeveel deeg (bloem) gebruik je voor dit aantal pizza's?"
       ],
       "te_controleren": true
     }
