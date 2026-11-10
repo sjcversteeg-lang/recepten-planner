@@ -3582,7 +3582,7 @@
           "hoeveelheid": 400,
           "hoeveelheid_max": null,
           "eenheid": "g",
-          "toelichting": "in plaats van de rulstukjes uit het originele recept",
+          "toelichting": "in plaats van de rulstukjes uit het originele recept; AH Terra plantaardige kipstukjes",
           "groep": "hoofd",
           "voorraadkast": false,
           "ah": {
@@ -3608,7 +3608,13 @@
           "eenheid": "el",
           "toelichting": "zakje",
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi626675",
+            "verpakking": 80,
+            "verpakking_naam": "g",
+            "prijs": 1.39
+          }
         },
         {
           "naam": "water",
@@ -3633,9 +3639,15 @@
           "hoeveelheid": 800,
           "hoeveelheid_max": null,
           "eenheid": "g",
-          "toelichting": null,
+          "toelichting": "verse snijbonen niet altijd bij AH; dan sperziebonen",
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi409995",
+            "verpakking": 450,
+            "verpakking_naam": "g",
+            "prijs": 1.35
+          }
         },
         {
           "naam": "rotivellen",
@@ -3644,7 +3656,13 @@
           "eenheid": "stuk",
           "toelichting": "kant-en-klaar",
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi450154",
+            "verpakking": 3,
+            "verpakking_naam": "stuk",
+            "prijs": 3.49
+          }
         },
         {
           "naam": "arachideolie",
