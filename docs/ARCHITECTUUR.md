@@ -99,7 +99,8 @@ Daarvan gaat af wat in de voorraad staat (zelfde naam en eenheid). Is een verpak
 dan wordt afgerond naar hele verpakkingen en het restje getoond (1,5 zak nodig → 2 kopen, 0,5 over).
 Ingrediënten *uit de kast* en alles wat al in voorraad is staan standaard onder *Op voorraad*.
 `ah.verpakking` staat in dezelfde eenheid als het ingrediënt (2 blik → verpakking 1, 400 g → verpakking 400).
-Kappertjes en tomatenblokjes koop je biologisch: in `recepten.json` staat daarvoor het AH Biologisch-productnummer.
+Biologisch kopen (AH Biologisch-productnummer in `recepten.json`): kappertjes, tomatenblokjes, knoflook,
+diepvries spinazie, snoeptomaatjes en diepvries sperziebonen. Knoflook rekent met ca. 15 tenen per netje.
 
 **Tijden**: bij voetbal is de etenstijd de tijd uit de voetbaltekst min `eetDuur` ("Maup 17:30" → 17:00).
 *Begin met koken om* = etenstijd min de bereidingstijd (zonder tijd 45 minuten).

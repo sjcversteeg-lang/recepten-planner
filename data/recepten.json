@@ -589,7 +589,13 @@
           "eenheid": "teen",
           "toelichting": null,
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi185774",
+            "verpakking": 15,
+            "verpakking_naam": "netje",
+            "prijs": 1.34
+          }
         },
         {
           "naam": "rode peper",
@@ -846,7 +852,13 @@
           "eenheid": "teen",
           "toelichting": null,
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi185774",
+            "verpakking": 15,
+            "verpakking_naam": "netje",
+            "prijs": 1.34
+          }
         },
         {
           "naam": "rode peper",
@@ -1068,7 +1080,13 @@
           "eenheid": "teen",
           "toelichting": null,
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi185774",
+            "verpakking": 15,
+            "verpakking_naam": "netje",
+            "prijs": 1.34
+          }
         },
         {
           "naam": "ansjovis",
@@ -1252,7 +1270,13 @@
           "eenheid": "teen",
           "toelichting": null,
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi185774",
+            "verpakking": 15,
+            "verpakking_naam": "netje",
+            "prijs": 1.34
+          }
         },
         {
           "naam": "gember",
@@ -1394,9 +1418,15 @@
           "hoeveelheid": 250,
           "hoeveelheid_max": null,
           "eenheid": "g",
-          "toelichting": null,
+          "toelichting": "diepvries",
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi409995",
+            "verpakking": 450,
+            "verpakking_naam": "zak",
+            "prijs": 1.21
+          }
         },
         {
           "naam": "ui",
@@ -1414,7 +1444,13 @@
           "eenheid": "teen",
           "toelichting": null,
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi185774",
+            "verpakking": 15,
+            "verpakking_naam": "netje",
+            "prijs": 1.34
+          }
         },
         {
           "naam": "rode peper",
@@ -1888,7 +1924,13 @@
           "eenheid": "teen",
           "toelichting": null,
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi185774",
+            "verpakking": 15,
+            "verpakking_naam": "netje",
+            "prijs": 1.34
+          }
         },
         {
           "naam": "gember",
@@ -2139,7 +2181,13 @@
           "eenheid": "teen",
           "toelichting": null,
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi185774",
+            "verpakking": 15,
+            "verpakking_naam": "netje",
+            "prijs": 1.34
+          }
         },
         {
           "naam": "groene olijven",
@@ -2250,7 +2298,13 @@
           "eenheid": "teen",
           "toelichting": null,
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi185774",
+            "verpakking": 15,
+            "verpakking_naam": "netje",
+            "prijs": 1.34
+          }
         },
         {
           "naam": "gember",
@@ -2407,7 +2461,13 @@
           "eenheid": "teen",
           "toelichting": null,
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi185774",
+            "verpakking": 15,
+            "verpakking_naam": "netje",
+            "prijs": 1.34
+          }
         },
         {
           "naam": "rode peper",
@@ -2508,9 +2568,15 @@
           "hoeveelheid": 300,
           "hoeveelheid_max": null,
           "eenheid": "g",
-          "toelichting": null,
+          "toelichting": "diepvries",
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi409997",
+            "verpakking": 450,
+            "verpakking_naam": "zak",
+            "prijs": 1.25
+          }
         },
         {
           "naam": "prei",
@@ -3210,9 +3276,15 @@
           "hoeveelheid": 500,
           "hoeveelheid_max": null,
           "eenheid": "g",
-          "toelichting": null,
+          "toelichting": "snoeptomaatjes",
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi502389",
+            "verpakking": 400,
+            "verpakking_naam": "bakje",
+            "prijs": 2.99
+          }
         },
         {
           "naam": "spinazie",
@@ -3325,9 +3397,15 @@
           "hoeveelheid": 250,
           "hoeveelheid_max": null,
           "eenheid": "g",
-          "toelichting": null,
+          "toelichting": "snoeptomaatjes",
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi502389",
+            "verpakking": 400,
+            "verpakking_naam": "bakje",
+            "prijs": 2.99
+          }
         },
         {
           "naam": "olijfolie",

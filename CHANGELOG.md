@@ -9,7 +9,7 @@ Alle wijzigingen per versie. Nieuwste bovenaan.
 - Regel: verse pasta wordt alleen voorgesteld als die bij AH 1+1 gratis is (invullen bij de aanbiedingen).
 
 ### Gewijzigd
-- Kappertjes en tomatenblokjes staan op de boodschappenlijst als AH Biologisch.
+- Kappertjes, tomatenblokjes, knoflook, diepvries spinazie, snoeptomaatjes en diepvries sperziebonen staan op de boodschappenlijst als AH Biologisch.
 
 ## [0.2.0] – 2026-10-30
 
