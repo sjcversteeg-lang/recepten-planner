@@ -1044,7 +1044,13 @@
           "eenheid": "g",
           "toelichting": "blik",
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi395307",
+            "verpakking": 400,
+            "verpakking_naam": "blik",
+            "prijs": 0.69
+          }
         },
         {
           "naam": "zwarte olijven",
@@ -1089,7 +1095,13 @@
           "eenheid": "el",
           "toelichting": null,
           "groep": "hoofd",
-          "voorraadkast": false
+          "voorraadkast": false,
+          "ah": {
+            "productnummer": "wi577543",
+            "verpakking": 10,
+            "verpakking_naam": "potje",
+            "prijs": 0.79
+          }
         },
         {
           "naam": "Parmezaanse kaas",
@@ -2924,7 +2936,8 @@
       "status": "concept",
       "afgeleid": [
         "toegevoegd uit Notion (28-10-2026)",
-        "vegetarisch aangenomen: de vulling van de ravioli staat er niet bij"
+        "vegetarisch aangenomen: de vulling van de ravioli staat er niet bij",
+        "alleen inplannen als verse pasta bij AH 1+1 gratis is (regel van Bas, 10-11-2026)"
       ],
       "open_vragen": [
         "Welke ravioli koop je (vulling)? Dan weet ik ook of het vegetarisch is."
@@ -3409,10 +3422,10 @@
           "groep": "hoofd",
           "voorraadkast": false,
           "ah": {
-            "productnummer": "wi30851",
-            "verpakking": 400,
-            "verpakking_naam": "g",
-            "prijs": 0.35
+            "productnummer": "wi395307",
+            "verpakking": 1,
+            "verpakking_naam": "blik",
+            "prijs": 0.69
           }
         },
         {
@@ -3425,8 +3438,8 @@
           "voorraadkast": false,
           "ah": {
             "productnummer": "wi374021",
-            "verpakking": 200,
-            "verpakking_naam": "g",
+            "verpakking": 1,
+            "verpakking_naam": "pak",
             "prijs": 4.29
           }
         },
@@ -3455,8 +3468,8 @@
           "voorraadkast": false,
           "ah": {
             "productnummer": "wi857",
-            "verpakking": 227,
-            "verpakking_naam": "g",
+            "verpakking": 1,
+            "verpakking_naam": "blik",
             "prijs": 1.29
           }
         },
@@ -3470,8 +3483,8 @@
           "voorraadkast": false,
           "ah": {
             "productnummer": "wi543345",
-            "verpakking": 150,
-            "verpakking_naam": "g",
+            "verpakking": 1,
+            "verpakking_naam": "pak",
             "prijs": 1.62
           }
         },
@@ -3485,8 +3498,8 @@
           "voorraadkast": false,
           "ah": {
             "productnummer": "wi461973",
-            "verpakking": 80,
-            "verpakking_naam": "g",
+            "verpakking": 1,
+            "verpakking_naam": "pot",
             "prijs": 5.99
           }
         },
@@ -3500,8 +3513,8 @@
           "voorraadkast": false,
           "ah": {
             "productnummer": "wi454461",
-            "verpakking": 90,
-            "verpakking_naam": "g",
+            "verpakking": 1,
+            "verpakking_naam": "pak",
             "prijs": 3.79
           }
         },
@@ -3515,8 +3528,8 @@
           "voorraadkast": false,
           "ah": {
             "productnummer": "wi111767",
-            "verpakking": 85,
-            "verpakking_naam": "g",
+            "verpakking": 1,
+            "verpakking_naam": "zak",
             "prijs": 1.09
           }
         },
@@ -3572,8 +3585,8 @@
           "voorraadkast": false,
           "ah": {
             "productnummer": "wi215683",
-            "verpakking": 1,
-            "verpakking_naam": "kg",
+            "verpakking": 1000,
+            "verpakking_naam": "zak",
             "prijs": 2.39
           }
         },
@@ -3588,7 +3601,7 @@
           "ah": {
             "productnummer": "wi580545",
             "verpakking": 300,
-            "verpakking_naam": "g",
+            "verpakking_naam": "pak",
             "prijs": 3.45
           }
         },
@@ -3611,8 +3624,8 @@
           "voorraadkast": false,
           "ah": {
             "productnummer": "wi626675",
-            "verpakking": 80,
-            "verpakking_naam": "g",
+            "verpakking": 10,
+            "verpakking_naam": "zakje",
             "prijs": 1.39
           }
         },
@@ -3645,7 +3658,7 @@
           "ah": {
             "productnummer": "wi409995",
             "verpakking": 450,
-            "verpakking_naam": "g",
+            "verpakking_naam": "zak",
             "prijs": 1.35
           }
         },
@@ -3660,7 +3673,7 @@
           "ah": {
             "productnummer": "wi450154",
             "verpakking": 3,
-            "verpakking_naam": "stuk",
+            "verpakking_naam": "pak",
             "prijs": 3.49
           }
         },

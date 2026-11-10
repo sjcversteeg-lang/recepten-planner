@@ -91,11 +91,15 @@ stuks, tenen, blikken op halven naar boven, grammen en milliliters op 5, lepels 
 - + 5 per hartje (vind ik lekker)
 - + 5 als het recept meer dan alleen een naam heeft; + een beetje toeval
 - hoogstens één nieuw recept per week, met − 20 zodat bekende recepten voorgaan
+- verse pasta (ravioli, tortellini, verse tagliatelle …) alleen als die bij de aanbiedingen staat met 1+1
+  ("verse pasta 1+1" of "ravioli 1+1"); anders wordt het recept overgeslagen (`versePastaToegestaan`)
 
 **Boodschappenlijst** (`boodschappen`): ingrediënten met dezelfde naam en eenheid worden opgeteld.
 Daarvan gaat af wat in de voorraad staat (zelfde naam en eenheid). Is een verpakkingsgrootte bekend,
 dan wordt afgerond naar hele verpakkingen en het restje getoond (1,5 zak nodig → 2 kopen, 0,5 over).
 Ingrediënten *uit de kast* en alles wat al in voorraad is staan standaard onder *Op voorraad*.
+`ah.verpakking` staat in dezelfde eenheid als het ingrediënt (2 blik → verpakking 1, 400 g → verpakking 400).
+Kappertjes en tomatenblokjes koop je biologisch: in `recepten.json` staat daarvoor het AH Biologisch-productnummer.
 
 **Tijden**: bij voetbal is de etenstijd de tijd uit de voetbaltekst min `eetDuur` ("Maup 17:30" → 17:00).
 *Begin met koken om* = etenstijd min de bereidingstijd (zonder tijd 45 minuten).

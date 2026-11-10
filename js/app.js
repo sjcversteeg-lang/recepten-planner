@@ -160,7 +160,7 @@ function schermWeek() {
 
 function aanbiedingSheet() {
   sheet(`<h2>Aanbiedingen deze week</h2>
-    <p class="hint">Wat is er bij Albert Heijn in de aanbieding (groente, vlees, vis, biologisch …)? Scheid met komma's. Het voorstel kiest dan liever recepten met deze producten. Seizoensgroente telt vanzelf mee.</p>
+    <p class="hint">Wat is er bij Albert Heijn in de aanbieding (groente, vlees, vis, biologisch …)? Scheid met komma's. Het voorstel kiest dan liever recepten met deze producten. Seizoensgroente telt vanzelf mee. Verse pasta wordt alleen gepland als je die met 1+1 invult, bijvoorbeeld <i>verse pasta 1+1</i>.</p>
     <label class="veld"><input id="aanbInvoer" value="${esc(D().instellingen.aanbiedingen)}" placeholder="prei, kipfilet, zalm"></label>
     <button class="knop zwart breed" id="ok">Bewaren</button>`, (s, sluit) => {
     on('#ok', 'click', () => { D().instellingen.aanbiedingen = s.querySelector('#aanbInvoer').value; opslaan(); sluit(); }, s);
