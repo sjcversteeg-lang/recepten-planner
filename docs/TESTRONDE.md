@@ -7,7 +7,7 @@ zeg het tegen Bas.
 ## Bas – voorbereiden (± 20 minuten)
 1. Open de app en tik rechtsboven op het instellingen-icoon. Controleer *Wie koken er* en de *Vaste week* (wie kookt welke dag, wie is vrij, voetbal).
 2. Ga terug naar *Week*. Tik op de regel met het label-icoontje en vul in welke groente bij AH in de aanbieding is.
-3. Tik *Voorstel*. Tik op een dag om een ander recept of een andere kok te kiezen.
+3. Tik *Voorstel*. Bevalt een gerecht niet? Tik op de dag en kies *Ander voorstel* (of *Leegmaken* en daarna weer *Voorstel*). Je krijgt per dag hoogstens 5 verschillende voorstellen; daarna zoek je zelf. Je kunt ook direct een recept of een andere kok kiezen.
 4. Mis je ingrediënten of hoeveelheden bij een gekozen recept? Geef het door aan Claude; die vult `data/recepten.json` aan (met AH-productnummer, verpakking en prijs waar bekend).
 5. Zet bij *Voorraad* wat er in de vriezer, de koelkast, de kasten en de garage ligt (gebruik dezelfde naam en eenheid als in het recept).
 

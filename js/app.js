@@ -150,8 +150,9 @@ function schermWeek() {
     koppel() {
       on('[data-dag]', 'click', (e, el) => dagSheet(ma, el.dataset.dag));
       on('#voorstel', 'click', () => {
-        const n = L.maakVoorstel(D(), ma); opslaan(); render();
-        toast(n ? `${n} ${n === 1 ? 'dag' : 'dagen'} ingevuld. Tik op een dag om te wisselen.` : 'Geen recept gevonden.');
+        const { gevuld: n, op } = L.maakVoorstel(D(), ma); opslaan(); render();
+        toast(n ? `${n} ${n === 1 ? 'dag' : 'dagen'} ingevuld. Tik op een dag om te wisselen.`
+          : op.length ? `Al ${L.MAX_VOORSTELLEN} voorstellen gedaan. Zoek zelf een recept.` : 'Geen recept gevonden.');
       });
       on('#aanb', 'click', () => aanbiedingSheet());
     },
@@ -181,6 +182,7 @@ function dagSheet(ma, datum) {
     <div class="keuzes" id="keuzes"></div>
     <div class="knoprij">
       ${dag.recept ? '<button class="knop smal" id="leeg">Leegmaken</button>' : ''}
+      ${L.voorstellenOver(dag) ? `<button class="knop" id="ander">${ICON.ster} ${dag.recept ? 'Ander voorstel' : 'Voorstel'} (nog ${L.voorstellenOver(dag)})</button>` : ''}
       ${dag.recept ? `<a class="knop" href="#/recept/${esc(dag.recept)}?datum=${datum}" id="bekijk">Bekijk recept</a>` : ''}
       <button class="knop zwart" id="klaar">Klaar</button>
     </div>`, (s, sluit) => {
@@ -206,6 +208,11 @@ function dagSheet(ma, datum) {
     }, s);
     on('#voetbal', 'change', (e, el) => { dag.voetbal = el.checked; opslaan(); }, s);
     on('#leeg', 'click', () => { dag.recept = null; opslaan(); sluit(); }, s);
+    on('#ander', 'click', () => {
+      const { gevuld } = L.maakVoorstel(D(), ma, datum); opslaan(); sluit();
+      toast(gevuld ? (L.voorstellenOver(dag) ? `Nieuw voorstel. Nog ${L.voorstellenOver(dag)} over.` : `Dit was het laatste voorstel. Bevalt het niet? Zoek zelf een recept.`)
+        : 'Geen ander recept gevonden. Zoek zelf een recept.');
+    }, s);
     on('#klaar', 'click', sluit, s);
     on('#bekijk', 'click', () => document.querySelector('.sheet-achter')?.remove(), s);
   });

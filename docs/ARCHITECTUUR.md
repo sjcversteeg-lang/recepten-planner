@@ -52,7 +52,8 @@ Elk scherm is een functie `schermX()` die `{ html, koppel }` teruggeeft: eerst w
   verwijderdeRecepten: ["id", …],        // zodat ze niet terugkomen uit recepten.json
   weken: {
     "2026-10-28": {                     // eerste dag van de week (weekStart)
-      dagen: { "2026-10-26": { recept: "id", kok: "Inge", voetbal: false, notitie: "" }, … },
+      dagen: { "2026-10-26": { recept: "id", kok: "Inge", voetbal: false, notitie: "",
+                               voorgesteld: ["id", …] }, … },   // voorgesteld: wat het voorstel voor deze dag al liet zien
       extra: [{ id, naam, aantal, eenheid, prijs }],           // extra boodschappen
       aanpassingen: { "<naam>|<eenheid>": { delta, weg, opVoorraad } }  // handmatig op de lijst
     }
@@ -78,11 +79,18 @@ stuks, tenen, blikken op halven naar boven, grammen en milliliters op 5, lepels 
 
 ## Regels
 
-**Voorstel** (`maakVoorstel` in logic.js), per lege dag, hoogste score wint:
+**Voorstel** (`maakVoorstel` in logic.js), per lege dag (of per dag via *Ander voorstel*), hoogste score wint:
 - dagen met een vast recept (vrijdag kippenbout) worden bij een nieuwe week al ingevuld
+- nooit een recept dat in de 14 dagen voor de week gegeten is (geschiedenis) of op het menu stond
+  (`NIET_HERHALEN_DAGEN`, `recentGegeten`); het vaste recept van vrijdag valt hier niet onder
+- per dag nooit twee keer hetzelfde voorstel: wat al voorgesteld is staat in `dag.voorgesteld`;
+  hoogstens 5 voorstellen per dag (`MAX_VOORSTELLEN`), daarna zoekt de kok zelf een recept
+- elke groente hoogstens één keer per week (`groentenVan`, lijst `GROENTEN` in logic.js), behalve paprika,
+  champignon, ui, knoflook, tomaat, courgette en wortel. De app zoekt de groente in de receptnaam en de
+  hoofdingrediënten; bij recepten zonder ingrediëntenlijst dus alleen in de naam. Een nieuwe groente toevoegen = een
+  regel in `GROENTEN`
 - weekmix: + 40 als er van die soort (vis, vlees, vega) nog avonden over zijn, − 60 als de soort al vol is;
   een recept met meer soorten (stamppot met kaas of spek) telt als de soort met de meeste ruimte
-- − 200 als het recept vorige week op het menu stond of gegeten is (niet twee weken achter elkaar)
 - + aantal dagen sinds laatst gegeten (max 60); nog nooit gegeten telt als 60
 - − 100 als het recept korter geleden is gegeten dan de ingestelde frequentie
 - + 25 per product uit de aanbieding in naam of ingrediënten; + 10 per seizoensgroente van die maand

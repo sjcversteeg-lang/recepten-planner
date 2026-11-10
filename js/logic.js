@@ -200,38 +200,89 @@ export function weekMixTelling(data, startKey) {
   return telling;
 }
 
-// Vult de lege dagen van een week met een voorstel. Regels (zie docs/ARCHITECTUUR.md):
-// weekmix (1 vis, 3 vlees, 3 vega), niet hetzelfde als vorige week, liefst iets wat lang niet
-// gegeten is, aanbiedingen en seizoensgroente, snel bij voetbal, een ster van de kok als een kind kookt,
-// hoogstens één nieuw recept per week.
-export function maakVoorstel(data, startKey) {
+// Groente mag maar één keer per week voorkomen. Uitgezonderd (zitten vaak als mix ergens doorheen):
+// paprika, champignon, ui, knoflook, tomaat, courgette en wortel; die staan daarom niet in deze lijst.
+// We zoeken in de naam van het recept en de hoofdingrediënten. Per groente: [naam, zoekwoorden].
+export const GROENTE_UITZONDERINGEN = ['paprika', 'champignon', 'ui', 'knoflook', 'tomaat', 'courgette', 'wortel'];
+const GROENTEN = [
+  ['andijvie', ['andijvie']], ['spinazie', ['spinazie']], ['bloemkool', ['bloemkool']], ['broccoli', ['broccoli']],
+  ['prei', ['prei']], ['witlof', ['witlof']], ['sperziebonen', ['sperziebon', 'boontjes']], ['snijbonen', ['snijbon']],
+  ['snijbiet', ['snijbiet']], ['paksoi', ['paksoi']], ['chinese kool', ['chinese kool']], ['spitskool', ['spitskool']],
+  ['zuurkool', ['zuurkool']], ['rode kool', ['rode kool', 'rodekool']], ['boerenkool', ['boerenkool']],
+  ['spruitjes', ['spruit']], ['aubergine', ['aubergine']], ['pompoen', ['pompoen']], ['venkel', ['venkel']],
+  ['biet', [/\bbiet/]], ['doperwten', ['doperwt']], ['mais', ['mais']], ['komkommer', ['komkommer']],
+  ['sla', [/\bsla\b/, 'ijsbergsla', 'veldsla', 'rucola']], ['asperge', ['asperge']], ['knolselderij', ['knolselderij']],
+  ['pastinaak', ['pastinaak']],
+];
+const zonderAccent = t => norm(t).normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+export function groentenVan(r) {
+  const tekst = zonderAccent([r.naam, ...r.ingredienten.filter(i => i.groep !== 'kruiden').map(i => i.naam)].join(' | '));
+  return GROENTEN.filter(([, woorden]) => woorden.some(w => (typeof w === 'string' ? tekst.includes(w) : w.test(tekst)))).map(([g]) => g);
+}
+
+// Hoeveel verschillende voorstellen een dag hoogstens krijgt. Daarna zoekt de kok zelf een recept.
+export const MAX_VOORSTELLEN = 5;
+// Niets voorstellen wat in de afgelopen twee weken gegeten (of gepland) is.
+export const NIET_HERHALEN_DAGEN = 14;
+
+// Recepten die in de NIET_HERHALEN_DAGEN dagen voor de week gegeten of gepland zijn.
+export function recentGegeten(data, startKey) {
+  const recent = new Set();
+  for (const g of data.geschiedenis) {
+    const n = dagenTussen(g.datum, startKey);
+    if (n > 0 && n <= NIET_HERHALEN_DAGEN) recent.add(g.recept);
+  }
+  for (const w of Object.values(data.weken)) {
+    for (const [datum, d] of Object.entries(w.dagen || {})) {
+      const n = dagenTussen(datum, startKey);
+      if (d.recept && n > 0 && n <= NIET_HERHALEN_DAGEN) recent.add(d.recept);
+    }
+  }
+  return recent;
+}
+export function voorstellenOver(dag) { return Math.max(0, MAX_VOORSTELLEN - (dag.voorgesteld || []).length); }
+
+// Vult de lege dagen van een week met een voorstel (of alleen de dag `alleenDatum`).
+// Regels (zie docs/ARCHITECTUUR.md):
+// - nooit iets wat in de afgelopen twee weken gegeten of gepland is (vaste dagen zoals vrijdag kippenbout uitgezonderd);
+// - per dag nooit twee keer hetzelfde voorstel, en hoogstens MAX_VOORSTELLEN voorstellen;
+// - elke groente hoogstens één keer per week (behalve GROENTE_UITZONDERINGEN);
+// - weekmix (1 vis, 3 vlees, 3 vega), liefst iets wat lang niet gegeten is, aanbiedingen en
+//   seizoensgroente, snel bij voetbal, een ster van de kok als een kind kookt, hoogstens één nieuw recept per week.
+// Geeft { gevuld, op } terug: op = datums waarvoor de voorstellen op zijn.
+export function maakVoorstel(data, startKey, alleenDatum = null) {
   const w = week(data, startKey);
   const woorden = aanbiedingWoorden(data);
   const groente = seizoen(vanKey(startKey));
-  const vorige = new Set(Object.values(data.weken[dagKey(plusDagen(vanKey(startKey), -7))]?.dagen || {}).map(d => d.recept).filter(Boolean));
-  for (const g of data.geschiedenis) if (dagenTussen(g.datum, startKey) > 0 && dagenTussen(g.datum, startKey) <= 7) vorige.add(g.recept);
+  const recent = recentGegeten(data, startKey);
   const gebruikt = new Set(Object.values(w.dagen).map(d => d.recept).filter(Boolean));
   const over = { ...(data.instellingen.weekMix || {}) };
+  const weekGroenten = new Set();
   let nieuwe = 0;
-  for (const id of gebruikt) {
-    const r = recept(data, id);
+  for (const [datum, d] of Object.entries(w.dagen)) {
+    if (!d.recept || datum === alleenDatum) continue;
+    const r = recept(data, d.recept);
     if (!r) continue;
+    groentenVan(r).forEach(g => weekGroenten.add(g));
     const s = soort(r, over);
     if (s in over) over[s]--;
     if (isNieuw(data, r)) nieuwe++;
   }
   let gevuld = 0;
+  const op = [];
   for (const [datum, dag] of Object.entries(w.dagen)) {
-    if (dag.recept) continue;
+    if (alleenDatum ? datum !== alleenDatum : dag.recept) continue;
+    const getoond = (dag.voorgesteld ||= []);
+    if (getoond.length >= MAX_VOORSTELLEN) { op.push(datum); continue; }
     let beste = null, besteScore = -Infinity;
     for (const r of data.recepten) {
-      if (gebruikt.has(r.id)) continue;
+      if (gebruikt.has(r.id) || recent.has(r.id) || getoond.includes(r.id)) continue;
+      if (groentenVan(r).some(g => weekGroenten.has(g))) continue;
       const nieuw = isNieuw(data, r);
       if (nieuw && nieuwe >= 1) continue;
       const laatst = laatstGegeten(data, r.id);
       const dagenTerug = laatst ? Math.round((vanKey(datum) - vanKey(laatst)) / 86400000) : 60;
       let score = Math.min(dagenTerug, 60);
-      if (vorige.has(r.id)) score -= 200;
       if (r.frequentie_weken && laatst && dagenTerug < r.frequentie_weken * 7) score -= 100;
       const s = soort(r, over);
       if (s in over) score += over[s] > 0 ? 40 : -60;
@@ -246,13 +297,15 @@ export function maakVoorstel(data, startKey) {
       if (score > besteScore) { besteScore = score; beste = r; }
     }
     if (beste) {
-      dag.recept = beste.id; gebruikt.add(beste.id); gevuld++;
+      if (dag.recept) gebruikt.delete(dag.recept);
+      dag.recept = beste.id; gebruikt.add(beste.id); getoond.push(beste.id); gevuld++;
+      groentenVan(beste).forEach(g => weekGroenten.add(g));
       const s = soort(beste, over);
       if (s in over) over[s]--;
       if (isNieuw(data, beste)) nieuwe++;
     }
   }
-  return gevuld;
+  return { gevuld, op };
 }
 
 // ---------- Voorraad ----------

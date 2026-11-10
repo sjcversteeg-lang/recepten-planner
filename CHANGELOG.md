@@ -2,6 +2,19 @@
 
 Alle wijzigingen per versie. Nieuwste bovenaan.
 
+## [0.3.0] – 2026-11-10
+
+Voorstel verbeterd op verzoek van Bas.
+
+### Toegevoegd
+- Knop *Ander voorstel (nog …)* bij een dag: geeft een ander gerecht voor alleen die dag.
+- Elke groente hoogstens één keer per week (bijv. niet twee keer bloemkool). Uitgezonderd: paprika, champignon, ui, knoflook, tomaat, courgette en wortel.
+- Per dag hoogstens 5 verschillende voorstellen (ook via leegmaken en opnieuw *Voorstel*). Daarna meldt de app dat je zelf een recept zoekt.
+
+### Gewijzigd
+- Geen gerechten voorstellen die in de afgelopen twee weken gegeten zijn of op het menu stonden (was: alleen vorige week, en dat was een strafpunt in plaats van een harde regel). Vrijdag kippenbout blijft vast.
+- Na leegmaken en opnieuw *Voorstel* kwam vaak hetzelfde gerecht terug. Nu komt er elke keer een ander gerecht.
+
 ## [0.2.0] – 2026-10-30
 
 Feedback van Inge verwerkt.
