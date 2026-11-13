@@ -1567,27 +1567,146 @@
     },
     {
       "id": "zuurkoolschotel-met-broodkruim",
-      "naam": "Zuurkoolschotel met broodkruim",
+      "naam": "Zuurkoolgratin met spek en broodkruim",
       "soort": "hoofdgerecht",
       "dieet": [
         "vlees"
       ],
-      "basis": null,
-      "bron": "Herman",
-      "porties": null,
-      "bereidingstijd_min": null,
-      "bereidingstijd_max": null,
-      "ingredienten": [],
-      "stappen": [],
+      "basis": "aardappel",
+      "bron": "Herman; kookboek Herman den Blijker blz. 107 met aantekeningen van Bas (foto, 2026-11-13)",
+      "porties": 4,
+      "bereidingstijd_min": 60,
+      "bereidingstijd_max": 60,
+      "ingredienten": [
+        {
+          "naam": "zuurkool",
+          "hoeveelheid": 500,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "1 pak",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kruimige aardappelen",
+          "hoeveelheid": 600,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "geschild",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "gerookt spek",
+          "hoeveelheid": 150,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "in een stuk",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "witte boterhammen",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "voor het broodkruim",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "droge witte wijn",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "fles",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ganzenvet of boter",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "boter",
+          "hoeveelheid": 150,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "laurierblaadjes",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "jeneverbessen",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kruidnagels",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "witte peper",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "uit de molen",
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Verwarm de oven voor op 180 graden. Maak ondertussen broodkruim van 3 witte boterhammen (zie basisrecept knapperig broodkruim).",
+        "Gaar de zuurkool met het ganzenvet (of boter), de witte wijn, laurier, jeneverbessen, kruidnagels en het spek, ongeveer een halfuur.",
+        "Kook de aardappelen apart gaar in water met een snuf zout (niet met de zuurkool: door het zuur garen ze slecht). Giet af en laat droogstomen.",
+        "Giet de zuurkool af, verwijder de kruiden en snijd het spek in plakken.",
+        "Prak de aardappelen grof met de boter tot een grove puree en breng op smaak met zout en witte peper. Meng met de zuurkool tot een stamppot.",
+        "Doe de stamppot in een ovenschaal, bestrooi met broodkruim en verdeel de plakken spek erover.",
+        "Zet het gerecht 20 minuten in de oven."
+      ],
       "varianten": [],
-      "status": "alleen_naam",
+      "status": "compleet",
       "afgeleid": [
-        "'Herman' uit de naam gehaald en als bron vastgelegd"
+        "hoeveelheden zuurkool (500 g) en aardappel (600 g) volgens aantekening van Bas; boek: 250 g zuurkool en 200 g aardappel voor 4 personen",
+        "broodkruim van 3 witte boterhammen, tijdens het voorverwarmen van de oven (aantekening Bas)",
+        "Bas: favoriet van de kinderen, Inge iets minder; alleen Bas kookt dit",
+        "tijd geschat"
       ],
-      "open_vragen": [
-        "Geen basis: met aardappelpuree?"
-      ],
-      "te_controleren": true
+      "open_vragen": [],
+      "te_controleren": true,
+      "kinderen_kunnen": false
     },
     {
       "id": "pasta-puttanesca",
