@@ -3304,21 +3304,119 @@
         "vegetarisch"
       ],
       "basis": "pasta",
-      "bron": "Notion: TikTok @superdushichef",
+      "bron": "Notion: TikTok @superdushichef (tekst onder de video, aangeleverd door Bas 13-11-2026)",
       "porties": null,
-      "bereidingstijd_min": null,
-      "bereidingstijd_max": null,
-      "ingredienten": [],
-      "stappen": [],
+      "bereidingstijd_min": 45,
+      "bereidingstijd_max": 45,
+      "ingredienten": [
+        {
+          "naam": "macaroni",
+          "hoeveelheid": 400,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "pompoen",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "gekookt en gepureerd",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "melk",
+          "hoeveelheid": 300,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "geraspte cheddar",
+          "hoeveelheid": 200,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "geraspte belegen kaas",
+          "hoeveelheid": 200,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "salie",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "blaadje",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "roomboter",
+          "hoeveelheid": 50,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "bloem",
+          "hoeveelheid": 50,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "peper, zout en paprikapoeder",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "naar smaak",
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Kook de macaroni en de pompoen gaar en pureer de pompoen.",
+        "Verhit de boter in een pan en fruit daarin de knoflook met de salie. Haal de salie uit de pan en roer de bloem door de boter.",
+        "Voeg de pompoenpuree en de melk toe en roer goed.",
+        "Voeg beide soorten kaas, zout, peper en paprikapoeder toe en roer tot de saus glad is.",
+        "Roer de macaroni door de saus."
+      ],
       "varianten": [],
-      "status": "alleen_naam",
+      "status": "concept",
       "afgeleid": [
         "toegevoegd uit Notion (28-10-2026)",
-        "vegetarisch aangenomen"
+        "vegetarisch aangenomen",
+        "bereidingstijd geschat (pompoen koken en pureren ±30 min, saus 15 min)"
       ],
       "open_vragen": [
-        "In Notion staat alleen een TikTok-link. Wil je de ingrediënten en stappen uit de video overnemen?",
-        "Het recept staat alleen in een TikTok-video; die kan ik niet openen. Kun je de ingrediënten uit het onderschrift plakken?"
+        "Voor hoeveel personen is dit (400 g macaroni is voor 4 als hoofdgerecht)?",
+        "Welke pompoen en hoe groot (bijv. 1 flespompoen of halve pompoen)?"
       ],
       "te_controleren": true,
       "nieuw": true
