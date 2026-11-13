@@ -2,6 +2,38 @@
 
 Alle wijzigingen per versie. Nieuwste bovenaan.
 
+## [0.4.0] – 2026-11-10
+
+Zelf een recept toevoegen, op verzoek van Bas.
+
+### Toegevoegd
+- *Recept toevoegen*: knop + bij Recepten, en een knop onder de zoekresultaten als een recept er niet bij staat (de naam die je zocht staat al ingevuld). Ook in het venster van een dag: het nieuwe recept wordt dan meteen op die dag ingepland.
+- Invoer: naam, vis/vlees/vega, basis, voor hoeveel personen, kooktijd, ingrediënten (één per regel, bijv. *400 g kipfilet* of *2 tenen knoflook, fijngesneden*), bereiding (één stap per regel) en bron. De app laat zien hoe hij de ingrediënten leest; tik een ingrediënt aan om *uit de kast* aan of uit te zetten.
+- De app maakt er hetzelfde uniforme formaat van als de receptendatabase (dieet, basis, ingrediënten met hoeveelheid en eenheid, stappen, status *concept*, open vragen voor wat nog ontbreekt). Een nieuw recept telt als *Nieuw* tot het 4 hartjes heeft.
+- Alle recepten uit Notion staan nu in de database (72 recepten). Nieuw: kikkererwtensalade met feta, aardappelgratin, pizzadeeg, kaasbroodjes, paté en croûte en Thaise groene currypasta.
+- Nieuw veld `soort` per recept: hoofdgerecht, bijgerecht, basisrecept, snack of feestgerecht. Het weekvoorstel kiest alleen hoofdgerechten. Filter *Bijgerecht, snack, basis* bij Recepten.
+- Eigen recepten hebben het label *eigen* en kunnen worden aangepast, verwijderd en *doorgegeven*: dat kopieert een korte tekst om in de chat met Claude te plakken, die het recept in `data/recepten.json` zet zodat het op alle telefoons komt.
+
+### Gewijzigd
+- `data/recepten.json` gelijkgetrokken met de receptendatabase in de projectbestanden (samengevoegde *Geroosterde bloemkool met linzendahl*, 31 okt).
+
+### Bekende beperkingen
+- Een zelf toegevoegd recept staat tot het doorgeven alleen op het apparaat waarop je het invoerde.
+- Een foto van een recept omzetten kan nog niet; dat komt in versie 1.0 (zie backlog).
+
+## [0.3.0] – 2026-11-10
+
+Voorstel verbeterd op verzoek van Bas.
+
+### Toegevoegd
+- Knop *Ander voorstel (nog …)* bij een dag: geeft een ander gerecht voor alleen die dag.
+- Elke groente hoogstens één keer per week (bijv. niet twee keer bloemkool). Uitgezonderd: paprika, champignon, ui, knoflook, tomaat, courgette en wortel.
+- Per dag hoogstens 5 verschillende voorstellen (ook via leegmaken en opnieuw *Voorstel*). Daarna meldt de app dat je zelf een recept zoekt.
+
+### Gewijzigd
+- Geen gerechten voorstellen die in de afgelopen twee weken gegeten zijn of op het menu stonden (was: alleen vorige week, en dat was een strafpunt in plaats van een harde regel). Vrijdag kippenbout blijft vast.
+- Na leegmaken en opnieuw *Voorstel* kwam vaak hetzelfde gerecht terug. Nu komt er elke keer een ander gerecht.
+
 ## [0.2.0] – 2026-10-30
 
 Feedback van Inge verwerkt.

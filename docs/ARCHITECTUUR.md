@@ -22,6 +22,8 @@ manifest.webmanifest  Zodat de app op het beginscherm van een telefoon kan
 |---|---|
 | `#/week?week=JJJJ-MM-DD` | Weekmenu (eerste dag van de week, standaard woensdag; zonder = deze week) |
 | `#/recepten` | Receptenlijst en eetgeschiedenis |
+| `#/recept-nieuw?naam=…&datum=…` | Recept toevoegen (naam vooraf ingevuld vanuit zoeken; met `datum` meteen ingepland) |
+| `#/recept-aanpassen/<id>` | Eigen recept aanpassen (alleen recepten met `in_app_toegevoegd`) |
 | `#/recept/<id>` | Recept bekijken (`?datum=` voor de context van die dag) |
 | `#/boodschappen?week=…` | Boodschappenlijst van een week |
 | `#/lijsten` | Opgeslagen boodschappenlijsten |
@@ -52,7 +54,8 @@ Elk scherm is een functie `schermX()` die `{ html, koppel }` teruggeeft: eerst w
   verwijderdeRecepten: ["id", …],        // zodat ze niet terugkomen uit recepten.json
   weken: {
     "2026-10-28": {                     // eerste dag van de week (weekStart)
-      dagen: { "2026-10-26": { recept: "id", kok: "Inge", voetbal: false, notitie: "" }, … },
+      dagen: { "2026-10-26": { recept: "id", kok: "Inge", voetbal: false, notitie: "",
+                               voorgesteld: ["id", …] }, … },   // voorgesteld: wat het voorstel voor deze dag al liet zien
       extra: [{ id, naam, aantal, eenheid, prijs }],           // extra boodschappen
       aanpassingen: { "<naam>|<eenheid>": { delta, weg, opVoorraad } }  // handmatig op de lijst
     }
@@ -69,6 +72,20 @@ Elk scherm is een functie `schermX()` die `{ html, koppel }` teruggeeft: eerst w
 app. Bij het opstarten neemt de app de nieuwste versie over. Een nieuw recept heeft `nieuw: true`; zodra het 4
 hartjes heeft (`LIKES_VOOR_VAST`) telt het als vast recept. Later zetten we dan ook `nieuw: false` in het bestand.
 
+**Soort gerecht (v0.4).** Elk recept heeft `soort`: `hoofdgerecht` (standaard), `bijgerecht`, `basisrecept`,
+`snack` of `feestgerecht` (codelijst in recepten.json). `isHoofdgerecht` in logic.js: alleen hoofdgerechten komen in
+het weekvoorstel. Zo kunnen ook deeg, currypasta en bijgerechten uit Notion in de database staan.
+
+**Zelf een recept toevoegen (v0.4).** Het formulier (`schermReceptInvoer` in app.js) leest ingrediënten per regel
+(`leesIngredient` in logic.js): getal of bereik (`1-2`, `2 tot 3`, `½`, `1,5`), eenheid (g, kg, ml, dl/cl → ml, l,
+el, tl, teen, blik, pot, pak, zak, flesje, snuf, bos; anders `stuk`), naam, en na een komma of tussen haakjes de
+toelichting. Kruiden en olie die in andere recepten `voorraadkast` zijn, krijgen dat ook (aan/uit te tikken).
+`receptUitInvoer` maakt er een recept van met alle velden van schema 2, `status` *concept* (of *alleen_naam* zonder
+ingrediënten of stappen), `nieuw: true`, `te_controleren: true`, open vragen voor wat ontbreekt, en het app-veld
+`in_app_toegevoegd` (datum). Zo'n recept staat alleen in localStorage van dat apparaat. *Doorgeven* kopieert
+`receptVoorDatabase(r)`: één regel JSON die Claude zo in `data/recepten.json` (en de projectbestanden) zet. Staat het
+id daarna in recepten.json, dan neemt de database het over en verdwijnt `in_app_toegevoegd` vanzelf.
+
 Vanaf versie 2 migreert `store.js` oude gegevens: week vanaf woensdag, *la* wordt *kast* (flesjes naar *garage*),
 vrijdag vast kippenbout. Oude weken (vanaf maandag) blijven bewaard.
 
@@ -78,11 +95,18 @@ stuks, tenen, blikken op halven naar boven, grammen en milliliters op 5, lepels 
 
 ## Regels
 
-**Voorstel** (`maakVoorstel` in logic.js), per lege dag, hoogste score wint:
+**Voorstel** (`maakVoorstel` in logic.js), per lege dag (of per dag via *Ander voorstel*), hoogste score wint:
 - dagen met een vast recept (vrijdag kippenbout) worden bij een nieuwe week al ingevuld
+- nooit een recept dat in de 14 dagen voor de week gegeten is (geschiedenis) of op het menu stond
+  (`NIET_HERHALEN_DAGEN`, `recentGegeten`); het vaste recept van vrijdag valt hier niet onder
+- per dag nooit twee keer hetzelfde voorstel: wat al voorgesteld is staat in `dag.voorgesteld`;
+  hoogstens 5 voorstellen per dag (`MAX_VOORSTELLEN`), daarna zoekt de kok zelf een recept
+- elke groente hoogstens één keer per week (`groentenVan`, lijst `GROENTEN` in logic.js), behalve paprika,
+  champignon, ui, knoflook, tomaat, courgette en wortel. De app zoekt de groente in de receptnaam en de
+  hoofdingrediënten; bij recepten zonder ingrediëntenlijst dus alleen in de naam. Een nieuwe groente toevoegen = een
+  regel in `GROENTEN`
 - weekmix: + 40 als er van die soort (vis, vlees, vega) nog avonden over zijn, − 60 als de soort al vol is;
   een recept met meer soorten (stamppot met kaas of spek) telt als de soort met de meeste ruimte
-- − 200 als het recept vorige week op het menu stond of gegeten is (niet twee weken achter elkaar)
 - + aantal dagen sinds laatst gegeten (max 60); nog nooit gegeten telt als 60
 - − 100 als het recept korter geleden is gegeten dan de ingestelde frequentie
 - + 25 per product uit de aanbieding in naam of ingrediënten; + 10 per seizoensgroente van die maand

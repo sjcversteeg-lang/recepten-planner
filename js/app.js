@@ -1,6 +1,6 @@
 // Schermen van de app. Elk scherm is een functie die HTML teruggeeft en daarna
 // de knoppen koppelt. De adresbalk (#/week, #/recept/<id>, …) bepaalt welk scherm.
-import { db, laad, bewaar, exporteer, importeer, wisAlles } from './store.js';
+import { db, laad, bewaar, exporteer, importeer, wisAlles, normaliseerRecept } from './store.js';
 import * as L from './logic.js';
 
 const app = document.getElementById('app');
@@ -150,8 +150,9 @@ function schermWeek() {
     koppel() {
       on('[data-dag]', 'click', (e, el) => dagSheet(ma, el.dataset.dag));
       on('#voorstel', 'click', () => {
-        const n = L.maakVoorstel(D(), ma); opslaan(); render();
-        toast(n ? `${n} ${n === 1 ? 'dag' : 'dagen'} ingevuld. Tik op een dag om te wisselen.` : 'Geen recept gevonden.');
+        const { gevuld: n, op } = L.maakVoorstel(D(), ma); opslaan(); render();
+        toast(n ? `${n} ${n === 1 ? 'dag' : 'dagen'} ingevuld. Tik op een dag om te wisselen.`
+          : op.length ? `Al ${L.MAX_VOORSTELLEN} voorstellen gedaan. Zoek zelf een recept.` : 'Geen recept gevonden.');
       });
       on('#aanb', 'click', () => aanbiedingSheet());
     },
@@ -181,6 +182,7 @@ function dagSheet(ma, datum) {
     <div class="keuzes" id="keuzes"></div>
     <div class="knoprij">
       ${dag.recept ? '<button class="knop smal" id="leeg">Leegmaken</button>' : ''}
+      ${L.voorstellenOver(dag) ? `<button class="knop" id="ander">${ICON.ster} ${dag.recept ? 'Ander voorstel' : 'Voorstel'} (nog ${L.voorstellenOver(dag)})</button>` : ''}
       ${dag.recept ? `<a class="knop" href="#/recept/${esc(dag.recept)}?datum=${datum}" id="bekijk">Bekijk recept</a>` : ''}
       <button class="knop zwart" id="klaar">Klaar</button>
     </div>`, (s, sluit) => {
@@ -195,7 +197,10 @@ function dagSheet(ma, datum) {
         <li><button class="rij ${r.id === dag.recept ? 'gekozen' : ''}" data-recept="${esc(r.id)}">
           <span class="hoofd"><span class="naam">${esc(r.naam)}</span><span class="klein">${esc([L.isSnel(r) ? 'snel' : '', sterTekst(r.id), 'laatst ' + L.geledenTekst(laatst)].filter(Boolean).join(' · '))}</span></span>
           ${r.id === dag.recept ? ICON.vink : ''}
-        </button></li>`).join('')}</ul>`;
+        </button></li>`).join('')}</ul>
+        ${q && !lijst.length ? `<p class="hint">"${esc(s.querySelector('#zoek').value.trim())}" staat er niet bij.</p>` : ''}
+        ${q ? `<a class="knop breed" id="voegToe" href="#/recept-nieuw?naam=${encodeURIComponent(s.querySelector('#zoek').value.trim())}&datum=${datum}">${ICON.plus} Nieuw recept toevoegen</a>` : ''}`;
+      on('#voegToe', 'click', () => document.querySelector('.sheet-achter')?.remove(), s);
       on('[data-recept]', 'click', (e, el) => { dag.recept = el.dataset.recept; opslaan(); sluit(); }, s);
     };
     toon();
@@ -206,6 +211,11 @@ function dagSheet(ma, datum) {
     }, s);
     on('#voetbal', 'change', (e, el) => { dag.voetbal = el.checked; opslaan(); }, s);
     on('#leeg', 'click', () => { dag.recept = null; opslaan(); sluit(); }, s);
+    on('#ander', 'click', () => {
+      const { gevuld } = L.maakVoorstel(D(), ma, datum); opslaan(); sluit();
+      toast(gevuld ? (L.voorstellenOver(dag) ? `Nieuw voorstel. Nog ${L.voorstellenOver(dag)} over.` : `Dit was het laatste voorstel. Bevalt het niet? Zoek zelf een recept.`)
+        : 'Geen ander recept gevonden. Zoek zelf een recept.');
+    }, s);
     on('#klaar', 'click', sluit, s);
     on('#bekijk', 'click', () => document.querySelector('.sheet-achter')?.remove(), s);
   });
@@ -221,6 +231,7 @@ const FILTERS = {
   snel: ['Snel', r => L.isSnel(r)],
   kinderen: ['Kinderen kunnen het', r => L.kinderenKunnen(D(), r)],
   aanvullen: ['Aan te vullen', r => r.status !== 'compleet'],
+  overig: ['Bijgerecht, snack, basis', r => !L.isHoofdgerecht(r)],
 };
 
 function schermRecepten() {
@@ -244,14 +255,15 @@ function schermRecepten() {
       <input class="zoek" id="zoek" placeholder="Zoek een recept" value="${esc(filters.zoek)}" autocomplete="off">
       <div class="chips">${Object.entries(FILTERS).map(([k, [naam]]) => `<button class="chip ${filters.filter === k ? 'aan' : ''}" data-filter="${k}">${naam}</button>`).join('')}</div>
       <ul class="lijst" id="receptlijst">${lijst.map(r => {
-        const sub = [r.basis, r.dieet.join(' / '), L.tijdTekst(r), sterTekst(r.id), 'laatst ' + L.geledenTekst(L.laatstGegeten(D(), r.id))].filter(Boolean).join(' · ');
+        const sub = [L.isHoofdgerecht(r) ? '' : r.soort, r.basis, r.dieet.join(' / '), L.tijdTekst(r), sterTekst(r.id), 'laatst ' + L.geledenTekst(L.laatstGegeten(D(), r.id))].filter(Boolean).join(' · ');
         const status = r.status === 'compleet' ? '' : r.status === 'concept' ? '<span class="label oranje">concept</span>' : '<span class="label grijs">alleen naam</span>';
-        return `<li><a class="rij" href="#/recept/${esc(r.id)}"><span class="hoofd"><span class="naam">${esc(r.naam)}</span><span class="klein">${esc(sub)}</span></span><span class="rechts">${L.isNieuw(D(), r) ? '<span class="label paars">Nieuw</span>' : ''}${status}</span></a></li>`;
-      }).join('') || '<li class="leeg-staat">Geen recepten gevonden.</li>'}</ul>`;
+        return `<li><a class="rij" href="#/recept/${esc(r.id)}"><span class="hoofd"><span class="naam">${esc(r.naam)}</span><span class="klein">${esc(sub)}</span></span><span class="rechts">${r.in_app_toegevoegd ? '<span class="label groen">eigen</span>' : ''}${L.isNieuw(D(), r) ? '<span class="label paars">Nieuw</span>' : ''}${status}</span></a></li>`;
+      }).join('') || `<li class="leeg-staat">${q ? `"${esc(filters.zoek.trim())}" staat er niet bij.` : 'Geen recepten gevonden.'}</li>`}</ul>
+      <a class="knop breed" href="#/recept-nieuw${q ? `?naam=${encodeURIComponent(filters.zoek.trim())}` : ''}">${ICON.plus} ${q && !lijst.length ? `"${esc(filters.zoek.trim())}" toevoegen` : 'Recept toevoegen'}</a>`;
   }
   return {
     html: `<header class="kop"><div><p class="boven">${D().recepten.filter(r => r.status === 'compleet').length} compleet</p><h1>Recepten</h1></div>
-</header>
+      <div class="kop-knoppen"><a class="rond" href="#/recept-nieuw" aria-label="Recept toevoegen">${ICON.plus}</a></div></header>
       ${segment}${inhoud}`,
     koppel() {
       on('[data-tab]', 'click', (e, el) => { filters.tab = el.dataset.tab; render(); });
@@ -276,7 +288,7 @@ function schermRecept(id) {
     : '';
   const f = L.factor(D(), r);
   const pers = r.porties ? (f === 1 ? `${r.porties} pers.` : `${D().instellingen.personen} pers. (recept: ${r.porties})`) : '';
-  const meta = [L.tijdTekst(r), r.dieet.join(' / '), r.basis, pers, `Laatst: ${L.geledenTekst(L.laatstGegeten(D(), id))}`].filter(Boolean);
+  const meta = [L.isHoofdgerecht(r) ? '' : r.soort, L.tijdTekst(r), r.dieet.join(' / '), r.basis, pers, `Laatst: ${L.geledenTekst(L.laatstGegeten(D(), id))}`].filter(Boolean);
   const voorraadLabel = i => {
     const v = L.voorraadItem(D(), i.naam, i.eenheid);
     if (!v) return i.voorraadkast ? 'uit de kast' : '';
@@ -302,6 +314,11 @@ function schermRecept(id) {
         <button data-rt="bereiding" class="${receptTab.tab === 'bereiding' ? 'aan' : ''}">Bereiding</button>
       </div>
       ${receptTab.tab === 'ingredienten' ? ingr : stappen + varianten}
+      ${r.in_app_toegevoegd ? `<div class="notitie"><strong>Zelf toegevoegd</strong> op ${esc(L.kortDatum(L.vanKey(r.in_app_toegevoegd)))}. Dit recept staat nu alleen op dit apparaat.
+        Tik <em>Doorgeven</em> en plak de tekst in de projectchat met Claude; dan komt het in de receptendatabase en op alle telefoons.
+        <div class="knoprij"><a class="knop smal" href="#/recept-aanpassen/${encodeURIComponent(id)}">Aanpassen</a>
+        <button class="knop" id="doorgeven">Doorgeven</button>
+        <button class="knop smal" id="weg" aria-label="Verwijderen">${ICON.prullenbak}</button></div></div>` : ''}
       <p class="sectie">Lekker en zelf maken</p>
       <ul class="lijst">${D().instellingen.koks.map(k => {
         const w = L.waardering(D(), id, k.naam);
@@ -326,7 +343,125 @@ function schermRecept(id) {
         toast('Opgeslagen in de eetgeschiedenis. Gebruikte voorraad is afgeboekt.');
       });
       on('#plan', 'click', () => planSheet(id));
+      on('#doorgeven', 'click', async () => toast(await kopieer(L.receptVoorDatabase(r)) ? 'Gekopieerd. Plak het in de chat met Claude.' : 'Kopiëren lukte niet.'));
+      on('#weg', 'click', () => {
+        if (!confirm(`"${r.naam}" verwijderen?`)) return;
+        D().recepten = D().recepten.filter(x => x.id !== id);
+        D().verwijderdeRecepten.push(id);
+        for (const w of Object.values(D().weken)) for (const dag of Object.values(w.dagen)) if (dag.recept === id) dag.recept = null;
+        opslaan(); location.replace('#/recepten'); toast('Recept verwijderd.');
+      });
       on('[data-waard]', 'click', (e, el) => { const [naam, veld] = el.dataset.waard.split('|'); L.zetWaardering(D(), id, naam, veld); opslaan(); render(); });
+    },
+  };
+}
+
+// ================= RECEPT TOEVOEGEN =================
+// Zelf een recept intypen: naam, soort, ingrediënten (één per regel) en bereiding (één stap per regel).
+// De app maakt er hetzelfde uniforme formaat van als in data/recepten.json. Het recept staat eerst
+// alleen op dit apparaat; met "Doorgeven" komt het in de gedeelde receptendatabase.
+const BASISSEN = [['pasta', 'Pasta'], ['aardappel', 'Aardappel'], ['rijst', 'Rijst'], ['taart', 'Taart'], ['brood', 'Brood'], ['', 'Anders']];
+const SOORTEN = [['vis', 'Vis'], ['vlees', 'Vlees'], ['vegetarisch', 'Vega']];
+let invoer = null; // wat je aan het typen bent (blijft bewaard als je even weg gaat)
+
+// Terug naar een regel zoals je die typt: "1,5 el olijfolie, fijngesneden".
+function ingredientRegel(i) {
+  const hv = i.hoeveelheid === null ? '' : `${L.getal(i.hoeveelheid)}${i.hoeveelheid_max ? '-' + L.getal(i.hoeveelheid_max) : ''}`;
+  const eenheid = hv && i.eenheid && i.eenheid !== 'stuk' ? i.eenheid : '';
+  return [hv, eenheid, i.naam].filter(Boolean).join(' ') + (i.toelichting ? `, ${i.toelichting}` : '');
+}
+
+function nieuweInvoer(bestaand, naam) {
+  if (bestaand) {
+    return {
+      id: bestaand.id, naam: bestaand.naam, dieet: [...bestaand.dieet], basis: bestaand.basis || '', porties: bestaand.porties || '',
+      tijd: bestaand.bereidingstijd_max || '', bron: bestaand.bron === 'zelf ingevoerd in de app' ? '' : (bestaand.bron || ''),
+      ingrTekst: bestaand.ingredienten.map(ingredientRegel).join('\n'),
+      stappenTekst: bestaand.stappen.join('\n'), kast: Object.fromEntries(bestaand.ingredienten.map(i => [i.naam, i.voorraadkast])),
+    };
+  }
+  return { id: null, naam: naam || '', dieet: [], basis: '', porties: D().instellingen.personen || '', tijd: '', bron: '', ingrTekst: '', stappenTekst: '', kast: {} };
+}
+
+function gelezenIngredienten() {
+  return L.leesIngredienten(invoer.ingrTekst, L.kastNamen(D())).map(i => {
+    const kast = invoer.kast[i.naam];
+    return kast === undefined ? i : { ...i, voorraadkast: kast, groep: kast ? 'kruiden' : 'hoofd' };
+  });
+}
+
+function schermReceptInvoer(id) {
+  const bestaand = id ? L.recept(D(), id) : null;
+  if (id && (!bestaand || !bestaand.in_app_toegevoegd)) {
+    return { html: '<p class="leeg-staat">Dit recept staat in de receptendatabase en kan hier niet aangepast worden. Geef wijzigingen door aan Claude.</p><a class="knop breed" href="#/recepten">Naar recepten</a>' };
+  }
+  const q = new URLSearchParams(location.hash.split('?')[1] || '');
+  const datum = q.get('datum');
+  if (!invoer || invoer.id !== (bestaand?.id || null)) invoer = nieuweInvoer(bestaand, q.get('naam'));
+  else if (!bestaand && !invoer.naam && q.get('naam')) invoer.naam = q.get('naam');
+  const chip = (groep, waarde, naam, aan) => `<button type="button" class="chip ${aan ? 'aan' : ''}" data-${groep}="${waarde}">${naam}</button>`;
+  return {
+    html: `<div class="terugrij"><a class="terug" href="javascript:history.back()" aria-label="Terug">${ICON.terug}</a></div>
+      <h1 class="titel" style="font-size:28px">${bestaand ? 'Recept aanpassen' : 'Recept toevoegen'}</h1>
+      <p class="hint">Typ het recept over. De app zet het in dezelfde vorm als de andere recepten.</p>
+      <label class="veld"><span>Naam</span><input id="rNaam" value="${esc(invoer.naam)}" placeholder="bijv. Pasta met spinazie en zalm" autocomplete="off"></label>
+      <div class="veld"><span>Soort (één of meer)</span><div class="chips wrap">${SOORTEN.map(([k, n]) => chip('soort', k, n, invoer.dieet.includes(k))).join('')}</div></div>
+      <div class="veld"><span>Basis</span><div class="chips wrap">${BASISSEN.map(([k, n]) => chip('basis', k, n, invoer.basis === k)).join('')}</div></div>
+      <div class="twee"><label class="veld"><span>Voor hoeveel personen</span><input type="number" min="1" max="20" id="rPorties" value="${esc(invoer.porties)}" inputmode="numeric"></label>
+        <label class="veld"><span>Kooktijd (minuten)</span><input type="number" min="1" max="600" id="rTijd" value="${esc(invoer.tijd)}" inputmode="numeric" placeholder="bijv. 30"></label></div>
+      <label class="veld"><span>Ingrediënten, één per regel</span><textarea id="rIngr" placeholder="400 g kipfilet&#10;2 tenen knoflook, fijngesneden&#10;1 blik tomatenblokjes&#10;250 g spinazie&#10;zout en peper">${esc(invoer.ingrTekst)}</textarea></label>
+      <div id="rVoorbeeld"></div>
+      <label class="veld"><span>Bereiding, één stap per regel</span><textarea id="rStappen" placeholder="Snijd de kip in blokjes.&#10;Bak de kip met de knoflook.&#10;Voeg tomaat en spinazie toe en laat 10 minuten pruttelen.">${esc(invoer.stappenTekst)}</textarea></label>
+      <label class="veld"><span>Waar komt het vandaan? (mag leeg)</span><input id="rBron" value="${esc(invoer.bron)}" placeholder="kookboek, website, oma"></label>
+      <p class="hint" id="rMelding"></p>
+      <div class="knoprij vastonder">
+        <a class="knop smal" href="javascript:history.back()">Annuleren</a>
+        <button class="knop zwart" id="rBewaar">${ICON.vink} Bewaren${datum ? ' en inplannen' : ''}</button>
+      </div>`,
+    koppel() {
+      const veld = sel => app.querySelector(sel);
+      const voorbeeld = () => {
+        const lijst = gelezenIngredienten();
+        veld('#rVoorbeeld').innerHTML = lijst.length ? `<p class="sectie" style="margin-top:0">Zo leest de app het · tik om "uit de kast" aan of uit te zetten</p>
+          <ul class="lijst">${lijst.map(i => `<li><button type="button" class="rij" data-kast="${esc(i.naam)}">
+            <span class="hoofd"><span class="naam">${esc(L.hoeveelheidTekst(i) || '–')} ${esc(i.naam)}</span>${i.toelichting ? `<span class="klein">${esc(i.toelichting)}</span>` : ''}</span>
+            ${i.voorraadkast ? '<span class="label grijs">uit de kast</span>' : i.hoeveelheid === null ? '<span class="label oranje">hoeveel?</span>' : ''}</button></li>`).join('')}</ul>` : '';
+        on('[data-kast]', 'click', (e, el) => {
+          const i = gelezenIngredienten().find(x => x.naam === el.dataset.kast);
+          invoer.kast[el.dataset.kast] = !i.voorraadkast; voorbeeld();
+        }, veld('#rVoorbeeld'));
+      };
+      voorbeeld();
+      const tekst = (sel, k, na) => veld(sel).addEventListener('input', e => { invoer[k] = e.target.value; na?.(); });
+      tekst('#rNaam', 'naam'); tekst('#rPorties', 'porties'); tekst('#rTijd', 'tijd'); tekst('#rBron', 'bron');
+      tekst('#rIngr', 'ingrTekst', voorbeeld); tekst('#rStappen', 'stappenTekst');
+      on('[data-soort]', 'click', (e, el) => {
+        const k = el.dataset.soort;
+        invoer.dieet = invoer.dieet.includes(k) ? invoer.dieet.filter(x => x !== k) : [...invoer.dieet, k];
+        el.classList.toggle('aan', invoer.dieet.includes(k));
+      });
+      on('[data-basis]', 'click', (e, el) => {
+        invoer.basis = el.dataset.basis;
+        app.querySelectorAll('[data-basis]').forEach(c => c.classList.toggle('aan', c === el));
+      });
+      on('#rBewaar', 'click', () => {
+        const melding = t => { veld('#rMelding').innerHTML = `<strong style="color:var(--oranje)">${t}</strong>`; veld('#rMelding').scrollIntoView({ block: 'center' }); };
+        const naam = invoer.naam.trim();
+        if (!naam) return melding('Vul een naam in.');
+        if (!invoer.dieet.length) return melding('Kies vis, vlees of vega.');
+        const dubbel = D().recepten.find(r => r.id !== invoer.id && r.naam.toLowerCase() === naam.toLowerCase());
+        if (dubbel) return melding(`"${esc(dubbel.naam)}" bestaat al. Kies een andere naam of open het bestaande recept.`);
+        const r = L.receptUitInvoer(D(), { ...invoer, naam, ingredienten: gelezenIngredienten(), stappen: L.leesStappen(invoer.stappenTekst) }, bestaand);
+        const n = D().recepten.findIndex(x => x.id === r.id);
+        if (n === -1) D().recepten.push(normaliseerRecept(r)); else D().recepten[n] = normaliseerRecept(r);
+        if (datum) {
+          const w = L.week(D(), L.weekStartKey(D(), L.vanKey(datum)));
+          if (w.dagen[datum]) w.dagen[datum].recept = r.id;
+        }
+        opslaan(); invoer = null;
+        location.replace(`#/recept/${encodeURIComponent(r.id)}${datum ? `?datum=${datum}` : ''}`);
+        toast(datum ? 'Recept bewaard en ingepland.' : 'Recept bewaard.');
+      });
     },
   };
 }
@@ -608,6 +743,8 @@ function schermInstellingen() {
 const ROUTES = [
   [/^#\/week/, schermWeek, 'week'],
   [/^#\/recepten/, schermRecepten, 'recepten'],
+  [/^#\/recept-nieuw/, () => schermReceptInvoer(null), 'recepten'],
+  [/^#\/recept-aanpassen\/([^?]+)/, m => schermReceptInvoer(decodeURIComponent(m[1])), 'recepten'],
   [/^#\/recept\/([^?]+)/, m => schermRecept(decodeURIComponent(m[1])), 'recepten'],
   [/^#\/boodschappen/, schermBoodschappen, 'boodschappen'],
   [/^#\/lijsten/, schermLijsten, 'boodschappen'],
