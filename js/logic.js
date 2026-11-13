@@ -362,15 +362,19 @@ export function boodschappen(data, startKey) {
   return { regels: uit, teKopen, opVoorraad: uit.filter(r => r.opVoorraad), totaal, zonderPrijs };
 }
 
-// Weeklijst om in Claude Desktop (project 'Boodschappen AH', met ah-mcp) te plakken.
+// Weeklijst om in een Claude-chat met de AH-koppeling (ah-mcp) te plakken.
 // Zo kort mogelijk om tokens te sparen: per regel productnummer, aantal en korte naam.
-// De werkwijze staat in de projectinstructies, dus er komt geen uitleg bij.
+// De eerste regel is de opdracht zelf (sinds v0.5), zodat de tekst overal werkt:
+// een gewone nieuwe chat in Claude Desktop is genoeg, er is geen apart project nodig.
 // Regels zonder productnummer gaan apart, met de verpakking erbij, zodat Claude alleen die hoeft te zoeken.
+// Vaste merkkeuzes van het gezin; gelden bij het zoeken naar producten zonder productnummer.
+export const MERKREGELS = ['Vis in blik: altijd John West, op zonnebloemolie als die variant er is.'];
+export const AH_OPDRACHT = 'Zet dit in mijn AH-winkelmandje (ah_update_cart_item). Niet afrekenen, niets anders wijzigen. Regel = productnummer aantal naam. Onder Zoeken: kies het best passende product. ' + MERKREGELS.join(' ') + ' Meld kort wat niet lukte.';
 export function ahTekst(lijst, label) {
   const verp = r => r.ah.verpakking ? `${r.koopEenheid} ${getal(r.ah.verpakking)} ${r.eenheid || ''}`.trim() : r.koopEenheid;
   const met = lijst.teKopen.filter(r => r.ah.productnummer).map(r => `${r.ah.productnummer} ${r.aantal}x ${r.naam}`);
   const zonder = lijst.teKopen.filter(r => !r.ah.productnummer).map(r => `${r.aantal}x ${r.naam} (${verp(r)})`);
-  return [`Weeklijst ${label.split(' · ')[0]}`, ...met, ...(zonder.length ? ['Zoeken:', ...zonder] : [])].join('\n');
+  return [AH_OPDRACHT, `Weeklijst ${label.split(' · ')[0]}`, ...met, ...(zonder.length ? ['Zoeken:', ...zonder] : [])].join('\n');
 }
 
 // Boodschappen zijn binnen: op voorraad zetten en de lijst bewaren.

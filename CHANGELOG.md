@@ -2,6 +2,16 @@
 
 Alle wijzigingen per versie. Nieuwste bovenaan.
 
+## [0.5.0] – 2026-11-10
+
+Boodschappen doorzetten naar AH duidelijker gemaakt.
+
+### Gewijzigd
+- *Kopieer weeklijst*: de opdracht voor Claude staat nu bovenaan de gekopieerde lijst. Daardoor is het project "Boodschappen AH" in Claude Desktop niet meer nodig; een gewone nieuwe chat met alleen de koppeling *ah* aan is genoeg.
+- Na het kopiëren opent een venster met de stappen: waar je plakt, inloggen bij AH, en dat je zelf afrekent in de AH-app.
+- Merkregel: vis in blik altijd van John West, op zonnebloemolie als die variant er is (staat in de opdracht voor Claude, `MERKREGELS` in `js/logic.js`).
+- Nieuw document `docs/AH-BESTELLEN.md`: hoe de lijst in het AH-mandje komt, en waarom Claude niet zelf in de browser klikt.
+
 ## [0.2.0] – 2026-10-30
 
 Feedback van Inge verwerkt.

@@ -1069,7 +1069,16 @@
           "hoeveelheid": 1,
           "hoeveelheid_max": null,
           "eenheid": "blik",
-          "toelichting": "ca. 45 g",
+          "toelichting": "ca. 45 g, John West",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "sardines",
+          "hoeveelheid": 0.8,
+          "hoeveelheid_max": null,
+          "eenheid": "blik",
+          "toelichting": "John West, op zonnebloemolie; 2 blikjes voor 5 personen",
           "groep": "hoofd",
           "voorraadkast": false
         },
@@ -1133,7 +1142,7 @@
         "Hak de ansjovis fijn en bak in olijfolie op middelhoog vuur. Fruit sjalot en knoflook kort mee.",
         "Voeg de chilivlokken toe.",
         "Snijd de olijven in plakjes en bak ze met de kappertjes kort mee.",
-        "Voeg de tomatenblokjes toe en laat pruttelen tot de spaghetti klaar is.",
+        "Voeg de tomatenblokjes en de uitgelekte sardines (in stukjes) toe en laat pruttelen tot de spaghetti klaar is.",
         "Meng de spaghetti door de saus en serveer met Parmezaanse kaas en eventueel peterselie."
       ],
       "varianten": [],
