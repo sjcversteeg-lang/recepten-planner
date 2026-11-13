@@ -2777,19 +2777,147 @@
         "vis"
       ],
       "basis": null,
-      "bron": "handgeschreven lijst 2",
-      "porties": null,
-      "bereidingstijd_min": null,
-      "bereidingstijd_max": null,
-      "ingredienten": [],
-      "stappen": [],
+      "bron": "handgeschreven lijst 2; recept uit kookboek blz. 42 (foto van Bas, 2026-11-13)",
+      "porties": 4,
+      "bereidingstijd_min": 80,
+      "bereidingstijd_max": 80,
+      "ingredienten": [
+        {
+          "naam": "verse makrelen",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "in moten",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rode lomboks",
+          "hoeveelheid": 6,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "ontpit",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "sjalotten",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kemirinoten",
+          "hoeveelheid": 5,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "santen",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "plak van 1 cm dik",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "trassi",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "asem",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "suiker",
+          "hoeveelheid": 0.5,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zout",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "komkommer",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "schijfjes, voor garnering",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "selderij of peterselie",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "paar takjes, voor garnering",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rijst",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "voor erbij",
+          "groep": "hoofd",
+          "voorraadkast": false
+        }
+      ],
+      "stappen": [
+        "Kneus lomboks, sjalotten, knoflook, kemirinoten, trassi, asem, suiker en zout heel fijn.",
+        "Meng de santen met een klein scheutje water tot een papje.",
+        "Meng de vismoten met de gekneusde kruiden en de santen.",
+        "Verdeel in vier gelijke porties en wikkel elk in vetvrij papier of aluminiumfolie.",
+        "Stoom de pakketjes ongeveer een uur gaar in een rijststomer.",
+        "Rooster ze op een zacht houtskoolvuur of boven een niet te grote gasvlam, of zet ze ongeveer 10 minuten in een voorverwarmde oven.",
+        "Laat iets afkoelen, haal de vis uit het papier of de folie en leg op een platte schaal. Garneer met schijfjes komkommer en wat selderij of peterselie.",
+        "Serveer met warme rijst en een kommetje sajoer sop ernaast."
+      ],
       "varianten": [],
-      "status": "alleen_naam",
+      "status": "compleet",
       "afgeleid": [
-        "dieet 'vis' (makreel; stond geen code bij)"
+        "porties 4 = de vier pakketjes uit het recept",
+        "tijd geschat: 1 uur stomen + bereiding"
       ],
       "open_vragen": [
-        "Geen basis: met rijst?"
+        "Sajoer sop staat in het kookboek op blz. 52. Wil je dat recept er ook bij?"
       ],
       "te_controleren": true
     },
@@ -6300,11 +6428,10 @@
       "varianten": [],
       "status": "compleet",
       "afgeleid": [
-        "Mogelijk hetzelfde als 'Makreel met brengkes ikan' op Bas' lijst"
+        "Mogelijk hetzelfde als 'Makreel met brengkes ikan' op Bas' lijst",
+        "ander gerecht dan makreel met brengkes ikan (Bas, 2026-11-13)"
       ],
-      "open_vragen": [
-        "Is dit hetzelfde gerecht als \"Makreel met brengkes ikan\" op je lijst? Dan voeg ik ze samen."
-      ],
+      "open_vragen": [],
       "te_controleren": true,
       "nieuw": true
     },
