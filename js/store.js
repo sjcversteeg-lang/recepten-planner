@@ -65,7 +65,7 @@ function nieuweData() {
 // Zorgt dat elk recept alle velden heeft (ook de velden die de app toevoegt).
 export function normaliseerRecept(r) {
   const leeg = {
-    id: null, naam: '', dieet: [], basis: null, bron: null, porties: null,
+    id: null, naam: '', soort: 'hoofdgerecht', dieet: [], basis: null, bron: null, porties: null,
     bereidingstijd_min: null, bereidingstijd_max: null, ingredienten: [], stappen: [],
     varianten: [], status: 'alleen_naam', afgeleid: [], open_vragen: [], te_controleren: false,
     // velden van de app

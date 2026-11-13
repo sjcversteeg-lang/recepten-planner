@@ -10,6 +10,8 @@ Zelf een recept toevoegen, op verzoek van Bas.
 - *Recept toevoegen*: knop + bij Recepten, en een knop onder de zoekresultaten als een recept er niet bij staat (de naam die je zocht staat al ingevuld). Ook in het venster van een dag: het nieuwe recept wordt dan meteen op die dag ingepland.
 - Invoer: naam, vis/vlees/vega, basis, voor hoeveel personen, kooktijd, ingrediënten (één per regel, bijv. *400 g kipfilet* of *2 tenen knoflook, fijngesneden*), bereiding (één stap per regel) en bron. De app laat zien hoe hij de ingrediënten leest; tik een ingrediënt aan om *uit de kast* aan of uit te zetten.
 - De app maakt er hetzelfde uniforme formaat van als de receptendatabase (dieet, basis, ingrediënten met hoeveelheid en eenheid, stappen, status *concept*, open vragen voor wat nog ontbreekt). Een nieuw recept telt als *Nieuw* tot het 4 hartjes heeft.
+- Alle recepten uit Notion staan nu in de database (72 recepten). Nieuw: kikkererwtensalade met feta, aardappelgratin, pizzadeeg, kaasbroodjes, paté en croûte en Thaise groene currypasta.
+- Nieuw veld `soort` per recept: hoofdgerecht, bijgerecht, basisrecept, snack of feestgerecht. Het weekvoorstel kiest alleen hoofdgerechten. Filter *Bijgerecht, snack, basis* bij Recepten.
 - Eigen recepten hebben het label *eigen* en kunnen worden aangepast, verwijderd en *doorgegeven*: dat kopieert een korte tekst om in de chat met Claude te plakken, die het recept in `data/recepten.json` zet zodat het op alle telefoons komt.
 
 ### Gewijzigd

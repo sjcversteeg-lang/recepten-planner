@@ -72,6 +72,10 @@ Elk scherm is een functie `schermX()` die `{ html, koppel }` teruggeeft: eerst w
 app. Bij het opstarten neemt de app de nieuwste versie over. Een nieuw recept heeft `nieuw: true`; zodra het 4
 hartjes heeft (`LIKES_VOOR_VAST`) telt het als vast recept. Later zetten we dan ook `nieuw: false` in het bestand.
 
+**Soort gerecht (v0.4).** Elk recept heeft `soort`: `hoofdgerecht` (standaard), `bijgerecht`, `basisrecept`,
+`snack` of `feestgerecht` (codelijst in recepten.json). `isHoofdgerecht` in logic.js: alleen hoofdgerechten komen in
+het weekvoorstel. Zo kunnen ook deeg, currypasta en bijgerechten uit Notion in de database staan.
+
 **Zelf een recept toevoegen (v0.4).** Het formulier (`schermReceptInvoer` in app.js) leest ingrediënten per regel
 (`leesIngredient` in logic.js): getal of bereik (`1-2`, `2 tot 3`, `½`, `1,5`), eenheid (g, kg, ml, dl/cl → ml, l,
 el, tl, teen, blik, pot, pak, zak, flesje, snuf, bos; anders `stuk`), naam, en na een komma of tussen haakjes de

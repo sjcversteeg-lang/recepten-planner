@@ -231,6 +231,7 @@ const FILTERS = {
   snel: ['Snel', r => L.isSnel(r)],
   kinderen: ['Kinderen kunnen het', r => L.kinderenKunnen(D(), r)],
   aanvullen: ['Aan te vullen', r => r.status !== 'compleet'],
+  overig: ['Bijgerecht, snack, basis', r => !L.isHoofdgerecht(r)],
 };
 
 function schermRecepten() {
@@ -254,7 +255,7 @@ function schermRecepten() {
       <input class="zoek" id="zoek" placeholder="Zoek een recept" value="${esc(filters.zoek)}" autocomplete="off">
       <div class="chips">${Object.entries(FILTERS).map(([k, [naam]]) => `<button class="chip ${filters.filter === k ? 'aan' : ''}" data-filter="${k}">${naam}</button>`).join('')}</div>
       <ul class="lijst" id="receptlijst">${lijst.map(r => {
-        const sub = [r.basis, r.dieet.join(' / '), L.tijdTekst(r), sterTekst(r.id), 'laatst ' + L.geledenTekst(L.laatstGegeten(D(), r.id))].filter(Boolean).join(' · ');
+        const sub = [L.isHoofdgerecht(r) ? '' : r.soort, r.basis, r.dieet.join(' / '), L.tijdTekst(r), sterTekst(r.id), 'laatst ' + L.geledenTekst(L.laatstGegeten(D(), r.id))].filter(Boolean).join(' · ');
         const status = r.status === 'compleet' ? '' : r.status === 'concept' ? '<span class="label oranje">concept</span>' : '<span class="label grijs">alleen naam</span>';
         return `<li><a class="rij" href="#/recept/${esc(r.id)}"><span class="hoofd"><span class="naam">${esc(r.naam)}</span><span class="klein">${esc(sub)}</span></span><span class="rechts">${r.in_app_toegevoegd ? '<span class="label groen">eigen</span>' : ''}${L.isNieuw(D(), r) ? '<span class="label paars">Nieuw</span>' : ''}${status}</span></a></li>`;
       }).join('') || `<li class="leeg-staat">${q ? `"${esc(filters.zoek.trim())}" staat er niet bij.` : 'Geen recepten gevonden.'}</li>`}</ul>
@@ -287,7 +288,7 @@ function schermRecept(id) {
     : '';
   const f = L.factor(D(), r);
   const pers = r.porties ? (f === 1 ? `${r.porties} pers.` : `${D().instellingen.personen} pers. (recept: ${r.porties})`) : '';
-  const meta = [L.tijdTekst(r), r.dieet.join(' / '), r.basis, pers, `Laatst: ${L.geledenTekst(L.laatstGegeten(D(), id))}`].filter(Boolean);
+  const meta = [L.isHoofdgerecht(r) ? '' : r.soort, L.tijdTekst(r), r.dieet.join(' / '), r.basis, pers, `Laatst: ${L.geledenTekst(L.laatstGegeten(D(), id))}`].filter(Boolean);
   const voorraadLabel = i => {
     const v = L.voorraadItem(D(), i.naam, i.eenheid);
     if (!v) return i.voorraadkast ? 'uit de kast' : '';

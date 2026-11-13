@@ -55,7 +55,8 @@ export function getal(n) {
   return Number(n).toLocaleString('nl-NL', { maximumFractionDigits: 2 });
 }
 export function euro(n) { return n.toLocaleString('nl-NL', { style: 'currency', currency: 'EUR' }); }
-const MEERVOUD = { blik: 'blikken', teen: 'tenen', pot: 'potten', pak: 'pakken', flesje: 'flesjes', zak: 'zakken', bol: 'bollen', bos: 'bossen', stuk: 'stuks' };
+const MEERVOUD = { blik: 'blikken', teen: 'tenen', pot: 'potten', pak: 'pakken', flesje: 'flesjes', zak: 'zakken', bol: 'bollen', bos: 'bossen', stuk: 'stuks',
+  stengel: 'stengels', plakje: 'plakjes', blaadje: 'blaadjes', handje: 'handjes', scheut: 'scheuten' };
 export function eenheidTekst(eenheid, n) {
   if (!eenheid || eenheid === 'stuk') return '';
   return n > 1 && MEERVOUD[eenheid] ? MEERVOUD[eenheid] : eenheid;
@@ -86,6 +87,8 @@ export function tijdTekst(r) {
   if (r.bereidingstijd_min && r.bereidingstijd_max && r.bereidingstijd_min !== r.bereidingstijd_max) return `${r.bereidingstijd_min}–${r.bereidingstijd_max} min`;
   return `±${r.bereidingstijd_max || r.bereidingstijd_min} min`;
 }
+// Alleen hoofdgerechten komen in het weekvoorstel (niet: bijgerecht, basisrecept, snack, feestgerecht).
+export function isHoofdgerecht(r) { return !r.soort || r.soort === 'hoofdgerecht'; }
 export function isSnel(r) { return r.snel || (r.bereidingstijd_max && r.bereidingstijd_max <= 30); }
 export function isKind(data, naam) { return !!data.instellingen.koks.find(k => k.naam === naam && k.kind); }
 
@@ -276,7 +279,7 @@ export function maakVoorstel(data, startKey, alleenDatum = null) {
     if (getoond.length >= MAX_VOORSTELLEN) { op.push(datum); continue; }
     let beste = null, besteScore = -Infinity;
     for (const r of data.recepten) {
-      if (gebruikt.has(r.id) || recent.has(r.id) || getoond.includes(r.id)) continue;
+      if (!isHoofdgerecht(r) || gebruikt.has(r.id) || recent.has(r.id) || getoond.includes(r.id)) continue;
       if (groentenVan(r).some(g => weekGroenten.has(g))) continue;
       const nieuw = isNieuw(data, r);
       if (nieuw && nieuwe >= 1) continue;
@@ -459,6 +462,8 @@ const EENHEID_WOORDEN = {
   zak: 'zak', zakken: 'zak', zakje: 'zak', zakjes: 'zak',
   flesje: 'flesje', flesjes: 'flesje', snuf: 'snuf', snufje: 'snuf',
   stuk: 'stuk', stuks: 'stuk', bos: 'bos', bosje: 'bos', bossen: 'bos',
+  stengel: 'stengel', stengels: 'stengel', plakje: 'plakje', plakjes: 'plakje', blaadje: 'blaadje', blaadjes: 'blaadje',
+  handje: 'handje', handjes: 'handje', scheut: 'scheut', scheutje: 'scheut',
 };
 // Naar de eenheden van de database (codelijst eenheid).
 const OMREKENEN = { cl: ['ml', 10], dl: ['ml', 100] };
@@ -538,6 +543,7 @@ export function receptUitInvoer(data, invoer, bestaand = null) {
     ...(bestaand || {}),
     id: bestaand ? bestaand.id : maakId(data, invoer.naam),
     naam: invoer.naam.trim().replace(/^./, c => c.toUpperCase()),
+    soort: bestaand?.soort || 'hoofdgerecht',
     dieet: invoer.dieet,
     basis: invoer.basis || null,
     bron: invoer.bron?.trim() || 'zelf ingevoerd in de app',
@@ -557,7 +563,7 @@ export function receptUitInvoer(data, invoer, bestaand = null) {
 
 // Korte tekst om aan Claude te geven, zodat het recept in data/recepten.json komt (en op alle telefoons).
 export function receptVoorDatabase(r) {
-  const velden = ['id', 'naam', 'dieet', 'basis', 'bron', 'porties', 'bereidingstijd_min', 'bereidingstijd_max',
+  const velden = ['id', 'naam', 'soort', 'dieet', 'basis', 'bron', 'porties', 'bereidingstijd_min', 'bereidingstijd_max',
     'ingredienten', 'stappen', 'varianten', 'status', 'afgeleid', 'open_vragen', 'te_controleren', 'nieuw'];
   const uit = Object.fromEntries(velden.map(k => [k, r[k]]));
   uit.ingredienten = r.ingredienten.map(({ naam, hoeveelheid, hoeveelheid_max, eenheid, toelichting, groep, voorraadkast }) =>
