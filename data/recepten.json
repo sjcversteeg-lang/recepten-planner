@@ -9436,6 +9436,248 @@
       ],
       "te_controleren": true,
       "nieuw": true
+    },
+    {
+      "id": "couscous-met-vlees-en-groenten",
+      "naam": "Couscous met vlees en groenten",
+      "soort": "hoofdgerecht",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "pasta",
+      "bron": "iCloud-bladwijzer: ramadanrecepten.nl/recept/couscous-met-vlees-en-groenten (tekst geplakt door Bas, 2026-11-13)",
+      "porties": null,
+      "bereidingstijd_min": null,
+      "bereidingstijd_max": null,
+      "ingredienten": [
+        {
+          "naam": "couscous",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "snelkookcouscous uit een zakje (Bas)",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "lamsvlees",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "flespompoen",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "wortels",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": 5,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rode uien",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": 4,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "sjalot",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "courgettes",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "venkel",
+          "hoeveelheid": 0.5,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "tomaten",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "spitskool",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kikkererwten",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "pot",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "verse koriander",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "bos",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "flinke scheut",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "paprikapoeder",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "gemberpoeder",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "Marokkaanse kruiden",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "ras-el-hanout",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kerriepoeder",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "komijn",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "saffraanpoeder",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "tijm",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": "snuf",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "bouillonblokjes",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "peper en zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Was en schil de groenten. Snijd de uien in halve ringen, de tomaten in blokjes, de wortels in vieren en de pompoen in stukken. Snijd het vlees in stukken.",
+        "Verhit een flinke scheut olijfolie op hoog vuur, schroei het vlees een paar minuten dicht, voeg de uien toe en laat ze garen.",
+        "Voeg wortels en tomaat toe en vul de pan met water tot de hoogte van de inhoud. Voeg de afgespoelde kikkererwten en alle kruiden en bouillonblokjes toe en roer. Leg een bosje geknoopte koriander en de pompoen erop.",
+        "Breng aan de kook en laat zachtjes stoven tot vlees en groenten gaar zijn. Leg na ongeveer een half uur de courgette en spitskool erop en laat meegaren.",
+        "Maak ondertussen de couscous klaar volgens de verpakking.",
+        "Schep de couscous in diepe borden, leg het vlees erop en schep er saus over. Leg de groenten erbij en serveer courgette en spitskool apart."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "snelle versie: couscous uit een zakje in plaats van drie keer stomen (Bas)",
+        "stooftijd van de saus geschat; het origineel stoomt de couscous bijna 2 uur boven de saus"
+      ],
+      "open_vragen": [
+        "Hoeveel couscous en lamsvlees gebruiken jullie voor 5 personen? De website geeft geen hoeveelheden.",
+        "Hoe lang laat je de saus stoven? Dan vul ik de bereidingstijd in."
+      ],
+      "te_controleren": true,
+      "nieuw": true
     }
   ]
 }
