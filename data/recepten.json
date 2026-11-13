@@ -10535,6 +10535,117 @@
       "open_vragen": [],
       "te_controleren": true,
       "nieuw": true
+    },
+    {
+      "id": "spaghetti-met-knoflook-rode-pepers-en-gambas",
+      "naam": "Spaghetti met knoflook, rode pepers en gamba's",
+      "soort": "hoofdgerecht",
+      "dieet": [
+        "vis"
+      ],
+      "basis": "pasta",
+      "bron": "kookboek Herman den Blijker blz. 53 (foto van Bas, 2026-11-13)",
+      "porties": 4,
+      "bereidingstijd_min": 20,
+      "bereidingstijd_max": 20,
+      "ingredienten": [
+        {
+          "naam": "dunne spaghetti",
+          "hoeveelheid": 400,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "gamba's",
+          "hoeveelheid": 500,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "schoongemaakt",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "Spaanse pepers",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "ontzaad en fijngesneden",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": "fijngesneden",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "platte peterselie",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "bos",
+          "toelichting": "fijngehakt",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "visbouillon",
+          "hoeveelheid": 800,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "flinke scheut",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zwarte peper",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "uit de molen",
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Breng de visbouillon in een diepe pan aan de kook en kook de spaghetti erin beetgaar.",
+        "Verhit een flinke scheut olijfolie in een grote, diepe koekenpan en bak de gamba's met de pepers, knoflook, zout en peper.",
+        "Schep de gare spaghetti uit de bouillon in de pan met gamba's en schep goed om.",
+        "Voeg de peterselie toe en dien direct op."
+      ],
+      "varianten": [],
+      "status": "compleet",
+      "afgeleid": [
+        "tijd geschat",
+        "tip uit het boek: verse knoflook met een kort groen steeltje geeft de bouillon extra smaak"
+      ],
+      "open_vragen": [],
+      "te_controleren": true,
+      "nieuw": true
     }
   ]
 }
