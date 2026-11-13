@@ -10411,6 +10411,130 @@
       "open_vragen": [],
       "te_controleren": true,
       "nieuw": true
+    },
+    {
+      "id": "klassieke-asperges",
+      "naam": "Klassieke asperges",
+      "soort": "hoofdgerecht",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "aardappel",
+      "bron": "kookboek Herman den Blijker blz. 11 (foto van Bas, 2026-11-13)",
+      "porties": 4,
+      "bereidingstijd_min": 45,
+      "bereidingstijd_max": 45,
+      "ingredienten": [
+        {
+          "naam": "witte asperges",
+          "hoeveelheid": 1.5,
+          "hoeveelheid_max": null,
+          "eenheid": "kg",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "vastkokende aardappelen",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "kg",
+          "toelichting": "bijv. Opperdoezer Ronde",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "eieren",
+          "hoeveelheid": 6,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "boerenachterham",
+          "hoeveelheid": 8,
+          "hoeveelheid_max": null,
+          "eenheid": "plakje",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ongezouten roomboter",
+          "hoeveelheid": 125,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "platte peterselie",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": "fijngehakt",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kippenbouillon",
+          "hoeveelheid": 200,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kristalsuiker",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "foelie",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "stukjes",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Schil de aardappelen en kook ze gaar met een snufje zout. Giet af, laat droogstomen en houd warm.",
+        "Schil de asperges met een dunschiller en snijd de houtachtige uiteinden eraf (ongeveer 2 cm).",
+        "Breng de schillen met een snufje zout, de suiker en de foelie in een pan koud water aan de kook. Schep de schillen eruit, leg de asperges erin, breng aan de kook en zet het vuur uit; laat ze langzaam in het vocht doorgaren.",
+        "Kook 4 eieren 6 minuten (zacht) en 2 eieren 8 minuten (hard), gerekend vanaf het moment dat ze in koud water gaan.",
+        "Verwarm de kippenbouillon in een koekenpan, leg de ham erin en haal de pan van het vuur. Smelt de boter.",
+        "Pel de eieren. Prak de hardgekookte eieren grof met de aardappelen en de peterselie.",
+        "Verdeel de asperges over de borden, giet er gesmolten boter over, leg er 2 plakken ham op en schep de geprakte aardappel erover. Leg er een zachtgekookt ei op en snijd het open."
+      ],
+      "varianten": [],
+      "status": "compleet",
+      "afgeleid": [
+        "tijd geschat",
+        "seizoensgerecht: witte asperges zijn er ongeveer van april tot eind juni",
+        "tip uit het boek: ook lekker met zelfgemaakte dunne, zurige mayonaise en tuinkruiden"
+      ],
+      "open_vragen": [],
+      "te_controleren": true,
+      "nieuw": true
     }
   ]
 }
