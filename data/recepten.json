@@ -9678,6 +9678,175 @@
       ],
       "te_controleren": true,
       "nieuw": true
+    },
+    {
+      "id": "catalaanse-worstjes",
+      "naam": "Catalaanse worstjes",
+      "soort": "hoofdgerecht",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "aardappel",
+      "bron": "iCloud-bladwijzer: smulweb.nl/recepten/1067554 (tekst via jumbo.com/recepten, geplakt door Bas, 2026-11-13)",
+      "porties": 2,
+      "bereidingstijd_min": 45,
+      "bereidingstijd_max": 45,
+      "ingredienten": [
+        {
+          "naam": "saucijsjes",
+          "hoeveelheid": 200,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 12,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "gezeefde tomaten",
+          "hoeveelheid": 25,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "droge witte wijn",
+          "hoeveelheid": 150,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "runderfond",
+          "hoeveelheid": 100,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "sinaasappelrasp",
+          "hoeveelheid": 15,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "of een stukje schil",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kookroom",
+          "hoeveelheid": 30,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "verse peterselie",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "aardappelpuree",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "voor erbij",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "roomboter",
+          "hoeveelheid": 30,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "tomatenpuree",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "paprikapoeder",
+          "hoeveelheid": 0.5,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "laurierblaadje",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "bloem",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "voor de roux; hoeveelheid staat niet in het recept",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "peper en zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Leg de saucijsjes 7 à 8 minuten in ruim water dat net tegen de kook aan blijft. Laat ze uitlekken, afkoelen en dep ze droog.",
+        "Kook de knoflookteentjes 10 minuten zachtjes in hetzelfde water. Laat uitlekken en afkoelen, pel ze en wrijf ze door een fijne zeef tot puree.",
+        "Verhit de boter in een kleine braadpan tot het schuim wegtrekt en bak de saucijsjes rondom bruin. Neem ze uit de pan en houd warm.",
+        "Roer de bloem door de achtergebleven boter. Voeg de knoflookpuree, tomatenpuree, gezeefde tomaten en paprikapoeder toe, roer krachtig en voeg wijn en fond toe. Roer tot een gladde saus en breng op smaak met peper en zout. Voeg laurier en sinaasappelschil toe.",
+        "Zet het vuur laag, leg de saucijsjes terug in de saus en laat ze met de deksel op de pan 10 tot 15 minuten zachtjes sudderen.",
+        "Haal laurier en sinaasappelschil eruit, roer een scheutje room erdoor, bestrooi met peterselie en serveer met aardappelpuree."
+      ],
+      "varianten": [],
+      "status": "compleet",
+      "afgeleid": [
+        "gezeefde tomaten, paprikapoeder en peterselie staan wel in de ingrediënten maar niet in de bereiding; in stap 4 en 6 gezet",
+        "aardappelpuree als bijgerecht volgens de beschrijving"
+      ],
+      "open_vragen": [
+        "Hoeveel bloem gebruik je voor de roux? Het recept noemt het wel in de bereiding, maar niet bij de ingrediënten (een eetlepel lijkt genoeg)."
+      ],
+      "te_controleren": true,
+      "nieuw": true
     }
   ]
 }
