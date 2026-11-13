@@ -9682,7 +9682,7 @@
     {
       "id": "catalaanse-worstjes",
       "naam": "Catalaanse worstjes",
-      "soort": "hoofdgerecht",
+      "soort": "feestgerecht",
       "dieet": [
         "vlees"
       ],
@@ -9840,7 +9840,8 @@
       "status": "compleet",
       "afgeleid": [
         "gezeefde tomaten, paprikapoeder en peterselie staan wel in de ingrediënten maar niet in de bereiding; in stap 4 en 6 gezet",
-        "aardappelpuree als bijgerecht volgens de beschrijving"
+        "aardappelpuree als bijgerecht volgens de beschrijving",
+        "soort feestgerecht: hoort bij de tapasavond, niet doordeweeks (Bas)"
       ],
       "open_vragen": [
         "Hoeveel bloem gebruik je voor de roux? Het recept noemt het wel in de bereiding, maar niet bij de ingrediënten (een eetlepel lijkt genoeg)."
@@ -10014,6 +10015,145 @@
       "open_vragen": [
         "Hoeveel gyoza eten jullie als maaltijd met z'n vijven? Dan reken ik de hoeveelheden om (nu 25 stuks)."
       ],
+      "te_controleren": true,
+      "nieuw": true
+    },
+    {
+      "id": "spaanse-tortilla-met-chorizo",
+      "naam": "Spaanse tortilla met chorizo",
+      "soort": "feestgerecht",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "aardappel",
+      "bron": "iCloud-bladwijzer: brendakookt.nl/recepten/spaanse-tortilla-met-chorizo (tekst geplakt door Bas, 2026-11-13)",
+      "porties": 8,
+      "bereidingstijd_min": 40,
+      "bereidingstijd_max": 40,
+      "ingredienten": [
+        {
+          "naam": "chorizo",
+          "hoeveelheid": 200,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "in blokjes",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ui",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "gesnipperd",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": "geperst",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "aardappelen",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "geschild en in blokjes",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rode paprika",
+          "hoeveelheid": 0.5,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "in blokjes",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "verse tijm",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "takjes, gerist en fijngehakt",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "eieren",
+          "hoeveelheid": 6,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "verse peterselie",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "handje",
+          "toelichting": "ter garnering",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "paprikapoeder",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": "snuf",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "cayennepeper",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": "snuf",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "om in te bakken",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Verwarm een koekenpan van ongeveer 19 cm met wat olie. Fruit chorizo, ui en knoflook. Voeg als de ui glazig is aardappel en paprika toe en bak 10 minuten tot de aardappel gaar is.",
+        "Voeg tijm, paprikapoeder en cayennepeper toe en breng op smaak met zout.",
+        "Klop de eieren los, giet ze over het mengsel en laat op zacht vuur ongeveer 10 minuten garen.",
+        "Draai de tortilla om met behulp van een bord en laat de andere kant kort garen. (Of: 5 minuten op het vuur en dan 10 minuten op 180 graden in de oven, in een pan zonder kunststof handvat.)",
+        "Snijd in blokjes en garneer met peterselie. Lekker warm of koud."
+      ],
+      "varianten": [],
+      "status": "compleet",
+      "afgeleid": [
+        "soort feestgerecht: hoort bij de tapasavond met Catalaanse worstjes, niet doordeweeks (Bas)",
+        "porties 8 als tapas; als maaltijd met salade voor 2 personen"
+      ],
+      "open_vragen": [],
       "te_controleren": true,
       "nieuw": true
     }
