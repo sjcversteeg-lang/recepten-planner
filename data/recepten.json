@@ -9847,6 +9847,175 @@
       ],
       "te_controleren": true,
       "nieuw": true
+    },
+    {
+      "id": "gyoza",
+      "naam": "Gyoza (dumplings) zelf maken",
+      "soort": "feestgerecht",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": null,
+      "bron": "iCloud-bladwijzer: culy.nl/recepten/culy-homemade-zelf-gyoza-dumplings-maken (tekst geplakt door Bas, 2026-11-13)",
+      "porties": null,
+      "bereidingstijd_min": 50,
+      "bereidingstijd_max": 50,
+      "ingredienten": [
+        {
+          "naam": "gyozavellen",
+          "hoeveelheid": 25,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "diepvries; op tijd ontdooien",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "varkensgehakt",
+          "hoeveelheid": 120,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kool",
+          "hoeveelheid": 100,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "heel fijn gesneden",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ui",
+          "hoeveelheid": 50,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "heel fijn gesneden",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "bosui",
+          "hoeveelheid": 50,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "heel fijn gesneden",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "sake",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "oestersaus",
+          "hoeveelheid": 0.5,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "verse gember",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": "geraspt",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "sojasaus",
+          "hoeveelheid": 0.5,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": "plus 1 tl voor de dipsaus",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "suiker",
+          "hoeveelheid": 0.5,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "sesamolie",
+          "hoeveelheid": 0.5,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": "plus extra om te bakken en voor de dipsaus",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "maïzena",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "peper",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": "snuf",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "bloem",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "om te bestuiven",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zwarte of witte azijn",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": "voor de dipsaus",
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Meng alle vulling-ingrediënten (gehakt, kool, ui, bosui, sojasaus, suiker, sake, sesamolie, maïzena, gember, oestersaus, peper) in een grote kom en kneed goed door.",
+        "Bestuif een bakplaat met wat bloem.",
+        "Strijk met een mes wat vulling in het midden van een gyozavel. Vouw licht dicht, knijp het linkerpuntje samen en maak met duim en wijsvinger kleine plooitjes langs één kant. Zet de gyoza op de bakplaat.",
+        "Kook water. Bestrijk een antiaanbakpan met sesamolie, zet er gyoza in op middelhoog vuur en giet er een dun laagje kokend water bij. Stoom 5 minuten met de deksel op de pan.",
+        "Haal de deksel eraf. Als het water verdampt is, voeg een scheutje sesamolie toe en bak ongeveer 2 minuten tot de onderkant krokant is.",
+        "Meng azijn, 1 tl sojasaus en een drupje sesamolie als dipsaus en serveer, of leg de gyoza op een kom noedelsoep."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "soort feestgerecht: Bas, niet voor doordeweeks maar leuk om samen met de kinderen te vouwen",
+        "levert 25 stuks; tijd = 40 min voorbereiden + 10 min koken"
+      ],
+      "open_vragen": [
+        "Hoeveel gyoza eten jullie als maaltijd met z'n vijven? Dan reken ik de hoeveelheden om (nu 25 stuks)."
+      ],
+      "te_controleren": true,
+      "nieuw": true
     }
   ]
 }
