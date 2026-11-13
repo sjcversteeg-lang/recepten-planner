@@ -2085,19 +2085,161 @@
         "vlees"
       ],
       "basis": "brood",
-      "bron": "handgeschreven lijst 2",
-      "porties": null,
-      "bereidingstijd_min": null,
-      "bereidingstijd_max": null,
-      "ingredienten": [],
-      "stappen": [],
+      "bron": "iCloud-bladwijzer: onzefransekeuken.nl/2016/03/kipshoarma-uit-de-oven.html; samengevoegd met broodje-shoarma-met-tomatensambal (Bas, 2026-11-13)",
+      "porties": 4,
+      "bereidingstijd_min": 45,
+      "bereidingstijd_max": 45,
+      "ingredienten": [
+        {
+          "naam": "kippendijen",
+          "hoeveelheid": 12,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "zonder vel en bot",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "citroenen",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": 100,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "laurierblaadjes",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "gerookt paprikapoeder",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "komijnpoeder",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "korianderpoeder",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "chilivlokken",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kaneel",
+          "hoeveelheid": 0.25,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "nootmuskaat",
+          "hoeveelheid": 0.25,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "grof zeezout",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kebabbroodjes",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ijsbergsla",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "Turkse tomaat-uiensaus",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "als tomatensambal, zie basisrecept turkse-tomaat-uiensaus (dag van tevoren maken)",
+          "groep": "hoofd",
+          "voorraadkast": false
+        }
+      ],
+      "stappen": [
+        "Doe olijfolie, citroenrasp en -sap, knoflook, laurier, kruiden en zout in een diepvrieszak.",
+        "Snijd de kippendijen in grove stukken, doe ze in de zak en schud goed.",
+        "Laat een paar uur of een nacht marineren in de koelkast.",
+        "Verwarm de oven voor op 220 graden en leg de kip zonder overlap in een braadslee. Bak 30 minuten; zet de broodjes de laatste 1-2 minuten erbij.",
+        "Beleg de broodjes met ijsbergsla, kip en de tomatensambal (Turkse tomaat-uiensaus)."
+      ],
       "varianten": [],
-      "status": "alleen_naam",
+      "status": "compleet",
       "afgeleid": [
-        "basis 'brood' uit de naam"
+        "plus een paar uur marineren (ochtend klaarzetten)"
       ],
       "open_vragen": [],
-      "te_controleren": false
+      "te_controleren": true
     },
     {
       "id": "sambal-boontjes",
@@ -2123,24 +2265,94 @@
     },
     {
       "id": "ore-are",
-      "naam": "Ore Are",
+      "naam": "Ore-are (orak arik met gehakt)",
       "soort": "hoofdgerecht",
       "dieet": [
         "vlees"
       ],
       "basis": null,
-      "bron": "handgeschreven lijst 2",
-      "porties": null,
-      "bereidingstijd_min": null,
-      "bereidingstijd_max": null,
-      "ingredienten": [],
-      "stappen": [],
-      "varianten": [],
-      "status": "alleen_naam",
-      "afgeleid": [],
-      "open_vragen": [
-        "Naam slecht leesbaar: wat is 'Ore Are'?"
+      "bron": "iCloud-bladwijzer: smaakmenutie.nl/orak-arik-met-gehakt; samengevoegd met ore-are (Bas, 2026-11-13)",
+      "porties": 2,
+      "bereidingstijd_min": 15,
+      "bereidingstijd_max": 15,
+      "ingredienten": [
+        {
+          "naam": "spitskool",
+          "hoeveelheid": 200,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rundergehakt",
+          "hoeveelheid": 125,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ei",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "sjalot",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "zonnebloemolie",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
       ],
+      "stappen": [
+        "Snijd de spitskool fijn, snipper de sjalot en snijd de knoflook fijn.",
+        "Rul het gehakt bruin in een scheutje olie. Voeg ruim zout, knoflook en sjalot toe en roerbak.",
+        "Voeg de spitskool toe en roerbak 1 minuut, zodat de kool knapperig blijft.",
+        "Maak een kuiltje, voeg het ei toe en roer tot het gestold is. Meng alles en proef. Serveer met witte rijst."
+      ],
+      "varianten": [],
+      "status": "compleet",
+      "afgeleid": [
+        "Is dit de 'Ore-are' van Bas' lijst? Als bijgerecht voor de rijsttafel; als maaltijd hoeveelheden verdubbelen.",
+        "als maaltijd: hoeveelheden van bijgerecht (4 p.) gelden voor 2 personen"
+      ],
+      "open_vragen": [],
       "te_controleren": true
     },
     {
@@ -2608,7 +2820,7 @@
       "naam": "Caponata",
       "soort": "hoofdgerecht",
       "dieet": [
-        "vis"
+        "vegetarisch"
       ],
       "basis": null,
       "bron": "handgeschreven lijst 2; recept via iCloud-bladwijzer: miljuschka.nl/siciliaanse-caponata",
@@ -2762,11 +2974,10 @@
       "varianten": [],
       "status": "compleet",
       "afgeleid": [
-        "De dag erna nog lekkerder."
+        "De dag erna nog lekkerder.",
+        "vegetarisch; kan ook met vis (Bas, 2026-11-13)"
       ],
-      "open_vragen": [
-        "Je had caponata als visgerecht gecodeerd, maar het recept is vegetarisch. Eten jullie er vis bij, of mag het vegetarisch worden?"
-      ],
+      "open_vragen": [],
       "te_controleren": true
     },
     {
@@ -6274,173 +6485,6 @@
       "nieuw": true
     },
     {
-      "id": "kipshoarma-uit-de-oven",
-      "naam": "Kipshoarma uit de oven",
-      "soort": "hoofdgerecht",
-      "dieet": [
-        "vlees"
-      ],
-      "basis": "brood",
-      "bron": "iCloud-bladwijzer: onzefransekeuken.nl/2016/03/kipshoarma-uit-de-oven.html",
-      "porties": 4,
-      "bereidingstijd_min": 45,
-      "bereidingstijd_max": 45,
-      "ingredienten": [
-        {
-          "naam": "kippendijen",
-          "hoeveelheid": 12,
-          "hoeveelheid_max": null,
-          "eenheid": "stuk",
-          "toelichting": "zonder vel en bot",
-          "groep": "hoofd",
-          "voorraadkast": false
-        },
-        {
-          "naam": "citroenen",
-          "hoeveelheid": 2,
-          "hoeveelheid_max": null,
-          "eenheid": "stuk",
-          "toelichting": null,
-          "groep": "hoofd",
-          "voorraadkast": false
-        },
-        {
-          "naam": "olijfolie",
-          "hoeveelheid": 100,
-          "hoeveelheid_max": null,
-          "eenheid": "ml",
-          "toelichting": null,
-          "groep": "kruiden",
-          "voorraadkast": true
-        },
-        {
-          "naam": "knoflook",
-          "hoeveelheid": 4,
-          "hoeveelheid_max": null,
-          "eenheid": "teen",
-          "toelichting": null,
-          "groep": "hoofd",
-          "voorraadkast": false
-        },
-        {
-          "naam": "laurierblaadjes",
-          "hoeveelheid": 2,
-          "hoeveelheid_max": null,
-          "eenheid": "stuk",
-          "toelichting": null,
-          "groep": "hoofd",
-          "voorraadkast": false
-        },
-        {
-          "naam": "gerookt paprikapoeder",
-          "hoeveelheid": 2,
-          "hoeveelheid_max": null,
-          "eenheid": "tl",
-          "toelichting": null,
-          "groep": "kruiden",
-          "voorraadkast": true
-        },
-        {
-          "naam": "komijnpoeder",
-          "hoeveelheid": 2,
-          "hoeveelheid_max": null,
-          "eenheid": "tl",
-          "toelichting": null,
-          "groep": "kruiden",
-          "voorraadkast": true
-        },
-        {
-          "naam": "korianderpoeder",
-          "hoeveelheid": 1,
-          "hoeveelheid_max": null,
-          "eenheid": "tl",
-          "toelichting": null,
-          "groep": "kruiden",
-          "voorraadkast": true
-        },
-        {
-          "naam": "chilivlokken",
-          "hoeveelheid": 1,
-          "hoeveelheid_max": null,
-          "eenheid": "tl",
-          "toelichting": null,
-          "groep": "kruiden",
-          "voorraadkast": true
-        },
-        {
-          "naam": "kaneel",
-          "hoeveelheid": 0.25,
-          "hoeveelheid_max": null,
-          "eenheid": "tl",
-          "toelichting": null,
-          "groep": "kruiden",
-          "voorraadkast": true
-        },
-        {
-          "naam": "nootmuskaat",
-          "hoeveelheid": 0.25,
-          "hoeveelheid_max": null,
-          "eenheid": "tl",
-          "toelichting": null,
-          "groep": "kruiden",
-          "voorraadkast": true
-        },
-        {
-          "naam": "grof zeezout",
-          "hoeveelheid": 2,
-          "hoeveelheid_max": null,
-          "eenheid": "tl",
-          "toelichting": null,
-          "groep": "kruiden",
-          "voorraadkast": true
-        },
-        {
-          "naam": "kebabbroodjes",
-          "hoeveelheid": null,
-          "hoeveelheid_max": null,
-          "eenheid": null,
-          "toelichting": null,
-          "groep": "hoofd",
-          "voorraadkast": false
-        },
-        {
-          "naam": "ijsbergsla",
-          "hoeveelheid": null,
-          "hoeveelheid_max": null,
-          "eenheid": null,
-          "toelichting": null,
-          "groep": "hoofd",
-          "voorraadkast": false
-        },
-        {
-          "naam": "knoflooksaus",
-          "hoeveelheid": null,
-          "hoeveelheid_max": null,
-          "eenheid": null,
-          "toelichting": null,
-          "groep": "hoofd",
-          "voorraadkast": false
-        }
-      ],
-      "stappen": [
-        "Doe olijfolie, citroenrasp en -sap, knoflook, laurier, kruiden en zout in een diepvrieszak.",
-        "Snijd de kippendijen in grove stukken, doe ze in de zak en schud goed.",
-        "Laat een paar uur of een nacht marineren in de koelkast.",
-        "Verwarm de oven voor op 220 graden en leg de kip zonder overlap in een braadslee. Bak 30 minuten; zet de broodjes de laatste 1-2 minuten erbij.",
-        "Beleg de broodjes met ijsbergsla, kip en knoflooksaus."
-      ],
-      "varianten": [],
-      "status": "compleet",
-      "afgeleid": [
-        "plus een paar uur marineren (ochtend klaarzetten)"
-      ],
-      "open_vragen": [
-        "Is dit het recept voor \"Broodje shoarma met tomatensambal\" op je lijst (met de Turkse tomaat-uiensaus erbij)? Dan koppel ik ze."
-      ],
-      "te_controleren": true,
-      "nieuw": true
-    },
-    {
       "id": "cape-malay-geroosterde-bloemkool",
       "naam": "Cape Malay geroosterde bloemkool",
       "soort": "hoofdgerecht",
@@ -6860,100 +6904,6 @@
       ],
       "open_vragen": [
         "Voor hoeveel personen is dit recept op de website bedoeld? (staat er niet bij)"
-      ],
-      "te_controleren": true,
-      "nieuw": true
-    },
-    {
-      "id": "orak-arik-met-gehakt",
-      "naam": "Orak arik met gehakt",
-      "soort": "bijgerecht",
-      "dieet": [
-        "vlees"
-      ],
-      "basis": "rijst",
-      "bron": "iCloud-bladwijzer: smaakmenutie.nl/orak-arik-met-gehakt",
-      "porties": 4,
-      "bereidingstijd_min": 15,
-      "bereidingstijd_max": 15,
-      "ingredienten": [
-        {
-          "naam": "spitskool",
-          "hoeveelheid": 200,
-          "hoeveelheid_max": null,
-          "eenheid": "g",
-          "toelichting": null,
-          "groep": "hoofd",
-          "voorraadkast": false
-        },
-        {
-          "naam": "rundergehakt",
-          "hoeveelheid": 125,
-          "hoeveelheid_max": null,
-          "eenheid": "g",
-          "toelichting": null,
-          "groep": "hoofd",
-          "voorraadkast": false
-        },
-        {
-          "naam": "knoflook",
-          "hoeveelheid": 3,
-          "hoeveelheid_max": null,
-          "eenheid": "teen",
-          "toelichting": null,
-          "groep": "hoofd",
-          "voorraadkast": false
-        },
-        {
-          "naam": "ei",
-          "hoeveelheid": 1,
-          "hoeveelheid_max": null,
-          "eenheid": "stuk",
-          "toelichting": null,
-          "groep": "hoofd",
-          "voorraadkast": false
-        },
-        {
-          "naam": "sjalot",
-          "hoeveelheid": 1,
-          "hoeveelheid_max": null,
-          "eenheid": "stuk",
-          "toelichting": null,
-          "groep": "hoofd",
-          "voorraadkast": false
-        },
-        {
-          "naam": "zonnebloemolie",
-          "hoeveelheid": null,
-          "hoeveelheid_max": null,
-          "eenheid": null,
-          "toelichting": null,
-          "groep": "kruiden",
-          "voorraadkast": true
-        },
-        {
-          "naam": "zout",
-          "hoeveelheid": null,
-          "hoeveelheid_max": null,
-          "eenheid": null,
-          "toelichting": null,
-          "groep": "kruiden",
-          "voorraadkast": true
-        }
-      ],
-      "stappen": [
-        "Snijd de spitskool fijn, snipper de sjalot en snijd de knoflook fijn.",
-        "Rul het gehakt bruin in een scheutje olie. Voeg ruim zout, knoflook en sjalot toe en roerbak.",
-        "Voeg de spitskool toe en roerbak 1 minuut, zodat de kool knapperig blijft.",
-        "Maak een kuiltje, voeg het ei toe en roer tot het gestold is. Meng alles en proef. Serveer met witte rijst."
-      ],
-      "varianten": [],
-      "status": "compleet",
-      "afgeleid": [
-        "Is dit de 'Ore-are' van Bas' lijst? Als bijgerecht voor de rijsttafel; als maaltijd hoeveelheden verdubbelen."
-      ],
-      "open_vragen": [
-        "Is dit de \"Ore-are\" van je lijst? Dan voeg ik ze samen."
       ],
       "te_controleren": true,
       "nieuw": true
