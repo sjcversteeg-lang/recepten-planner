@@ -1936,20 +1936,110 @@
         "vegetarisch"
       ],
       "basis": "rijst",
-      "bron": "Herman",
-      "porties": null,
-      "bereidingstijd_min": null,
-      "bereidingstijd_max": null,
-      "ingredienten": [],
-      "stappen": [],
+      "bron": "Herman; recept uit kookboek Herman den Blijker blz. 45 (foto van Bas, 2026-11-13)",
+      "porties": 4,
+      "bereidingstijd_min": 40,
+      "bereidingstijd_max": 40,
+      "ingredienten": [
+        {
+          "naam": "arboriorijst",
+          "hoeveelheid": 250,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "venkelknollen",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "sjalotten",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "fijngesneden",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": "fijngesneden",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "crème fraîche",
+          "hoeveelheid": 50,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "Parmezaanse kaas",
+          "hoeveelheid": 100,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "geraspt",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "bouillon",
+          "hoeveelheid": 450,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "boter",
+          "hoeveelheid": 50,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Verwarm de oven voor op 180 graden. Verwarm de bouillon in een pan, niet laten koken.",
+        "Snijd de stelen en de harde onderkant van de venkel. Snijd de knollen in vieren, verwijder de kern en snijd de venkel in kleine blokjes.",
+        "Bak de venkel een paar minuten in de boter in een koekenpan op middelhoog vuur.",
+        "Verhit wat olijfolie in een hoge ovenvaste pan en bak sjalot en knoflook een paar minuten zonder ze te laten kleuren.",
+        "Voeg de rijst toe en bak tot hij glazig is. Voeg de hete bouillon en de venkel toe.",
+        "Zet de pan afgedekt 17 minuten in de oven. Laat daarna 4 minuten rusten.",
+        "Schep crème fraîche en Parmezaanse kaas erdoor en verdeel over voorverwarmde borden."
+      ],
       "varianten": [],
-      "status": "alleen_naam",
+      "status": "compleet",
       "afgeleid": [
-        "basis 'rijst' uit 'risotto'",
-        "'Herman' uit de naam gehaald en als bron vastgelegd"
+        "tijd geschat: 15 min voorbereiden + 17 min oven + 4 min rusten",
+        "ovenvaste pan nodig"
       ],
       "open_vragen": [],
-      "te_controleren": false
+      "te_controleren": true
     },
     {
       "id": "sajoer-boontjes-met-nasi",
@@ -3107,10 +3197,10 @@
       "ingredienten": [
         {
           "naam": "risottorijst",
-          "hoeveelheid": 400,
+          "hoeveelheid": 320,
           "hoeveelheid_max": null,
           "eenheid": "g",
-          "toelichting": "of paellarijst",
+          "toelichting": "arborio of paellarijst",
           "groep": "hoofd",
           "voorraadkast": false
         },
@@ -3169,11 +3259,11 @@
           "voorraadkast": false
         },
         {
-          "naam": "visbouillon",
-          "hoeveelheid": 1.2,
+          "naam": "venkelknol",
+          "hoeveelheid": 1,
           "hoeveelheid_max": null,
-          "eenheid": "l",
-          "toelichting": "heet",
+          "eenheid": "stuk",
+          "toelichting": "in kleine blokjes; geeft de visbouillon een frisse toets",
           "groep": "hoofd",
           "voorraadkast": false
         },
@@ -3205,6 +3295,15 @@
           "voorraadkast": false
         },
         {
+          "naam": "visbouillon",
+          "hoeveelheid": 600,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": "heet, niet laten koken",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
           "naam": "saffraan",
           "hoeveelheid": 1,
           "hoeveelheid_max": null,
@@ -3218,6 +3317,15 @@
           "hoeveelheid": 2,
           "hoeveelheid_max": null,
           "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "boter",
+          "hoeveelheid": 30,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
           "toelichting": null,
           "groep": "kruiden",
           "voorraadkast": true
@@ -3242,18 +3350,19 @@
         }
       ],
       "stappen": [
-        "Los de saffraan op in een scheut van de hete bouillon.",
-        "Verhit de olijfolie in een grote pan. Fruit ui, knoflook, wortel en paprika 5 minuten.",
-        "Roer het paprikapoeder en de rijst erdoor en bak 1 tot 2 minuten tot de rijst glazig is. Blus af met de wijn.",
-        "Voeg de saffraanbouillon toe en daarna steeds een scheut bouillon zodra die is opgenomen. Roer regelmatig, ongeveer 20 minuten, tot de rijst bijna gaar is.",
-        "Schep de zeevruchten en garnalen erdoor en laat 4 tot 5 minuten meegaren tot de garnalen roze zijn. Breng op smaak met peper en zout.",
-        "Bestrooi met peterselie en serveer met partjes citroen."
+        "Verwarm de oven voor op 180 graden. Verwarm de visbouillon (niet laten koken) en los de saffraan erin op.",
+        "Bak venkel, wortel en paprika een paar minuten in de boter in een koekenpan.",
+        "Verhit de olijfolie in een hoge ovenvaste pan en bak ui en knoflook een paar minuten zonder ze te laten kleuren. Roer het paprikapoeder erdoor.",
+        "Voeg de rijst toe en bak tot hij glazig is. Blus af met de wijn en voeg de hete saffraanbouillon en de gebakken groenten toe.",
+        "Zet de pan afgedekt in de oven. Leg na 10 minuten de zeevruchten en garnalen erop en zet de pan nog 7 minuten terug.",
+        "Laat 4 minuten rusten, breng op smaak met peper en zout, bestrooi met peterselie en serveer met partjes citroen."
       ],
       "varianten": [],
       "status": "concept",
       "afgeleid": [
-        "opzet door Claude op basis van Bas' beschrijving: zeevruchtenrisotto met saffraan, paprikapoeder, knoflook, paprika, wortel en ui",
-        "hoeveelheden voor 5 personen geschat"
+        "opzet door Claude op basis van Bas' beschrijving (zeevruchtenrisotto met saffraan, paprikapoeder, knoflook, paprika, wortel, ui)",
+        "ovenmethode en verhouding rijst/bouillon van Herman den Blijkers risotto met venkel (250 g rijst : 450 ml), omgerekend naar 5 personen",
+        "hoeveelheden geschat"
       ],
       "open_vragen": [
         "Opzet: pas hoeveelheden, soort vis/zeevruchten en stappen aan als jullie hem de volgende keer maken."
