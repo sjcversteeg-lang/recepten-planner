@@ -3759,15 +3759,20 @@
           "voorraadkast": true
         }
       ],
-      "stappen": [],
+      "stappen": [
+        "Verwarm de oven voor op 180 °C en vet een ovenschaal in met boter.",
+        "Schil de aardappelen en snijd ze in dunne plakjes (2-3 mm).",
+        "Verwarm melk en slagroom met de geperste knoflook, mosterd, nootmuskaat en een beetje zout en peper; niet laten koken.",
+        "Leg de aardappelplakjes dakpansgewijs in de schaal, met tussen de lagen wat kaas.",
+        "Giet het roommengsel erover en strooi de rest van de kaas erop.",
+        "Bak de gratin 50 minuten tot de aardappel gaar is en de bovenkant goudbruin. Prik met een mes om te controleren."
+      ],
       "varianten": [],
-      "status": "concept",
+      "status": "compleet",
       "afgeleid": [
-        "bereidingsstappen staan niet in Notion en niet op de bewaarde website-tekst"
+        "bereidingsstappen standaard ingevuld (niet in Notion); akkoord Bas 13-11-2026"
       ],
-      "open_vragen": [
-        "De bereiding ontbreekt (Notion bevat alleen de ingrediënten). Zal ik standaardstappen voor gratin invullen: aardappel in dunne plakjes, melk/room met mosterd, knoflook en nootmuskaat erover, kaas erop, 50 min op 180 °C?"
-      ],
+      "open_vragen": [],
       "te_controleren": true
     },
     {
