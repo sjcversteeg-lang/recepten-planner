@@ -440,24 +440,195 @@
     },
     {
       "id": "curry",
-      "naam": "Curry",
+      "naam": "Curry (Rosa's kipkerrie)",
       "soort": "hoofdgerecht",
       "dieet": [
         "vlees"
       ],
       "basis": "rijst",
-      "bron": "handgeschreven lijst 1",
-      "porties": null,
-      "bereidingstijd_min": null,
-      "bereidingstijd_max": null,
-      "ingredienten": [],
-      "stappen": [],
-      "varianten": [],
-      "status": "alleen_naam",
-      "afgeleid": [],
-      "open_vragen": [
-        "'Curry' is erg algemeen. Welke curry is dit (met welk vlees)? Er zijn ook Bloemkoolcurry met kip en Kip madras."
+      "bron": "handgeschreven lijst 1; recept uit kookboek blz. 49 (foto van Bas, 2026-11-13)",
+      "porties": 6,
+      "bereidingstijd_min": 110,
+      "bereidingstijd_max": 110,
+      "ingredienten": [
+        {
+          "naam": "kip",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "kg",
+          "toelichting": "in stukjes",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "grote ui",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "gehakt",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "vleestomaten",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "fijngesneden",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": "geperst",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "verse gember",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": "geplet",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "aardappelen",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "geschild en gehalveerd",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "verse groene erwten",
+          "hoeveelheid": 250,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kerriebladeren",
+          "hoeveelheid": 5,
+          "hoeveelheid_max": 6,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "verse koriander",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "wat, voor garnering",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "zoete chutney of honing",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": "gemengd met 200 ml warm water",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "zonnebloem- of olijfolie",
+          "hoeveelheid": 5,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kaneelstokjes",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "van 3 cm",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kardemompeulen",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kurkuma",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "komijn",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "kerriepoeder",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "zout",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "gele rijst",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "voor erbij",
+          "groep": "hoofd",
+          "voorraadkast": false
+        }
       ],
+      "stappen": [
+        "Verwarm de olie in een grote pan op niet te hoog vuur. Fruit kaneel, ui, kardemom, kurkuma en komijn goudbruin.",
+        "Voeg kerriepoeder, tomaten, gember, knoflook en kerriebladeren toe en laat 5 minuten doorkoken.",
+        "Voeg de kip en het zout toe. Roer het honing- of chutneymengsel erdoor en laat een uur zachtjes sudderen.",
+        "Voeg de aardappelen toe en laat nog 20 minuten doorkoken.",
+        "Roer de erwten erdoor en garneer met verse koriander.",
+        "Serveer met gele rijst en sambal."
+      ],
+      "varianten": [],
+      "status": "compleet",
+      "afgeleid": [
+        "tijd = 20 min bereiding + 1,5 uur kooktijd",
+        "Bas: dit is 'Curry'; linzencurry en misschien pompoencurry volgen later"
+      ],
+      "open_vragen": [],
       "te_controleren": true
     },
     {
