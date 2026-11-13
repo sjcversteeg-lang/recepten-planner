@@ -3094,25 +3094,171 @@
     },
     {
       "id": "paella",
-      "naam": "Paella",
+      "naam": "Paella (zeevruchtenrisotto met saffraan)",
       "soort": "hoofdgerecht",
       "dieet": [
         "vis"
       ],
       "basis": "rijst",
-      "bron": "handgeschreven lijst 2",
-      "porties": null,
-      "bereidingstijd_min": null,
-      "bereidingstijd_max": null,
-      "ingredienten": [],
-      "stappen": [],
-      "varianten": [],
-      "status": "alleen_naam",
-      "afgeleid": [
-        "basis 'rijst' uit 'paella'"
+      "bron": "handgeschreven lijst 2; eigen versie van Bas, opzet door Claude (2026-11-13)",
+      "porties": 5,
+      "bereidingstijd_min": 45,
+      "bereidingstijd_max": 45,
+      "ingredienten": [
+        {
+          "naam": "risottorijst",
+          "hoeveelheid": 400,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "of paellarijst",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "zeevruchtenmix",
+          "hoeveelheid": 400,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "diepvries, ontdooid",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "garnalen",
+          "hoeveelheid": 200,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "rauw, gepeld",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "ui",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "gesnipperd",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": "fijngehakt",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rode paprika",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "in reepjes",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "wortels",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "in kleine blokjes",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "visbouillon",
+          "hoeveelheid": 1.2,
+          "hoeveelheid_max": null,
+          "eenheid": "l",
+          "toelichting": "heet",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "droge witte wijn",
+          "hoeveelheid": 100,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": "optioneel",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "citroen",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "in partjes",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "verse peterselie",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "handje",
+          "toelichting": "fijngehakt",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "saffraan",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "of 1 zakje saffraanpoeder",
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "gerookt paprikapoeder",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "olijfolie",
+          "hoeveelheid": 3,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "peper en zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
       ],
-      "open_vragen": [],
-      "te_controleren": false
+      "stappen": [
+        "Los de saffraan op in een scheut van de hete bouillon.",
+        "Verhit de olijfolie in een grote pan. Fruit ui, knoflook, wortel en paprika 5 minuten.",
+        "Roer het paprikapoeder en de rijst erdoor en bak 1 tot 2 minuten tot de rijst glazig is. Blus af met de wijn.",
+        "Voeg de saffraanbouillon toe en daarna steeds een scheut bouillon zodra die is opgenomen. Roer regelmatig, ongeveer 20 minuten, tot de rijst bijna gaar is.",
+        "Schep de zeevruchten en garnalen erdoor en laat 4 tot 5 minuten meegaren tot de garnalen roze zijn. Breng op smaak met peper en zout.",
+        "Bestrooi met peterselie en serveer met partjes citroen."
+      ],
+      "varianten": [],
+      "status": "concept",
+      "afgeleid": [
+        "opzet door Claude op basis van Bas' beschrijving: zeevruchtenrisotto met saffraan, paprikapoeder, knoflook, paprika, wortel en ui",
+        "hoeveelheden voor 5 personen geschat"
+      ],
+      "open_vragen": [
+        "Opzet: pas hoeveelheden, soort vis/zeevruchten en stappen aan als jullie hem de volgende keer maken."
+      ],
+      "te_controleren": true
     },
     {
       "id": "caponata",
