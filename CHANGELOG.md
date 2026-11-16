@@ -5,7 +5,7 @@ Alle wijzigingen per versie. Nieuwste bovenaan.
 ## [Onuitgebracht] – 2026-11-16
 
 ### Gewijzigd
-- Recept *Macaroni* aangevuld (Bas): 500 g biologisch rundergehakt, 1 courgette, 1 bakje champignons (250 g) en 4 korte bereidingsstappen. Status nu *concept*; hoeveelheid macaroni nog open.
+- Recept *Macaroni* aangevuld (Bas): 500 g biologisch rundergehakt, 1 courgette, 1 bakje champignons (250 g) 320 g macaroni, 210 g tomatenpuree (groot + klein blikje), kruiden uit eigen voorraad en 5 korte bereidingsstappen. Status nu *compleet*.
 
 ## [0.4.0] – 2026-11-10
 

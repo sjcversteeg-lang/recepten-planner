@@ -97,9 +97,9 @@
       "ingredienten": [
         {
           "naam": "macaroni",
-          "hoeveelheid": null,
+          "hoeveelheid": 320,
           "hoeveelheid_max": null,
-          "eenheid": null,
+          "eenheid": "g",
           "toelichting": null,
           "groep": "hoofd",
           "voorraadkast": false
@@ -130,27 +130,51 @@
           "toelichting": "1 bakje",
           "groep": "hoofd",
           "voorraadkast": false
+        },
+        {
+          "naam": "tomatenpuree",
+          "hoeveelheid": 140,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "1 groot blikje",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "tomatenpuree",
+          "hoeveelheid": 70,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "1 klein blikje",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kruiden",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "naar smaak, uit eigen voorraad",
+          "groep": "hoofd",
+          "voorraadkast": true
         }
       ],
       "stappen": [
         "Kook de macaroni volgens de verpakking.",
         "Bak het rundergehakt rul in een grote pan.",
         "Snijd de courgette in blokjes en de champignons in plakjes; bak ze 5 minuten mee met het gehakt.",
-        "Meng de macaroni door het gehakt met groenten."
+        "Roer de tomatenpuree (groot en klein blikje) en de kruiden erdoor en laat even meewarmen.",
+        "Meng de macaroni door de saus."
       ],
       "varianten": [],
-      "status": "concept",
+      "status": "compleet",
       "afgeleid": [
-        "porties 5 aangenomen (gezinsmaaltijd)",
-        "bereidingsstappen voorgesteld door Claude",
-        "1 bakje champignons = 250 g (standaard AH-bakje)"
+        "1 bakje champignons = 250 g (standaard AH-bakje)",
+        "klein blikje tomatenpuree = 70 g",
+        "bereidingsstappen voorgesteld door Claude"
       ],
-      "open_vragen": [
-        "Hoeveel macaroni gebruiken jullie (bijv. 400 of 500 g)?",
-        "Gaat er nog saus of kruiden bij (tomatenpuree, ketchup, Italiaanse kruiden, geraspte kaas)?",
-        "Klopt het dat het recept voor 5 personen is?"
-      ],
-      "te_controleren": true
+      "open_vragen": [],
+      "te_controleren": false
     },
     {
       "id": "tagliatelle-met-zalm-courgette-en-salie",
