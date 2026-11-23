@@ -2,6 +2,12 @@
 
 Alle wijzigingen per versie. Nieuwste bovenaan.
 
+## [Onuitgebracht] – 2026-11-23
+
+### Toegevoegd
+- Recept "Romige truffelgnocchi met champignons en spek" (TikTok Bart Smulders), omgerekend naar 5 personen. Receptendatabase nu 109 recepten.
+- `data/recepten.json` gelijkgetrokken met de bron in de projectbestanden (o.a. Macaroni aangevuld op 16-11).
+
 ## [0.5.0] – 2026-11-10
 
 Boodschappen doorzetten naar AH duidelijker gemaakt.

@@ -1,6 +1,6 @@
 {
   "schema_versie": 2,
-  "bijgewerkt": "2026-11-13",
+  "bijgewerkt": "2026-11-23",
   "codelijsten": {
     "dieet": {
       "Ve": "vegetarisch",
@@ -90,15 +90,89 @@
         "vlees"
       ],
       "basis": "pasta",
-      "bron": "handgeschreven lijst 1",
-      "porties": null,
+      "bron": "handgeschreven lijst 1; aanvulling Bas 16-11-2026",
+      "porties": 5,
       "bereidingstijd_min": null,
       "bereidingstijd_max": null,
-      "ingredienten": [],
-      "stappen": [],
+      "ingredienten": [
+        {
+          "naam": "macaroni",
+          "hoeveelheid": 320,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rundergehakt",
+          "hoeveelheid": 500,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "biologisch",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "courgette",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "champignons",
+          "hoeveelheid": 250,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "1 bakje",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "tomatenpuree",
+          "hoeveelheid": 140,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "1 groot blikje",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "tomatenpuree",
+          "hoeveelheid": 70,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "1 klein blikje",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kruiden",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "naar smaak, uit eigen voorraad",
+          "groep": "hoofd",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Kook de macaroni volgens de verpakking.",
+        "Bak het rundergehakt rul in een grote pan.",
+        "Snijd de courgette in blokjes en de champignons in plakjes; bak ze 5 minuten mee met het gehakt.",
+        "Roer de tomatenpuree (groot en klein blikje) en de kruiden erdoor en laat even meewarmen.",
+        "Meng de macaroni door de saus."
+      ],
       "varianten": [],
-      "status": "alleen_naam",
-      "afgeleid": [],
+      "status": "compleet",
+      "afgeleid": [
+        "1 bakje champignons = 250 g (standaard AH-bakje)",
+        "klein blikje tomatenpuree = 70 g",
+        "bereidingsstappen voorgesteld door Claude"
+      ],
       "open_vragen": [],
       "te_controleren": false
     },
@@ -10765,6 +10839,168 @@
       "open_vragen": [],
       "te_controleren": true,
       "nieuw": true
+    },
+    {
+      "id": "romige-truffelgnocchi-met-champignons-en-spek",
+      "naam": "Romige truffelgnocchi met champignons en spek",
+      "soort": "hoofdgerecht",
+      "dieet": [
+        "vlees"
+      ],
+      "basis": "pasta",
+      "bron": "TikTok Bart Smulders: 'One-pot creamy mushroom bacon truffle gnocchi' (screenshots van Bas, 2026-11-23)",
+      "porties": 5,
+      "bereidingstijd_min": 25,
+      "bereidingstijd_max": 30,
+      "ingredienten": [
+        {
+          "naam": "verse gnocchi",
+          "hoeveelheid": 1000,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "spekblokjes",
+          "hoeveelheid": 300,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kastanjechampignons",
+          "hoeveelheid": 500,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "in plakjes",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "sjalotten",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": "fijngesneden",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "knoflook",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "teen",
+          "toelichting": "fijngesneden",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kookroom",
+          "hoeveelheid": 400,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "verse spinazie",
+          "hoeveelheid": 200,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "Parmezaanse kaas",
+          "hoeveelheid": 100,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "geraspt, plus extra om te serveren",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "verse tijm",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "verse peterselie",
+          "hoeveelheid": 4,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": "fijngehakt",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "truffeltapenade",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "el",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kippenbouillon",
+          "hoeveelheid": 600,
+          "hoeveelheid_max": null,
+          "eenheid": "ml",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "truffelolie",
+          "hoeveelheid": 2,
+          "hoeveelheid_max": null,
+          "eenheid": "tl",
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        },
+        {
+          "naam": "peper en zout",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": null,
+          "groep": "kruiden",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Bak de spekblokjes in een grote pan in hun eigen vet.",
+        "Voeg de kastanjechampignons toe en bak ze goudbruin.",
+        "Voeg de sjalot, knoflook en tijm toe en bak kort mee.",
+        "Blus af met de kippenbouillon en kookroom. Voeg direct de ongekookte gnocchi toe.",
+        "Laat alles rustig koken tot de gnocchi gaar is en de saus romig en ingedikt is. Roer regelmatig door.",
+        "Roer de spinazie, peterselie, Parmezaanse kaas en truffeltapenade erdoor tot de spinazie geslonken is. Breng op smaak met peper en zout.",
+        "Maak af met een scheutje truffelolie en eventueel extra Parmezaanse kaas."
+      ],
+      "varianten": [],
+      "status": "compleet",
+      "afgeleid": [
+        "Origineel voor 2-3 personen; op verzoek van Bas omgerekend naar 5 personen (alles × 2).",
+        "Bereidingstijd geschat (one-pot, ca. 25-30 min); staat niet in de bron.",
+        "Gnocchi gecodeerd als basis pasta, net als pompoengnocchi.",
+        "Snel: one-pot en binnen 30 min, geschikt voor een voetbaldag."
+      ],
+      "open_vragen": [],
+      "te_controleren": false,
+      "nieuw": true,
+      "snel": true
     }
   ]
 }
