@@ -6,7 +6,11 @@ Alle wijzigingen per versie. Nieuwste bovenaan.
 
 ### Toegevoegd
 - Recept "Romige truffelgnocchi met champignons en spek" (TikTok Bart Smulders), omgerekend naar 5 personen. Receptendatabase nu 109 recepten.
-- `data/recepten.json` gelijkgetrokken met de bron in de projectbestanden (o.a. Macaroni aangevuld op 16-11).
+
+## [Onuitgebracht] – 2026-11-16
+
+### Gewijzigd
+- Recept *Macaroni* aangevuld (Bas): 320 g macaroni, 500 g biologisch rundergehakt, 1 courgette, 1 bakje champignons (250 g), 210 g tomatenpuree (groot + klein blikje), kruiden uit eigen voorraad en 5 korte bereidingsstappen. Status nu *compleet*.
 
 ## [0.5.0] – 2026-11-10
 
