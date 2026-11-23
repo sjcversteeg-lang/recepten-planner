@@ -1,6 +1,6 @@
 {
   "schema_versie": 2,
-  "bijgewerkt": "2026-11-13",
+  "bijgewerkt": "2026-11-16",
   "codelijsten": {
     "dieet": {
       "Ve": "vegetarisch",
@@ -90,15 +90,89 @@
         "vlees"
       ],
       "basis": "pasta",
-      "bron": "handgeschreven lijst 1",
-      "porties": null,
+      "bron": "handgeschreven lijst 1; aanvulling Bas 16-11-2026",
+      "porties": 5,
       "bereidingstijd_min": null,
       "bereidingstijd_max": null,
-      "ingredienten": [],
-      "stappen": [],
+      "ingredienten": [
+        {
+          "naam": "macaroni",
+          "hoeveelheid": 320,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "rundergehakt",
+          "hoeveelheid": 500,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "biologisch",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "courgette",
+          "hoeveelheid": 1,
+          "hoeveelheid_max": null,
+          "eenheid": "stuk",
+          "toelichting": null,
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "champignons",
+          "hoeveelheid": 250,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "1 bakje",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "tomatenpuree",
+          "hoeveelheid": 140,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "1 groot blikje",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "tomatenpuree",
+          "hoeveelheid": 70,
+          "hoeveelheid_max": null,
+          "eenheid": "g",
+          "toelichting": "1 klein blikje",
+          "groep": "hoofd",
+          "voorraadkast": false
+        },
+        {
+          "naam": "kruiden",
+          "hoeveelheid": null,
+          "hoeveelheid_max": null,
+          "eenheid": null,
+          "toelichting": "naar smaak, uit eigen voorraad",
+          "groep": "hoofd",
+          "voorraadkast": true
+        }
+      ],
+      "stappen": [
+        "Kook de macaroni volgens de verpakking.",
+        "Bak het rundergehakt rul in een grote pan.",
+        "Snijd de courgette in blokjes en de champignons in plakjes; bak ze 5 minuten mee met het gehakt.",
+        "Roer de tomatenpuree (groot en klein blikje) en de kruiden erdoor en laat even meewarmen.",
+        "Meng de macaroni door de saus."
+      ],
       "varianten": [],
-      "status": "alleen_naam",
-      "afgeleid": [],
+      "status": "compleet",
+      "afgeleid": [
+        "1 bakje champignons = 250 g (standaard AH-bakje)",
+        "klein blikje tomatenpuree = 70 g",
+        "bereidingsstappen voorgesteld door Claude"
+      ],
       "open_vragen": [],
       "te_controleren": false
     },
